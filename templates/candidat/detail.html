@@ -10,9 +10,10 @@
                 <h1>{{ candidat.prenom }} {{ candidat.nom }}</h1>
                 <p class="page-subtitle">
                     ID: <code>{{ candidat.id_candidat }}</code> |
-                    Date: {{ candidat.date_reponse|format_date_fr }} |
-                    Formation: <strong>{{ candidat.id_programme or 'Non définie' }}</strong> |
-                    Questionnaire: <code>{{ candidat.id_questionnaire or '—' }}</code>
+                    <strong>
+                    {% if 'EXCEL' in (candidat.id_questionnaire or '') %}Positionnement Excel{% elif 'WORD' in (candidat.id_questionnaire or '') %}Positionnement Word{% elif 'POWERPOINT' in (candidat.id_questionnaire or '') %}Positionnement PowerPoint{% elif 'OUTLOOK' in (candidat.id_questionnaire or '') %}Positionnement Outlook{% else %}{{ candidat.id_programme or candidat.id_questionnaire or 'Positionnement' }}{% endif %}
+                    </strong> |
+                    Date: {{ candidat.date_reponse|format_date_fr }}
                 </p>
             </div>
             <div class="header-actions">
