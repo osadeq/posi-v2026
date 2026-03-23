@@ -501,6 +501,7 @@ def detail_candidat(id_candidat):
         # Charger les réponses depuis le dossier candidat
         questionnaire = charger_reponses_candidat(id_candidat)
         reponses = questionnaire.get('reponses', []) if questionnaire else []
+        motivation = questionnaire.get('motivation', '') if questionnaire else ''
 
         # Calculer les statistiques
         stats = {'fort': 0, 'moyen': 0, 'a_revoir': 0, 'total': len(reponses)}
@@ -545,7 +546,8 @@ def detail_candidat(id_candidat):
                              reponses=reponses,
                              reponses_par_domaine=reponses_par_domaine,
                              reponses_par_bloc=reponses_par_bloc,
-                             stats=stats)
+                             stats=stats,
+                             motivation=motivation)
     except Exception as e:
         flash(f"Erreur: {str(e)}", 'error')
         return redirect(url_for('liste_candidats'))

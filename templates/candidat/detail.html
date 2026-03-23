@@ -21,6 +21,17 @@
         </div>
     </header>
 
+    {% if motivation %}
+    <div class="card" style="margin: 0 0 20px 0;">
+        <div class="card-header">
+            <h2><i class="fa-solid fa-comment-dots" style="color:var(--q-gold)"></i> Motivation & Objectifs</h2>
+        </div>
+        <div class="card-body">
+            <p style="margin:0; font-style: italic; color: var(--gray-700);">{{ motivation }}</p>
+        </div>
+    </div>
+    {% endif %}
+
     <div class="candidat-detail">
         <div class="detail-grid">
             <!-- Statistiques du candidat -->
