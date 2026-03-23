@@ -208,10 +208,12 @@ def creer_onglet_suivi(ws, programme):
     
     # Données
     row = 4
+    theme_index = 0
     for theme in programme.get('themes_a_former', []):
+        theme_index += 1
         niveau = theme.get('niveau_besoin', '')
-        
-        ws.cell(row=row, column=1, value=theme['nom'])
+
+        ws.cell(row=row, column=1, value=f"Thème {theme_index} : {theme['nom']}")
         ws.cell(row=row, column=2, value=niveau)
         ws.cell(row=row, column=3, value=f"{float(theme['duree_estimee']):.2f}".replace('.', ','))
         
@@ -373,10 +375,12 @@ def creer_onglet_ressources(ws, programme, base_dir):
     
     # Données
     row = 4
+    theme_index = 0
     for theme in programme.get('themes_a_former', []):
-        theme_nom = theme['nom']
+        theme_index += 1
+        theme_nom = f"Thème {theme_index} : {theme['nom']}"
         niveau = theme.get('niveau_besoin', '')
-        
+
         # Pour chaque compétence du thème
         for comp in theme.get('comp_par_domaine', []):
             domaine_nom = comp.get('nom_domaine', '')
@@ -449,9 +453,12 @@ def trouver_fiche_correspondante(theme, competence, docs_path):
         'excel vers word': '15- word Excel vers Word.pdf',
     }
     
-    theme_lower = theme.lower()
+    # Strip "Thème N : " prefix before matching
+    import re
+    theme_clean = re.sub(r'^thème\s*\d+\s*:\s*', '', theme_lower, flags=re.IGNORECASE)
+
     for key, value in mapping.items():
-        if key in theme_lower:
+        if key in theme_clean:
             return value
     
     return None
