@@ -446,7 +446,7 @@ def import_candidat():
 
                 # Archiver le fichier source
                 dest_ext = 'xlsx' if ext == 'xlsx' else 'csv'
-                os.rename(filepath, candidat_dir / f'questionnaire.{dest_ext}')
+                shutil.move(str(filepath), str(candidat_dir / f'questionnaire.{dest_ext}'))
 
                 # Ajouter à l'index candidats
                 candidats_data = load_json_file(config.CANDIDATS_FILE)
@@ -758,7 +758,7 @@ def batch_action():
             flash(f"{count} candidat(s) archivé(s)/supprimé(s) avec succès.", "success")
             
         elif action == 'analyse':
-            from data.analyse_besoins import generer_programme
+            # generer_programme déjà importé en haut du fichier
             candidats_data = load_json_file(config.CANDIDATS_FILE)
             count = 0
             for id_candidat in ids_list:
@@ -798,8 +798,10 @@ def batch_action():
                     
                     try:
                         if action == 'pdf':
-                            programme = analyser_candidat.charger_programme(id_candidat, str(config.BASE_DIR))
-                            if programme:
+                            prog_path = config.CANDIDATS_DIR / id_candidat / 'programme_perso.json'
+                            if prog_path.exists():
+                                with open(prog_path, 'r', encoding='utf-8') as f:
+                                    programme = json.load(f)
                                 pdf_path = config.EXPORT_DIR / f"tmp_{id_candidat}.pdf"
                                 generer_pdf_programme(programme, candidat, pdf_path)
                                 zf.write(pdf_path, arcname=f"{nom_fichier_base}.pdf")
