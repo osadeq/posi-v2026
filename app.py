@@ -693,13 +693,123 @@ def supprimer_candidat(id_candidat):
         save_json_file(archive_dir / 'archive_metadata.json', archive_metadata)
 
         candidats_data['candidats'] = [c for c in candidats if c.get('id_candidat') != id_candidat]
-        save_json_file(config.CANDIDATS_FILE, candidats_data)
-
         flash(f"Candidat {id_candidat} supprime et archive avec succes.", 'success')
         return redirect(url_for('liste_candidats'))
     except Exception as e:
-        flash(f"Erreur lors de la suppression/archivage: {str(e)}", 'error')
+        app.logger.error(f"Erreur lors de la suppression: {str(e)}")
+        flash(f"Erreur lors de la suppression: {str(e)}", 'error')
         return redirect(url_for('liste_candidats'))
+
+@app.route('/candidats/batch', methods=['POST'])
+def batch_action():
+    action = request.form.get('action')
+    ids_list = request.form.getlist('ids')
+    
+    if not action or not ids_list:
+        flash("Aucune action ou aucun candidat sélectionné.", "warning")
+        return redirect(url_for('liste_candidats'))
+        
+    try:
+        if action == 'delete':
+            candidats_data = load_json_file(config.CANDIDATS_FILE)
+            candidats = candidats_data.get('candidats', [])
+            
+            # Fonction robuste pour déplacer/archiver même si Windows bloque
+            def force_move(src, dst):
+                if not os.path.exists(src): return
+                try:
+                    shutil.move(src, dst)
+                except PermissionError:
+                    import stat
+                    if os.path.isdir(src):
+                        shutil.copytree(src, dst, dirs_exist_ok=True)
+                        shutil.rmtree(src, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+                    else:
+                        shutil.copy2(src, dst)
+                        os.chmod(src, stat.S_IWRITE)
+                        os.remove(src)
+
+            count = 0
+            for id_candidat in ids_list:
+                candidat = next((c for c in candidats if c.get('id_candidat') == id_candidat), None)
+                if not candidat: continue
+                
+                archive_timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                archive_dir = config.ARCHIVES_CANDIDATS_DIR / f"{id_candidat}_{archive_timestamp}"
+                archive_dir.mkdir(parents=True, exist_ok=True)
+
+                candidat_dir = config.CANDIDATS_DIR / id_candidat
+                archived_candidat_dir = archive_dir / 'candidat_data'
+                force_move(str(candidat_dir), str(archived_candidat_dir))
+
+                pdf_file = config.EXPORT_DIR / f"programme_{id_candidat}.pdf"
+                archived_pdf_file = archive_dir / pdf_file.name
+                force_move(str(pdf_file), str(archived_pdf_file))
+
+                excel_file = config.EXPORT_DIR / f"programme_{id_candidat}.xlsx"
+                if excel_file.exists():
+                    force_move(str(excel_file), str(archive_dir / excel_file.name))
+
+                candidats = [c for c in candidats if c.get('id_candidat') != id_candidat]
+                count += 1
+                
+            candidats_data['candidats'] = candidats
+            save_json_file(config.CANDIDATS_FILE, candidats_data)
+            flash(f"{count} candidat(s) archivé(s)/supprimé(s) avec succès.", "success")
+            
+        elif action == 'analyse':
+            count = 0
+            for id_candidat in ids_list:
+                try:
+                    generer_programme_candidat(id_candidat, str(config.BASE_DIR))
+                    count += 1
+                except Exception as e:
+                    app.logger.error(f"Erreur génération programme {id_candidat}: {e}")
+            flash(f"{count} programme(s) généré(s) avec succès.", "success")
+            
+        elif action in ['pdf', 'excel']:
+            import io
+            import zipfile
+            from src.pdf_generator import generer_pdf_programme
+            from src.excel_generator import generer_excel_programme
+            
+            candidats_data = load_json_file(config.CANDIDATS_FILE)
+            candidats = candidats_data.get('candidats', [])
+            
+            memory_file = io.BytesIO()
+            with zipfile.ZipFile(memory_file, 'w', zipfile.DEFLATED) as zf:
+                for id_candidat in ids_list:
+                    candidat = next((c for c in candidats if c.get('id_candidat') == id_candidat), None)
+                    if not candidat: continue
+                    nom_fichier_base = f"programme_{candidat.get('nom', 'candidat')}_{candidat.get('prenom', '')}_{id_candidat}"
+                    
+                    try:
+                        if action == 'pdf':
+                            programme = analyser_candidat.charger_programme(id_candidat, str(config.BASE_DIR))
+                            if programme:
+                                pdf_path = config.EXPORT_DIR / f"tmp_{id_candidat}.pdf"
+                                generer_pdf_programme(programme, candidat, pdf_path)
+                                zf.write(pdf_path, arcname=f"{nom_fichier_base}.pdf")
+                        elif action == 'excel':
+                            excel_path = generer_excel_programme(id_candidat, str(config.BASE_DIR))
+                            if excel_path and os.path.exists(excel_path):
+                                zf.write(excel_path, arcname=f"{nom_fichier_base}.xlsx")
+                    except Exception as e:
+                        app.logger.error(f"Erreur export {action} {id_candidat}: {e}")
+                        
+            memory_file.seek(0)
+            return send_file(
+                memory_file,
+                mimetype="application/zip",
+                as_attachment=True,
+                download_name=f"export_{action}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.zip"
+            )
+            
+    except Exception as e:
+        app.logger.error(f"Erreur action batch {action}: {e}")
+        flash(f"Une erreur est survenue : {str(e)}", "danger")
+        
+    return redirect(url_for('liste_candidats'))
 
 
 # ==================== API ====================
