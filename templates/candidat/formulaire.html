@@ -832,17 +832,10 @@
                             <input type="text" id="prenom" name="prenom" placeholder="Ex: Jean" required>
                         </div>
                     </div>
-                    {% if 'QUEST_EXCEL' not in questionnaire.id_questionnaire %}
                     <div class="q-field">
-                        <label for="theme_formation">Thème de formation</label>
-                        <select name="theme_formation" id="theme_formation">
-                            <option value="Excel" {% if 'EXCEL' in questionnaire.id_questionnaire %}selected{% endif %}>Excel 365</option>
-                            <option value="Word" {% if 'WORD' in questionnaire.id_questionnaire %}selected{% endif %}>Word 365</option>
-                            <option value="PowerPoint" {% if 'POWERPOINT' in questionnaire.id_questionnaire %}selected{% endif %}>PowerPoint 365</option>
-                            <option value="Outlook" {% if 'OUTLOOK' in questionnaire.id_questionnaire %}selected{% endif %}>Outlook 365</option>
-                        </select>
+                        <label for="motivation">Pourquoi cette formation ? <span style="font-weight:400;font-size:0.85em">(vos objectifs, contexte, attentes)</span></label>
+                        <textarea name="motivation" id="motivation" rows="3" placeholder="Ex: Je souhaite approfondir mes compétences pour être plus autonome sur Excel 365 au quotidien..."></textarea>
                     </div>
-                    {% endif %}
                 </div>
 
                 <!-- Niveau -->

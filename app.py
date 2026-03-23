@@ -1046,6 +1046,7 @@ def submit_questionnaire():
         prenom = request.form.get('prenom', '').strip()
         id_programme = request.form.get('id_programme')
         self_level = request.form.get('self_level', 'debutant')
+        motivation = request.form.get('motivation', '').strip()
         
         if not nom or not prenom:
             flash("Le nom et le prénom sont obligatoires", 'error')
@@ -1088,6 +1089,7 @@ def submit_questionnaire():
             "id_candidat": id_candidat,
             "id_questionnaire": id_questionnaire,
             "self_level": self_level,
+            "motivation": motivation,
             "date_reponse": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "reponses": reponses
         }
@@ -1101,6 +1103,7 @@ def submit_questionnaire():
             "nom": nom,
             "prenom": prenom,
             "self_level": self_level,
+            "motivation": motivation,
             "id_questionnaire": id_questionnaire,
             "id_programme": id_programme,
             "date_reponse": quest_data["date_reponse"]
