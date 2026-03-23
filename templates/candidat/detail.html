@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Candidat {{ candidat.prenom }} {{ candidat.nom }} - eS@deq{% endblock %}
+{% block title %}{{ candidat.prenom|title }} {{ candidat.nom|title }} - eS@deq{% endblock %}
 
 {% block content %}
 <div class="page">
     <header class="page-header">
         <div class="header-content">
             <div>
-                <h1>{{ candidat.prenom }} {{ candidat.nom }}</h1>
+                {% set niveau_labels = {'novice': 'Niveau initial', 'debutant': 'Niveau intermédiaire', 'intermediaire': 'Niveau confirmé'} %}
+                <h1>{{ candidat.prenom|title }} {{ candidat.nom|title }}</h1>
                 <p class="page-subtitle">
+                    <span style="font-size: 0.9em; color: var(--gray-500);">
+                        {% if candidat.self_level in niveau_labels %}{{ niveau_labels[candidat.self_level] }}{% else %}{{ candidat.self_level|title }}{% endif %}
+                    </span> |
                     ID: <code>{{ candidat.id_candidat }}</code> |
                     <strong>
                     {% if 'EXCEL' in (candidat.id_questionnaire or '') %}Positionnement Excel{% elif 'WORD' in (candidat.id_questionnaire or '') %}Positionnement Word{% elif 'POWERPOINT' in (candidat.id_questionnaire or '') %}Positionnement PowerPoint{% elif 'OUTLOOK' in (candidat.id_questionnaire or '') %}Positionnement Outlook{% else %}{{ candidat.id_programme or candidat.id_questionnaire or 'Positionnement' }}{% endif %}
