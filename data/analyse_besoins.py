@@ -6,12 +6,9 @@ import json
 import os
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent
-BD_DIR = DATA_DIR / "bd"
-CANDIDATS_DIR = DATA_DIR / "candidats"
-CANDIDATS_INDEX = BD_DIR / "03_candidats.json"
-PROGRAMMES_FILE = BD_DIR / "01_programmes.json"
-QUESTIONS_FILE = BD_DIR / "00_questions.json"
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent.resolve()))
+from config import BD_DIR, CANDIDATS_DIR, CANDIDATS_FILE as CANDIDATS_INDEX, PROGRAMMES_FILE, QUESTIONS_FILE
 REFERENTIEL_EXCEL_FILE = BD_DIR / "04_referentiel_excel_origine.json"
 
 REGLE_BESOIN_FORT = "besoin_fort"
