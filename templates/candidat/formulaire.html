@@ -538,6 +538,12 @@
         margin-top: 2px;
     }
 
+    .domaine-q-count {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--q-muted);
+    }
+
     .accordion-icon {
         width: 30px;
         height: 30px;
@@ -881,7 +887,7 @@
                             <div class="accordion-header-left">
                                 <div class="accordion-domain-badge">{{ domaine.nom_domaine[:3] }}</div>
                                 <div>
-                                    <h3>{{ domaine.nom_domaine }}</h3>
+                                    <h3>{{ domaine.nom_domaine }} <span class="domaine-q-count">({{ domaine.questions|length }} question{% if domaine.questions|length > 1 %}s{% endif %})</span></h3>
                                     <div class="accordion-meta">Compétences du domaine</div>
                                 </div>
                             </div>
