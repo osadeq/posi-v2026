@@ -1,0 +1,82 @@
+{
+    "id_candidat": "CAND_MARTIN_SOPHIE_20260323_015820",
+    "id_questionnaire": "QUEST_EXCEL_INTER",
+    "date_reponse": "2026-03-23 01:58:20",
+    "reponses": [
+        {
+            "id_question": "[D1-N2-C1]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N2-C2]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N2-C10]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N2-C9]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D3-N2-C1]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D3-N2-C2]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D3-N2-C7]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N2-C4]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D2-N2-C1]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D2-N2-C7]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N2-C12]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D3-N2-C10]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D4-N2-C5]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D4-N2-C6]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D4-N2-C4]",
+            "niveau_maitrise": "Aucune",
+            "souhait_formation": "Oui"
+        }
+    ]
+}
