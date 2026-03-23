@@ -1,0 +1,8 @@
+Analyse pour CAND_O_s_20260318_235408: questionnaire=QUEST_EXCEL, programme=PROG_EXCEL
+Traceback (most recent call last):
+  File "c:\Users\sadeq\Desktop\posi-2026-v3\test_fix.py", line 4, in <module>
+    p = creer_programme_personnalise('CAND_O_s_20260318_235408')
+  File "c:\Users\sadeq\Desktop\posi-2026-v3\data\analyse_besoins.py", line 433, in creer_programme_personnalise
+    types = t_data['types']
+            ^^^^^^
+NameError: name 't_data' is not defined

@@ -1,0 +1,68 @@
+Je m'explique: Prenons le cas d'Excel, on va ajouter dans bd/01_programmes.json 3 programmes dont le contenu se trouve dans modeles/Programme_formation_Excel_Tosa_Initiation.txt, modeles/Programme_formation_Excel_Tosa_Intermediaire.txt et modeles/Programme_formation_Excel_Tosa_Perfectionnement_Avance.txt.
+Voici la structure type de ces fichiers txt :
+Titre du programme
+Durée
+Objectifs
+Compétences visées (par domaine)
+Programme (par thème)
+
+L'idée est d'intégrer ces programmes en json dans la base de données 01_programmes.json.
+Puis les prendre en compte dans la création des questionnaires par niveau dans la page http://localhost:5000/questionnaire/QUEST_EXCEL et dans la génération du programme d'un candidat questionné.
+si novice alors le programme d'initiation, si débutant alors programme intermédiaire, si intermédiaire alors programme de perfectionnement. sinon si aucun besoin en intermédiaire alors le candidat est un expert on lui préconise une certification experte.
+Je pense qu'il faut refaire aussi les questionnaires par niveau de la page http://localhost:5000/questionnaire/QUEST_EXCEL pour qu'ils correspondent aux compétences des 3 nouveaux programmes.
+
+
+Context
+Bonne approche. Avant de toucher au code, laisse-moi lire les 3 fichiers txt pour comprendre leur structure exacte.
+
+1 directory listed
+modeles
+Il y a aussi des fichiers Ref_TOSA_EXCEL_*.txt — c'est exactement ce qu'il faut pour les questionnaires. Je lis tout d'un coup.
+
+6 files read
+Programme_formation_Excel_Tosa_Initiation.txt
+Programme_formation_Excel_Tosa_Intermediaire.txt
+Programme_formation_Excel_Tosa_Perfectionnement_Avance.txt
+Ref_TOSA_EXCEL_Initiation.txt
+Ref_TOSA_EXCEL_Intermediaire.txt
+Ref_TOSA_EXCEL_Perfectionnement.txt
+Parfait. J'ai tout ce qu'il faut. Laisse-moi aussi lire l'état actuel de 01_programmes.json et 00_questions.json avant de tout réécrire.
+
+2 files read
+01_programmes.json
+00_questions.json
+J'ai tout ce qu'il faut. Voici le plan avant de coder :
+
+Plan de refonte
+Ce qui change
+01_programmes.json — Remplacer PROG_EXCEL (1 programme générique) par 3 programmes distincts :
+
+PROG_EXCEL_INIT — Initiation (14h, novice → ce programme)
+
+PROG_EXCEL_INTER — Intermédiaire (14h, débutant → ce programme)
+
+PROG_EXCEL_PERF — Perfectionnement (14h, intermédiaire → ce programme)
+
+Chaque programme a ses propres thèmes tirés des fichiers .txt.
+
+00_questions.json — Remplacer QUEST_EXCEL (1 questionnaire générique) par 3 questionnaires :
+
+QUEST_EXCEL_INIT — questions niveau N1 (compétences initiation)
+
+QUEST_EXCEL_INTER — questions niveau N1+N2
+
+QUEST_EXCEL_PERF — questions niveau N1+N2+N3
+
+formulaire.html — La logique de sélection de niveau devient :
+
+Novice → QUEST_EXCEL_INIT (0 question, programme auto)
+
+Débutant → QUEST_EXCEL_INTER (questions N1)
+
+Intermédiaire → QUEST_EXCEL_PERF (questions N1+N2)
+
+app.py — La route questionnaire/<id> doit charger le bon questionnaire selon le niveau choisi. La route submit_questionnaire doit assigner le bon id_programme selon self_level.
+
+analyse_besoins.py — Si intermédiaire et 0 besoin détecté → orientation_expert: True.
+
+C'est un gros chantier sur 4 fichiers. Je commence par les données (01_programmes.json et 00_questions.json), puis le comportement (app.py, formulaire.html, analyse_besoins.py). On y va ?

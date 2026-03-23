@@ -1,0 +1,1232 @@
+{
+  "programmes": [
+    {
+      "id_programme": "PROG_WORD",
+      "intitule": "Rédiger et mettre en forme des documents professionnels avec Word (Tosa) - tous niveaux - atelier tutoré individualisé",
+      "duree": "La formation est sur mesure, planifiée par demi-journée",
+      "duree_par_defaut": "7",
+      "duree_min": "7",
+      "unite_duree": "heure",
+      "duree_seance": 3.5,
+      "unite_seance": "heure",
+      "horaires_possibles": [
+        "09:00-12:30",
+        "14:00-17:30"
+      ],
+      "pause_incluse": 0.25,
+      "certification_duree": 1,
+      "certification_optionnelle": true,
+      "cout_horaire": 45,
+      "certification": {
+        "incluse": false,
+        "duree_heures": 1,
+        "cout_supplementaire": 0
+      },
+      "horaires": {
+        "matin": {
+          "debut": "09:00",
+          "fin": "12:30",
+          "pause": "inclus"
+        },
+        "apres_midi": {
+          "debut": "14:00",
+          "fin": "17:30",
+          "pause": "inclus"
+        }
+      },
+      "objectifs": [
+        "Faire comprendre la philosophie du traitement de texte",
+        "Maîtriser l'utilisation du logiciel Word, des fonctionnalités principales jusqu'aux fonctionnalités avancées, pour gagner en aisance et en efficacité.",
+        "Mesurer ses compétences en bureautique sur le logiciel WORD avec la certification \"Rédiger et mettre en forme des documents professionnels avec Word\" (Tosa)"
+      ],
+      "competences_visees": [
+        "Utiliser les fonctions principales du logiciel",
+        "Connaître et utiliser les différents modes d'affichage",
+        "Gérer les thèmes et personnaliser son environnement",
+        "Gérer les mises en forme (caractères, paragraphes)",
+        "Utiliser les différentes possibilités de mise en page",
+        "Connaître et utiliser les différents outils d'automatisation",
+        "Connaître et utiliser les différents outils d'aide à la saisie",
+        "Connaître les différents moyens de sélection et de déplacement (raccourcis clavier)",
+        "Gérer les références d'un document",
+        "Gérer les objets graphiques dans un document",
+        "Gérer les tableaux",
+        "Insérer, créer et mettre en forme des objets graphiques"
+      ],
+      "themes": [
+        {
+          "id_theme": "T1",
+          "nom": "Prise en main et mise en forme simple",
+          "domaine_tosa": ["D1", "D2"],
+          "competences_tosa": ["D1C1", "D1C2", "D1C3", "D2C1", "D2C3"],
+          "duree_heures": 7,
+          "items": [
+            "Lancement de Word",
+            "L'écran d'accueil de Word",
+            "La fenêtre de Word",
+            "Le bandeau, les onglets et les groupes",
+            "La barre doutils accès rapide, Le ruban",
+            "Le lanceur de boite de dialogue au niveau des groupes",
+            "La saisie, La correction de texte, La sélection, L'édition",
+            "L'enregistrement, Fermer un document",
+            "Démarrer le logiciel, Ouvrir un document existant",
+            "Modes d'affichage (Brouillon, Lecture, Web, Plan, Publication)",
+            "Style de caractères",
+            "Police de caractères",
+            "Taille de caractères",
+            "Couleur de caractères",
+            "Le surlignage de caractères",
+            "L'alignement",
+            "Les retraits",
+            "Les espacements",
+            "Les interlignes",
+            "Les bordures et trame de fond",
+            "Les marges",
+            "L'orientation de la page",
+            "Aperçu avant impression",
+            "Les principales options de mise en page",
+            "En-tête et pied de page",
+            "Thèmes Word (Couleurs, Polices, Effets)",
+            "Personnalisation du bandeau et du rubans"
+          ]
+        },
+        {
+          "id_theme": "T2",
+          "nom": "Mise en forme supplémentaires",
+          "domaine_tosa": ["D2"],
+          "competences_tosa": ["D2C1", "D2C3", "D2C4", "D2C5"],
+          "duree_heures": 4,
+          "items": [
+            "Liste à puces",
+            "Liste numérotée",
+            "Liste multiniveaux",
+            "Organisation de la saisie",
+            "Types de tabulations",
+            "Insertion de tabulations",
+            "Déplacement de tabulations",
+            "Modification de tabulations",
+            "Suppression de tabulations",
+            "Création d'un en-tôte",
+            "Création d'un pied de page",
+            "Description des options d'en-têtes et pied de page",
+            "Suppression d'un entête ou pied de page",
+            "Quadrillage et alignment",
+            "Lettrine"
+          ]
+        },
+        {
+          "id_theme": "T3",
+          "nom": "Tableau",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": ["D4C1"],
+          "duree_heures": 4,
+          "items": [
+            "Insérer un tableau",
+            "Modifier lignes et colonnes",
+            "Mise en forme du tableau",
+            "Ajouter supprimer des lignes ou colonnes du tableau",
+            "Ajustement du tableau",
+            "Fractionner et fusionner les cellules du tableau",
+            "Mettre en forme un tableau en appliquant un style",
+            "Créer des formules simples",
+            "Trier un tableau",
+            "Convertir un texte en tableau",
+            "Répéter les titres de colonnes sur chaque page"
+          ]
+        },
+        {
+          "id_theme": "T4",
+          "nom": "Gestion d'objets",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": ["D4C2"],
+          "duree_heures": 3,
+          "items": [
+            "Images",
+            "Objets graphiques",
+            "Formes et zones de texte",
+            "Insérer un objet WordArt",
+            "Insérer un SmartArt",
+            "Capture décran",
+            "Liaison et ancrage des objets",
+            "Disposition du texte autour des objets"
+          ]
+        },
+        {
+          "id_theme": "T5",
+          "nom": "Documents longs Niveau 1",
+          "domaine_tosa": ["D2", "D3"],
+          "competences_tosa": ["D2C2", "D2C3", "D3C4"],
+          "duree_heures": 4,
+          "items": [
+            "Styles",
+            "Créer et modifier des styles",
+            "Sections",
+            "En-tête et pied de page",
+            "En-têtes et pieds de page différents (première page, pages paires/impaires)",
+            "Réaliser une page de garde",
+            "Ajouter une page vierge",
+            "Saut de page et saut de section",
+            "Numérotation des pages",
+            "Table des matières"
+          ]
+        },
+        {
+          "id_theme": "T6",
+          "nom": "Automatisation Niveau 1",
+          "domaine_tosa": ["D3"],
+          "competences_tosa": ["D3C5"],
+          "duree_heures": 4,
+          "items": [
+            "Préparation du publipostage",
+            "Sélection des destinataires",
+            "Créer des étiquettes",
+            "Créer des planches d'étiquettes unique",
+            "Insertion de champs de fusion",
+            "Aperçu du publipostage",
+            "Fusion vers document",
+            "Fusion vers imprimante"
+          ]
+        },
+        {
+          "id_theme": "T7",
+          "nom": "Documents longs Niveau 2",
+          "domaine_tosa": ["D2", "D3"],
+          "competences_tosa": ["D2C2", "D2C3", "D3C4"],
+          "duree_heures": 4,
+          "items": [
+            "Styles avancés",
+            "Table des figures",
+            "Insérer un fichier",
+            "Insérer des notes de bas de page",
+            "Insérer des notes de fin",
+            "Insérer un index",
+            "Insérer des citations",
+            "Colonnes et sections",
+            "Signets",
+            "Renvois"
+          ]
+        },
+        {
+          "id_theme": "T8",
+          "nom": "Automatisation Niveau 2",
+          "domaine_tosa": ["D3"],
+          "competences_tosa": ["D3C5"],
+          "duree_heures": 4,
+          "items": [
+            "Réaliser un publipostage avec options de requête",
+            "Fusion avec une source de données Excel",
+            "Filtrage simple des enregistrements",
+            "Filtrage avancé des enregistrements",
+            "Règle Si Alors Sinon",
+            "Code de champs",
+            "Publipostage sur enveloppe",
+            "Enveloppe unique",
+            "Étiquettes avec images",
+            "Envoi de courriels par publipostage"
+          ]
+        },
+        {
+          "id_theme": "T9",
+          "nom": "Outils daide et référence",
+          "domaine_tosa": ["D1", "D3", "D4"],
+          "competences_tosa": ["D1C3", "D3C1", "D3C2", "D4C3", "D4C4"],
+          "duree_heures": 2,
+          "items": [
+            "Correction automatique et Correcteur d'orthographe",
+            "Recherche et remplacement",
+            "Date et heure (insertion)",
+            "Insérer un tableau Excel dans Word",
+            "Lier ou intégrer un objet Excel",
+            "Formulaires et Modèles",
+            "Insertion automatiques (QuickPart)",
+            "Galerie multimedia",
+            "Comparaison de documents",
+            "Personnalisation du logiciel (Barre doutils Accès rapide, Mode Backstage, Conception d'onglets)",
+            "Options Word et enregistrement automatique"
+          ]
+        }
+      ],
+      "blocs_objectifs": [
+        {
+          "id": "B1",
+          "nom": "Création et mise en forme de documents professionnels simples",
+          "themes": ["T1", "T2", "T3", "T4", "T9"]
+        },
+        {
+          "id": "B2",
+          "nom": "Documents longs et structurés",
+          "themes": ["T5", "T7"]
+        },
+        {
+          "id": "B3",
+          "nom": "Automatisation et Publipostage",
+          "themes": ["T6", "T8"]
+        }
+      ]
+    },
+    {
+      "id_programme": "PROG_POWERPOINT",
+      "intitule": "Développer des présentations visuelles et dynamiques avec Powerpoint (Tosa) - tous niveaux - atelier tutoré individualisé",
+      "duree": "La formation est sur mesure, planifiée par demi-journée",
+      "duree_par_defaut": "7",
+      "duree_min": "7",
+      "unite_duree": "heure",
+      "duree_seance": 3.5,
+      "unite_seance": "heure",
+      "horaires_possibles": ["09:00-12:30", "14:00-17:30"],
+      "pause_incluse": 0.25,
+      "certification_duree": 1,
+      "certification_optionnelle": true,
+      "cout_horaire": 45,
+      "certification": {
+        "incluse": false,
+        "duree_heures": 1,
+        "cout_supplementaire": 0
+      },
+      "horaires": {
+        "matin": { "debut": "09:00", "fin": "12:30", "pause": "inclus" },
+        "apres_midi": { "debut": "14:00", "fin": "17:30", "pause": "inclus" }
+      },
+      "objectifs": [
+        "Maîtriser les fonctionnalités essentielles de PowerPoint pour créer des présentations professionnelles",
+        "Structurer et mettre en forme des diapositives efficaces et impactantes",
+        "Utiliser les outils d'animation et de transition pour dynamiser les présentations",
+        "Préparer et diffuser une présentation en situation professionnelle",
+        "Mesurer ses compétences avec la certification TOSA PowerPoint"
+      ],
+      "competences_visees": [
+        "Naviguer dans l'environnement PowerPoint",
+        "Créer et structurer une présentation",
+        "Mettre en forme le contenu textuel",
+        "Insérer et gérer des objets multimédias",
+        "Appliquer des mises en page et des masques",
+        "Utiliser les transitions et animations",
+        "Intégrer des tableaux et graphiques",
+        "Préparer et diffuser le diaporama"
+      ],
+      "themes": [
+        {
+          "id_theme": "PT1",
+          "nom": "Prise en main et navigation",
+          "duree_heures": 3.5,
+          "items": [
+            "Lancement de PowerPoint",
+            "L'écran d'accueil et les modèles",
+            "L'interface (ruban, onglets, volets)",
+            "Créer une nouvelle présentation",
+            "Enregistrer et ouvrir une présentation",
+            "Manipuler les diapositives (ajouter, supprimer, dupliquer)",
+            "Modifier l'ordre des diapositives",
+            "Les modes d'affichage (Normal, Trieuse, Diaporama)"
+          ]
+        },
+        {
+          "id_theme": "PT2",
+          "nom": "Mise en forme du texte",
+          "duree_heures": 3.5,
+          "items": [
+            "Saisir du texte dans les zones de texte",
+            "Sélectionner et modifier du texte",
+            "Police, taille et couleur du texte",
+            "Mise en forme de caractère (gras, italique, souligné)",
+            "Alignement du texte",
+            "Puces et numérotation",
+            "Styles de texte prédéfinis",
+            "Espacements et retraits"
+          ]
+        },
+        {
+          "id_theme": "PT3",
+          "nom": "Insertion d'objets graphiques",
+          "duree_heures": 4,
+          "items": [
+            "Insérer des images depuis un fichier",
+            "Redimensionner et recadrer une image",
+            "Ajuster la luminosité et les couleurs",
+            "Insérer des formes et des lignes",
+            "Modifier les formes (couleur, contour, effets)",
+            "Insérer des icônes et des illustrations",
+            "Insérer des SmartArt",
+            "Gérer la superposition des objets",
+            "Aligner et distribuer les objets"
+          ]
+        },
+        {
+          "id_theme": "PT4",
+          "nom": "Mise en page et masques",
+          "duree_heures": 3.5,
+          "items": [
+            "Appliquer une mise en page",
+            "Modifier la disposition des zones de texte",
+            "Comprendre le masque des diapositives",
+            "Modifier le masque (arrière-plan, polices)",
+            "Créer un masque personnalisé",
+            "Insérer un logo sur toutes les diapositives",
+            "En-tête et pied de page",
+            "Numérotation des diapositives"
+          ]
+        },
+        {
+          "id_theme": "PT5",
+          "nom": "Transitions et animations",
+          "durere_heures": 4,
+          "items": [
+            "Appliquer une transition entre diapositives",
+            "Personnaliser les transitions (durée, effets)",
+            "Ajouter une animation à un objet",
+            "Types d'animation (entrée, emphase, sortie)",
+            "Modifier l'ordre des animations",
+            "Déclencher les animations (au clic, automatique)",
+            "Utiliser le volet Animation",
+            "Prévisualiser les animations"
+          ]
+        },
+        {
+          "id_theme": "PT6",
+          "nom": "Tableaux et graphiques",
+          "duree_heures": 3.5,
+          "items": [
+            "Insérer un tableau dans une diapositive",
+            "Saisir et modifier le contenu d'un tableau",
+            "Mettre en forme un tableau (bordures, remplissage)",
+            "Insérer un graphique",
+            "Modifier les données du graphique",
+            "Changer le type de graphique",
+            "Personnaliser l'apparence du graphique",
+            "Importer un graphique Excel"
+          ]
+        },
+        {
+          "id_theme": "PT7",
+          "nom": "Présentation et diffusion",
+          "duree_heures": 3.5,
+          "items": [
+            "Démarrer le diaporama",
+            "Modes de diaporama (présentateur, kiosque)",
+            "Configurer le minutage des diapositives",
+            "Utiliser les outils de présentation (pointeur, stylo)",
+            "Imprimer la présentation",
+            "Options d'impression (diapositives, notes, pages)",
+            "Exporter en PDF",
+            "Enregistrer en tant que vidéo"
+          ]
+        },
+        {
+          "id_theme": "PT8",
+          "nom": "Fonctionnalités avancées",
+          "duree_heures": 3.5,
+          "items": [
+            "Insérer des liens hypertextes",
+            "Créer des actions sur les objets",
+            "Insérer un objet externe (Excel, Word)",
+            "Utiliser les sections pour organiser",
+            "Créer un sommaire interactif",
+            "Personnaliser le ruban",
+            "Options de sécurité et de protection",
+            "Vérifier l'accessibilité"
+          ]
+        }
+      ],
+      "blocs_objectifs": [
+        {
+          "id": "B1",
+          "nom": "Création et mise en forme de présentations",
+          "themes": ["PT1", "PT2", "PT3", "PT4"]
+        },
+        {
+          "id": "B2",
+          "nom": "Dynamisation et enrichissement",
+          "themes": ["PT5", "PT6"]
+        },
+        {
+          "id": "B3",
+          "nom": "Diffusion et fonctionnalités avancées",
+          "themes": ["PT7", "PT8"]
+        }
+      ]
+    },
+    {
+      "id_programme": "PROG_OUTLOOK",
+      "intitule": "Gérer les courriels et la planification avec Outlook (Tosa) - tous niveaux - atelier tutoré individualisé",
+      "duree": "La formation est sur mesure, planifiée par demi-journée",
+      "duree_par_defaut": "7",
+      "duree_min": "7",
+      "unite_duree": "heure",
+      "duree_seance": 3.5,
+      "unite_seance": "heure",
+      "horaires_possibles": ["09:00-12:30", "14:00-17:30"],
+      "pause_incluse": 0.25,
+      "certification_duree": 1,
+      "certification_optionnelle": true,
+      "cout_horaire": 45,
+      "certification": {
+        "incluse": false,
+        "duree_heures": 1,
+        "cout_supplementaire": 0
+      },
+      "horaires": {
+        "matin": { "debut": "09:00", "fin": "12:30", "pause": "inclus" },
+        "apres_midi": { "debut": "14:00", "fin": "17:30", "pause": "inclus" }
+      },
+      "objectifs": [
+        "Maîtriser l'interface et les fonctionnalités d'Outlook",
+        "Gérer efficacement les messages et la messagerie",
+        "Organiser et planifier avec le calendrier",
+        "Gérer les contacts et les groupes",
+        "Automatiser la gestion des messages avec les règles",
+        "Mesurer ses compétences avec la certification TOSA Outlook"
+      ],
+      "competences_visees": [
+        "Naviguer dans l'environnement Outlook",
+        "Rédiger et envoyer des messages",
+        "Gérer la réception et le traitement des messages",
+        "Organiser les messages et les dossiers",
+        "Utiliser le calendrier et planifier des réunions",
+        "Gérer les contacts et les groupes",
+        "Créer des règles et automatiser",
+        "Configurer les options et la sécurité"
+      ],
+      "themes": [
+        {
+          "id_theme": "OT1",
+          "nom": "Prise en main et environnement",
+          "duree_heures": 3.5,
+          "items": [
+            "Lancement d'Outlook",
+            "L'interface (ruban, dossiers, volets)",
+            "Configuration d'un compte de messagerie",
+            "Les différents éléments d'Outlook (courrier, calendrier, contacts)",
+            "Personnaliser l'affichage",
+            "Le volet de navigation",
+            "Le ruban et les onglets",
+            "Options et paramètres généraux"
+          ]
+        },
+        {
+          "id_theme": "OT2",
+          "nom": "Rédaction et envoi de messages",
+          "duree_heures": 3.5,
+          "items": [
+            "Créer un nouveau message",
+            "Saisir les destinataires (À, Cc, Cci)",
+            "Rédiger l'objet et le corps du message",
+            "Mettre en forme le texte",
+            "Joindre un fichier",
+            "Insérer une image dans le message",
+            "Demander un accusé de réception",
+            "Configurer l'importance et la confidentialité",
+            "Enregistrer un brouillon"
+          ]
+        },
+        {
+          "id_theme": "OT3",
+          "nom": "Réception et traitement des messages",
+          "duree_heures": 3.5,
+          "items": [
+            "Consulter la boîte de réception",
+            "Lire et répondre à un message",
+            "Répondre à tous",
+            "Transférer un message",
+            "Ouvrir et enregistrer les pièces jointes",
+            "Utiliser les drapeaux de suivi",
+            "Catégoriser les messages",
+            "Marquer comme lu/non lu",
+            "Supprimer et restaurer des messages"
+          ]
+        },
+        {
+          "id_theme": "OT4",
+          "nom": "Organisation et recherche",
+          "duree_heures": 3.5,
+          "items": [
+            "Créer des dossiers personnalisés",
+            "Déplacer des messages dans des dossiers",
+            "Archiver les messages",
+            "Rechercher un message (recherche instantanée)",
+            "Utiliser la recherche avancée",
+            "Trier et filtrer les messages",
+            "Gérer les conversations",
+            "Utiliser les vues (par date, par expéditeur)"
+          ]
+        },
+        {
+          "id_theme": "OT5",
+          "nom": "Calendrier et planification",
+          "duree_heures": 4,
+          "items": [
+            "Naviguer dans le calendrier",
+            "Créer un rendez-vous",
+            "Modifier et supprimer un rendez-vous",
+            "Créer une réunion et inviter des participants",
+            "Gérer les réponses aux invitations",
+            "Configurer les rappels",
+            "Afficher plusieurs calendriers",
+            "Partager un calendrier",
+            "Imprimer le calendrier"
+          ]
+        },
+        {
+          "id_theme": "OT6",
+          "nom": "Gestion des contacts",
+          "duree_heures": 3.5,
+          "items": [
+            "Ajouter un contact manuellement",
+            "Ajouter un contact depuis un message",
+            "Modifier et supprimer un contact",
+            "Rechercher un contact",
+            "Créer un groupe de contacts",
+            "Utiliser un groupe pour envoyer un message",
+            "Importer des contacts",
+            "Exporter des contacts"
+          ]
+        },
+        {
+          "id_theme": "OT7",
+          "nom": "Règles et automatisation",
+          "duree_heures": 3.5,
+          "items": [
+            "Créer une règle de message simple",
+            "Créer une règle avancée",
+            "Gérer les règles existantes",
+            "Configurer la réponse automatique d'absence",
+            "Créer et utiliser des signatures",
+            "Configurer les alertes de bureau",
+            "Gérer les éléments envoyés et supprimés",
+            "Options de sécurité et de confidentialité"
+          ]
+        }
+      ],
+      "blocs_objectifs": [
+        {
+          "id": "B1",
+          "nom": "Gestion de la messagerie",
+          "themes": ["OT1", "OT2", "OT3", "OT4"]
+        },
+        {
+          "id": "B2",
+          "nom": "Agenda et contacts",
+          "themes": ["OT5", "OT6"]
+        },
+        {
+          "id": "B3",
+          "nom": "Automatisation et paramétrage",
+          "themes": ["OT7"]
+        }
+      ]
+    },
+    {
+      "id_programme": "PROG_EXCEL_INIT",
+      "intitule": "Exploiter les fonctionnalités de Microsoft Excel - INIT",
+      "duree": "14h",
+      "duree_par_defaut": "14",
+      "duree_min": "14",
+      "unite_duree": "heure",
+      "duree_seance": 3.5,
+      "unite_seance": "heure",
+      "cout_horaire": 45,
+      "certification_optionnelle": true,
+      "certification": {
+        "incluse": false,
+        "duree_heures": 1,
+        "cout_supplementaire": 0
+      },
+      "themes": [
+        {
+          "id_theme": "INIT_T1",
+          "nom": "Environnement Excel / Interface",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N1-C4]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Présentation de l’interface du logiciel et de ses différentes zones : barre d’outils d’accès rapide, barre de titre et barre d’état, onglet, ruban, groupe, lanceur de boite de dialogue…"
+          ]
+        },
+        {
+          "id_theme": "INIT_T2",
+          "nom": "Gestion des fichiers",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N1-C1]", "[D1-N1-C2]", "[D1-N1-C11]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Ouvrir et fermer l'application, un classeur, plusieurs classeurs, ouvrir un classeur récent"
+          ]
+        },
+        {
+          "id_theme": "INIT_T3",
+          "nom": "Gérer et mettre en forme les cellules",
+          "domaine_tosa": ["D3"],
+          "competences_tosa": [
+            "[D1-N1-C8]",
+            "[D1-N1-C9]",
+            "[D1-N1-C10]",
+            "[D3-N1-C1]",
+            "[D3-N1-C2]",
+            "[D3-N1-C5]",
+            "[D3-N1-C6]",
+            "[D3-N1-C7]",
+            "[D3-N1-C8]",
+            "[D3-N1-C9]"
+          ],
+          "duree_heures": 1.4,
+          "items": [
+            "Utiliser les outils couper, copier, coller",
+            "Utiliser la poignée de recopie afin d’utiliser les séries incrémentées standards",
+            "Insérer ou supprimer des lignes ou des colonnes",
+            "Ajuster ou modifier les largeurs de lignes ou colonnes, masquer une ligne ou une colonne",
+            "Formater les nombres dans les cellules : décimales, milliers, ajustement de la largeur de colonne pour l'affichage",
+            "Formater les dates, les quantités monétaires, les pourcentages",
+            "Changer la police, la taille des caractères, couleur de remplissage",
+            "Aligner les contenus de cellules (droite, gauche, centré, haut, bas), changer l'orientation",
+            "Fusionner des cellules pour centrer un texte",
+            "Appliquer des styles prédéfinis aux cellules"
+          ]
+        },
+        {
+          "id_theme": "INIT_T4",
+          "nom": "Mettre en page et Impression",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": [
+            "[D1-N1-C3]",
+            "[D1-N1-C6]",
+            "[D1-N1-C7]",
+            "[D3-N1-C3]",
+            "[D3-N1-C4]"
+          ],
+          "duree_heures": 1.4,
+          "items": [
+            "Centrer un tableau dans la page",
+            "Ajuster le tableau pour l’impression",
+            "Créer, modifier une zone d’impression"
+          ]
+        },
+        {
+          "id_theme": "INIT_T5",
+          "nom": "Mise en forme conditionnelle",
+          "domaine_tosa": ["D3"],
+          "competences_tosa": ["[D3-N2-C4]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Appliquer des règles simples de mise en forme conditionnelle pour mettre en évidence certaines valeurs"
+          ]
+        },
+        {
+          "id_theme": "INIT_T6",
+          "nom": "Affichage",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N1-C5]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Afficher/Masquer le quadrillage",
+            "Utiliser les différents modes d’affichage",
+            "Personnaliser le zoom"
+          ]
+        },
+        {
+          "id_theme": "INIT_T7",
+          "nom": "Créer des formules de calcul",
+          "domaine_tosa": ["D2"],
+          "competences_tosa": [
+            "[D2-N1-C1]",
+            "[D2-N1-C2]",
+            "[D2-N1-C3]",
+            "[D2-N1-C4]",
+            "[D2-N1-C5]",
+            "[D2-N1-C6]",
+            "[D2-N1-C7]",
+            "[D2-N1-C8]"
+          ],
+          "duree_heures": 1.4,
+          "items": [
+            "Bonnes pratiques pour la création de formules : utiliser les adresses (références) des cellules",
+            "Créer des formules simples en utilisant des références à des cellules, des opérateurs arithmétiques, et des parenthèses",
+            "Identifier les erreurs de calculs : #NOM?, #DIV/0! et #####",
+            "Identifier l’impact de la suppression d’une ligne ou d’une colonne sur une formule",
+            "Comprendre et utiliser les fonctions : SOMME, MOYENNE, MAX, NB",
+            "Utiliser la fonction conditionnelle : SI",
+            "Utiliser la fonction de recherche : RECHERCHEV"
+          ]
+        },
+        {
+          "id_theme": "INIT_T8",
+          "nom": "Créer des graphiques",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": ["[D4-N1-C2]", "[D4-N1-C3]", "[D4-N1-C4]", "[D4-N1-C5]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Créer et modifie des objets graphiques de base (formes, images)",
+            "Créer des graphiques de base (histogramme, courbe, secteur)"
+          ]
+        },
+        {
+          "id_theme": "INIT_T9",
+          "nom": "Exploiter une plage, liste ou tableau de données",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": ["[D4-N1-C1]", "[D4-N1-C6]", "[D4-N1-C7]", "[D4-N1-C8]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Comprendre ce qu'est une plage, liste ou tableau de données",
+            "Utiliser un tableau automatique de données (tableau structuré)",
+            "Utiliser les filtres pour sélectionner des enregistrements (=lignes) en fonction de critères",
+            "Appliquer un tri croissant, décroissant",
+            "Figer les volets",
+            "Utiliser des opérations de nettoyage : suppression de doublons, correction des formats"
+          ]
+        },
+        {
+          "id_theme": "INIT_T10",
+          "nom": "Tableau croisé dynamique",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": ["[D4-N2-C3]", "[D4-N2-C4]"],
+          "duree_heures": 1.4,
+          "items": [
+            "Créer des tableaux croisés dynamiques de base à partir de données simples",
+            "Ajouter et supprime des champs",
+            "Utiliser des filtres et des tris de base"
+          ]
+        }
+      ],
+      "blocs_objectifs": [
+        {
+          "id": "B1",
+          "nom": "Parcours complet",
+          "themes": [
+            "INIT_T1",
+            "INIT_T2",
+            "INIT_T3",
+            "INIT_T4",
+            "INIT_T5",
+            "INIT_T6",
+            "INIT_T7",
+            "INIT_T8",
+            "INIT_T9",
+            "INIT_T10"
+          ]
+        }
+      ]
+    },
+    {
+      "id_programme": "PROG_EXCEL_INTER",
+      "intitule": "Exploiter les fonctionnalités de Microsoft Excel - INTER",
+      "duree": "14h",
+      "duree_par_defaut": "14",
+      "duree_min": "14",
+      "unite_duree": "heure",
+      "duree_seance": 3.5,
+      "unite_seance": "heure",
+      "cout_horaire": 45,
+      "certification_optionnelle": true,
+      "certification": {
+        "incluse": false,
+        "duree_heures": 1,
+        "cout_supplementaire": 0
+      },
+      "themes": [
+        {
+          "id_theme": "INTER_T1",
+          "nom": "Environnement Excel / Interface",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N2-C1]", "[D1-N2-C2]", "[D1-N2-C10]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Personnaliser les onglets du ruban pour regrouper les outils utilisés",
+            "Utiliser efficacement les principaux raccourcis clavier : couper, copier, coller…",
+            "Créer et utiliser les commentaires",
+            "Synchroniser automatiquement les feuilles de calcul avec OneDrive",
+            "Modifier les options d'affichage des grilles et des lignes de grille pour une meilleure lisibilité des données",
+            "Utiliser les modes d'affichage spécifiques pour une organisation efficace des données"
+          ]
+        },
+        {
+          "id_theme": "INTER_T2",
+          "nom": "Gestion des fichiers",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N2-C9]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Gérer les classeurs : les renommer, les déplacer, les dupliquer"
+          ]
+        },
+        {
+          "id_theme": "INTER_T3",
+          "nom": "Mise en forme de tableaux",
+          "domaine_tosa": ["D3"],
+          "competences_tosa": [
+            "[D3-N2-C1]",
+            "[D3-N2-C2]",
+            "[D3-N2-C3]",
+            "[D3-N2-C4]",
+            "[D3-N2-C5]",
+            "[D3-N2-C6]",
+            "[D3-N2-C7]",
+            "[D3-N2-C8]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Appliquer une trame de fond, une bordure…",
+            "Reproduire la mise en forme d'une cellule vers une autre ou plusieurs cellule(s) et vers une ou plusieurs plages de cellules",
+            "Savoir appliquer le retour à la ligne automatique dans les cellules",
+            "Formater les dates, les quantités monétaires, les pourcentages",
+            "Appliquer différents styles prédéfinis",
+            "Créer et manipuler des formats personnalisés"
+          ]
+        },
+        {
+          "id_theme": "INTER_T4",
+          "nom": "Gérer les feuilles de calcul",
+          "domaine_tosa": ["D2"],
+          "competences_tosa": ["[D1-N2-C4]", "[D1-N2-C5]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Insérer une nouvelle feuille, supprimer une feuille",
+            "Copier, déplacer, renommer une feuille dans le classeur"
+          ]
+        },
+        {
+          "id_theme": "INTER_T5",
+          "nom": "Créer des formules de calcul",
+          "domaine_tosa": ["D2"],
+          "competences_tosa": [
+            "[D2-N2-C1]",
+            "[D2-N2-C2]",
+            "[D2-N2-C3]",
+            "[D2-N2-C4]",
+            "[D2-N2-C5]",
+            "[D2-N2-C6]",
+            "[D2-N2-C7]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Utiliser les fonctions d'auto-complétion pour générer des séries de données complexes et des formules simples",
+            "Utiliser des références relatives et absolues",
+            "Organiser les formules pour les rendre lisibles (insérer un saut de ligne manuellement dans une cellule)",
+            "Utiliser les fonctions statistiques",
+            "Utiliser les fonctions conditionnelles et logiques",
+            "Utiliser les fonctions de temps",
+            "Utiliser les fonctions de recherche",
+            "Utiliser les fonctions permettant d’extraire et analyser les données"
+          ]
+        },
+        {
+          "id_theme": "INTER_T6",
+          "nom": "Mettre en page et Impression",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N2-C11]", "[D1-N2-C12]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Utiliser les en-têtes et les pieds de page, les marges…",
+            "Numéroter les pages",
+            "Mise en page de données volumineuses (plusieurs pages)"
+          ]
+        },
+        {
+          "id_theme": "INTER_T7",
+          "nom": "Utiliser des objets graphiques",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": [
+            "[D3-N2-C9]",
+            "[D3-N2-C10]",
+            "[D3-N2-C11]",
+            "[D3-N2-C12]",
+            "[D3-N2-C13]",
+            "[D4-N2-C1]",
+            "[D4-N2-C2]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Ajouter, redimensionner et mettre en forme des objets graphiques : zones de texte, formes…",
+            "Créer différents types de graphiques, y compris des graphiques en nuage de points",
+            "Personnaliser l'apparence des graphiques en modifiant les couleurs, les étiquettes et les axes",
+            "Mettre à jour manuellement les graphiques en cas de modification des données"
+          ]
+        },
+        {
+          "id_theme": "INTER_T8",
+          "nom": "Utiliser les outils de gestion de données",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": [
+            "[D4-N2-C5]",
+            "[D4-N2-C6]",
+            "[D4-N2-C7]",
+            "[D4-N2-C8]",
+            "[D4-N2-C9]",
+            "[D4-N2-C11]",
+            "[D1-N2-C6]",
+            "[D1-N2-C7]",
+            "[D1-N2-C8]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Créer des mises en forme conditionnelles basées sur les formules, pour mettre en évidence des tendances ou des valeurs spécifiques",
+            "Créer et utiliser les options des tableaux de données",
+            "Effectuer des opérations simples sur les tableaux de données",
+            "Importer et exporter des données de diverses sources",
+            "Utiliser des filtres avancés et des tris à plusieurs niveaux"
+          ]
+        },
+        {
+          "id_theme": "INTER_T9",
+          "nom": "Tableau croisé dynamique",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": ["[D4-N2-C3]", "[D4-N2-C4]", "[D4-N2-C10]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Créer des tableaux croisés dynamiques pour analyser des données complexes en croisant, filtrant et segmentant les informations",
+            "Utiliser des filtres et des tris pour explorer et visualiser les données de manière plus approfondie"
+          ]
+        }
+      ],
+      "blocs_objectifs": [
+        {
+          "id": "B1",
+          "nom": "Parcours complet",
+          "themes": [
+            "INTER_T1",
+            "INTER_T2",
+            "INTER_T3",
+            "INTER_T4",
+            "INTER_T5",
+            "INTER_T6",
+            "INTER_T7",
+            "INTER_T8",
+            "INTER_T9"
+          ]
+        }
+      ]
+    },
+    {
+      "id_programme": "PROG_EXCEL_PERF",
+      "intitule": "Exploiter les fonctionnalités de Microsoft Excel - PERF",
+      "duree": "14h",
+      "duree_par_defaut": "14",
+      "duree_min": "14",
+      "unite_duree": "heure",
+      "duree_seance": 3.5,
+      "unite_seance": "heure",
+      "cout_horaire": 45,
+      "certification_optionnelle": true,
+      "certification": {
+        "incluse": false,
+        "duree_heures": 1,
+        "cout_supplementaire": 0
+      },
+      "themes": [
+        {
+          "id_theme": "PERF_T1",
+          "nom": "Environnement",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": [
+            "[D1-N3-C5]",
+            "[D1-N3-C6]",
+            "[D1-N3-C7]",
+            "[D1-N3-C8]",
+            "[D1-N3-C9]",
+            "[D1-N3-C10]",
+            "[D1-N3-C11]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Gérer la compatibilité des fichiers entre différentes versions du logiciel (par exemple : Excel 2010, 2016, 2019, 365, etc.)",
+            "Personnaliser l'interface",
+            "Optimiser le flux de travail et la performance : personnalisation du ruban et de la barre d'accès rapide"
+          ]
+        },
+        {
+          "id_theme": "PERF_T2",
+          "nom": "Utiliser et modification des fonctions avancées",
+          "domaine_tosa": ["D2"],
+          "competences_tosa": ["[D1-N3-C12]", "[D1-N3-C13]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Comprendre et utiliser les collages spéciaux",
+            "Appliquer les styles personnalisés",
+            "Créer et gérer des formats personnalisés",
+            "Exploiter les fonctions d'auto-complétion avancées pour générer des séries de données basées sur des critères complexes",
+            "Protéger une feuille de calcul ou un classeur"
+          ]
+        },
+        {
+          "id_theme": "PERF_T3",
+          "nom": "Utiliser les fonctions de calcul",
+          "domaine_tosa": ["D2"],
+          "competences_tosa": [
+            "[D2-N3-C1]",
+            "[D2-N3-C2]",
+            "[D2-N3-C3]",
+            "[D2-N3-C4]",
+            "[D2-N3-C5]",
+            "[D2-N3-C6]",
+            "[D2-N3-C7]",
+            "[D2-N3-C8]",
+            "[D2-N3-C9]",
+            "[D2-N3-C10]",
+            "[D2-N3-C11]",
+            "[D2-N3-C12]",
+            "[D2-N3-C13]",
+            "[D2-N3-C14]",
+            "[D2-N3-C17]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Gérer/Corriger les erreurs",
+            "Utiliser les références absolues",
+            "Utiliser les fonctions de recherche",
+            "Utiliser les fonctions dates",
+            "Utiliser les fonctions d'arrondi",
+            "Utiliser les fonctions texte",
+            "Utiliser les fonctions de remplacement",
+            "Utiliser les fonctions logiques",
+            "Générer les nombres aléatoires",
+            "Utiliser les fonctions de base de données",
+            "Utiliser la fonction SOUS.TOTAL",
+            "Utiliser la fonction SOMMEPROD",
+            "Documenter les formules avec des commentaires pour expliquer leur fonctionnement et leur objectif"
+          ]
+        },
+        {
+          "id_theme": "PERF_T4",
+          "nom": "Mettre en page et Impression",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": [
+            "[D1-N3-C1]",
+            "[D1-N3-C2]",
+            "[D1-N3-C3]",
+            "[D1-N3-C4]",
+            "[D3-N3-C2]",
+            "[D3-N3-C4]",
+            "[D3-N3-C5]",
+            "[D3-N3-C6]",
+            "[D3-N3-C7]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Utiliser des fonctions avancées pour créer des mises en page professionnelles",
+            "Appliquer des styles prédéfinis pour uniformiser la mise en forme à travers les classeurs",
+            "Créer des mises en page personnalisées (marges, en-têtes ou notes de bas de page) pour produire des documents professionnels et améliorer leur lisibilité à l'impression",
+            "Modifier les options d'affichage avancées pour optimiser l'expérience utilisateur lors de l'analyse des données"
+          ]
+        },
+        {
+          "id_theme": "PERF_T5",
+          "nom": "Mise en forme conditionnelle",
+          "domaine_tosa": ["D3"],
+          "competences_tosa": ["[D3-N3-C1]", "[D3-N3-C3]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Créer une régle de mise en forme avec des régles complexes",
+            "Copier une mise en forme vers d'autres cellules",
+            "Rechercher des cellules avec mise en forme conditionnelle",
+            "Supprimer une mise en forme conditionnelle"
+          ]
+        },
+        {
+          "id_theme": "PERF_T6",
+          "nom": "Créer des graphiques et objets graphiques",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": [
+            "[D3-N3-C8]",
+            "[D3-N3-C9]",
+            "[D3-N3-C10]",
+            "[D3-N3-C11]",
+            "[D3-N3-C12]",
+            "[D3-N3-C13]",
+            "[D3-N3-C14]",
+            "[D3-N3-C15]",
+            "[D3-N3-C16]",
+            "[D3-N3-C17]",
+            "[D4-N3-C9]",
+            "[D4-N3-C10]",
+            "[D4-N3-C11]",
+            "[D4-N3-C12]",
+            "[D4-N3-C13]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Intégrer des objets graphiques",
+            "Créer et personnaliser des objets graphiques avancés",
+            "Concevoir un graphique à deux axes",
+            "Personnaliser les graphiques avec des options avancées",
+            "Utiliser des fonctionnalités avancées pour mettre à jour automatiquement les graphiques en fonction des modifications des données sous-jacentes"
+          ]
+        },
+        {
+          "id_theme": "PERF_T7",
+          "nom": "Exploiter des bases de données",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": [
+            "[D4-N3-C1]",
+            "[D4-N3-C2]",
+            "[D4-N3-C3]",
+            "[D4-N3-C4]",
+            "[D4-N3-C6]",
+            "[D4-N3-C7]",
+            "[D4-N3-C18]",
+            "[D4-N3-C20]",
+            "[D2-N3-C15]",
+            "[D2-N3-C16]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Organiser les données avec le tri et le filtrage",
+            "Utiliser les tableaux de données pour organiser les données",
+            "Créer et appliquer des styles personnalisés",
+            "Extraire des données avec une zone de critères d'une ou plusieurs conditions",
+            "Utiliser les fonctions de base de données",
+            "Garantir la qualité des données par la validation de données",
+            "Réaliser des sous-totaux simples et multiples",
+            "Utiliser l'assistant Convertir pour répartir le contenu d'une colonne sur plusieurs colonnes"
+          ]
+        },
+        {
+          "id_theme": "PERF_T8",
+          "nom": "Générer et utiliser un tableau croisé dynamique",
+          "domaine_tosa": ["D4"],
+          "competences_tosa": [
+            "[D4-N3-C5]",
+            "[D4-N3-C8]",
+            "[D4-N3-C14]",
+            "[D4-N3-C15]",
+            "[D4-N3-C16]",
+            "[D4-N3-C17]",
+            "[D4-N3-C19]"
+          ],
+          "duree_heures": 1.6,
+          "items": [
+            "Modifier les paramètres des champs de valeurs (nom, format de nombre)",
+            "Filtrer un tableau croisé à l'aide des segments",
+            "Regrouper des valeurs (nombres ou dates)",
+            "Créer un graphique croisé dynamique",
+            "Afficher les valeurs en pourcentage, différence par rapport et valeur cumulée",
+            "Actualisation des données"
+          ]
+        },
+        {
+          "id_theme": "PERF_T9",
+          "nom": "Créer une macro simple",
+          "domaine_tosa": ["D1"],
+          "competences_tosa": ["[D1-N3-C14]"],
+          "duree_heures": 1.6,
+          "items": [
+            "Automatiser le nettoyage ou la transformation des données"
+          ]
+        }
+      ],
+      "blocs_objectifs": [
+        {
+          "id": "B1",
+          "nom": "Parcours complet",
+          "themes": [
+            "PERF_T1",
+            "PERF_T2",
+            "PERF_T3",
+            "PERF_T4",
+            "PERF_T5",
+            "PERF_T6",
+            "PERF_T7",
+            "PERF_T8",
+            "PERF_T9"
+          ]
+        }
+      ]
+    }
+  ]
+}

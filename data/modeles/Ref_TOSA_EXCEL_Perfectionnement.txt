@@ -1,0 +1,93 @@
+EXCEL PERFECTIONNEMENT
+
+Domaines/Compétences visées
+
+*Environnement / Méthodes :
+o Mettre en page et imprimer en utilisant les options proposées par le logiciel
+o Utiliser le mode Affichage approprié
+o Maîtriser le volet Navigation
+o Fractionner un classeur
+o Personnaliser l’interface
+o Afficher l’onglet Développeur
+o Personnaliser la barre d’outils Accès rapide
+o Personnaliser les raccourcis claviers
+o Récupérer une version antérieure du document 
+o Reconnaître des formats de fichier 
+o Connaître la fonction de signature électronique 
+o Protéger une feuille de calcul 
+o Protéger un classeur 
+o Exécuter des macros enregistrées 
+
+*Calculs (formules, fonctions) :
+o Établir des calculs multi-feuilles et multi-classeurs 
+o Réviser une formule de calculs 
+o Effectuer des calculs sur les dates et les heures 
+o Utiliser les fonctions mathématiques : ARRONDI – ENT 
+o Utiliser les fonctions de recherche avancées : INDEX, EQUIV 
+o Utiliser les fonctions de texte : GAUCHE, DROITE, STXT, EXACT 
+o Utiliser les fonctions REMPLACER et REMPLACERB 
+o Utiliser les fonctions de date : AUJOURD’HUI, JOUR, MOIS, JOURSEM et la fonction d’heure 
+o Compter les occurrences d’un tableau (NB.SI) 
+o Générer des nombres aléatoires (ALEA) 
+o Classer des valeurs (RANG) 
+o Utiliser les fonctions de recherche simples : RECHERCHEV, RECHERCHEH 
+o Utiliser la fonction CONCATENER 
+o Utiliser les fonctions de base de données : BDNB, BDNBVAL, BDSOMME, BDMOYENNE, BDMAX, BDMIN, NB.SI.ENS, SOMME.SI.ENS, MOYENNE.SI.ENS 
+o Utiliser des sous-totaux dans un tableau de données 
+o Utiliser la fonction SOUS-TOTAL 
+o Utiliser la fonction SOMMEPROD 
+o Utiliser les fonctions GAUCHE, DROITE, STXT 
+o Utiliser les fonctions REMPLACER et REMPLACERB 
+
+*Mise en forme :
+o Utiliser les mises en forme automatiques 
+o Définir l’arrière-plan des feuilles d’un classeur 
+o Appliquer des mises en forme conditionnelles avec formule 
+o Utiliser les thèmes de classeur 
+o Modifier les marges et l’orientation du classeur 
+o Gérer les sauts de page 
+o Insérer un arrière-plan 
+o Insérer une capture d’écran 
+o Insérer tout type de forme 
+o Maîtriser l’utilisation de SmartArt 
+o Enregistrer un modèle de graphique 
+o Insérer des symboles et des équations 
+o Mettre en forme des objets graphiques 
+o Modifier la forme 
+o Gérer les titres et légendes
+o Utiliser le volet Sélection 
+o Gérer la propriété des objets 
+ 
+*Gestion des données :
+o Utiliser la fonction Tableau 
+o Effectuer des tris multicritères et des tris personnalisés 
+o Utiliser des filtres élaborés pour extraire des données 
+o Maîtriser le remplissage instantané 
+o Insérer et utiliser des segments 
+o Convertir un tableau en plage de données 
+o Créer et gérer des listes déroulantes 
+o Utiliser le bouton Remplissage 
+o Utiliser la fonction Consolider 
+o Superposer des séries 
+o Gérer la largeur d’intervalles 
+o Utiliser un axe secondaire 
+o Insérer des courbes de tendances 
+o Créer un graphique boursier ou un graphique radar 
+o Créer et modifier un tableau croisé dynamique 
+o Sélectionner, copier, déplacer, supprimer un tableau croisé dynamique 
+o Actualiser un tableau croisé dynamique 
+o Modifier la disposition et la mise en forme d’un tableau croisé dynamique 
+o Supprimer les doublons 
+o Utiliser tous les outils d’Analyse rapide 
+
+Niveaux Tosa ®
+Scores Tosa ® 
+Niveaux visés par cette formation
+
+Opérationnel 
+551 – 725 
+Avancé 
+726 – 875 
+
+
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Programme de Formation - {{ candidat.prenom }} {{ candidat.nom }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pdf.css', _external=True) }}">
+</head>
+
+<body>
+    <!-- Pied de page dynamique (Running Elements) -->
+    <div class="footer-left">Date d'impression : {{ now|format_date_fr }}</div>
+    <div class="footer-center">{{ candidat.prenom }} {{ candidat.nom }} -- ID Positionnement : {{ candidat.id_candidat
+        }}</div>
+    <div class="footer-right">Page <span class="page-num"></span> / <span class="page-total"></span></div>
+
+    <div class="header">
+        <div class="header-logo">
+            <img src="{{ url_for('static', filename='img/logo_esadeq.png', _external=True) }}" alt="Logo eS@deq">
+        </div>
+        <div class="header-text">
+            <h1>Programme de Formation Personnalisé</h1>
+            <div class="subtitle">pes@deq - Plateforme de Positionnement</div>
+        </div>
+    </div>
+
+    <div class="candidat-info">
+        <h2>Informations Candidat</h2>
+        <table class="info-table">
+            <tr>
+                <td class="info-label">Nom :</td>
+                <td class="info-value">{{ candidat.nom }}</td>
+                <td class="info-label">Prénom :</td>
+                <td class="info-value">{{ candidat.prenom }}</td>
+            </tr>
+            <tr>
+                <td class="info-label">Identifiant :</td>
+                <td class="info-value">{{ candidat.id_candidat }}</td>
+                <td class="info-label">Date :</td>
+                <td class="info-value">{{ candidat.date_reponse|format_date_fr }}</td>
+            </tr>
+            <tr>
+                <td class="info-label">Formation :</td>
+                <td class="info-value" colspan="3">{{ programme.programme_nom or programme.programme_id }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="estimation">
+        <h3>Synthèse de l'Estimation</h3>
+        <table class="estimation-table">
+            <tr>
+                <td>
+                    <span class="estimation-value">{{ programme.estimation.total_heures|format_fr }}h</span>
+                    <span class="estimation-label">Volume total</span>
+                </td>
+                <td>
+                    <span class="estimation-value">{{ programme.estimation.nb_seances|format_integer_fr }}</span>
+                    <span class="estimation-label">Séances</span>
+                </td>
+                <td>
+                    <span class="estimation-value">{{ programme.estimation.cout_horaire|format_fr }}&nbsp;€</span>
+                    <span class="estimation-label">Coût horaire</span>
+                </td>
+                <td>
+                    <span class="estimation-value">{{ programme.estimation.cout_total|format_fr }}&nbsp;€</span>
+                    <span class="estimation-label">Coût total (estimatif)</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Thèmes à Former ({{ programme.themes_a_former|length }})</h2>
+        {% for theme in programme.themes_a_former %}
+        <div class="theme">
+            <div class="theme-header"
+                style="display: table; width: 100%; border-bottom: 1px solid #1e3a5f; padding-bottom: 5px; margin-bottom: 10px;">
+                <div style="display: table-cell; vertical-align: middle;">
+                    <h4 style="margin: 0; color: #1e3a5f; font-size: 14px;">{{ theme.nom }} &nbsp; <span
+                            style="font-weight: normal; color: #666; font-size: 11px;">Durée estimée : <strong>{{
+                                theme.duree_estimee|format_fr }}h</strong></span></h4>
+                </div>
+                <div style="display: table-cell; vertical-align: middle; text-align: right;">
+                    <span
+                        class="badge badge-{{ 'fort' if theme.niveau_besoin == 'fort' else ('moyen' if theme.niveau_besoin == 'moyen' else 'revoir') }}">
+                        {% if theme.niveau_besoin == 'fort' %}BESOIN FORT{% elif theme.niveau_besoin == 'moyen' %}BESOIN
+                        MOYEN{% else %}À REVOIR{% endif %}
+                    </span>
+                </div>
+            </div>
+
+            <table style="width: 100%; margin-top: 10px; border-collapse: collapse;">
+                <tr>
+                    <!-- Colonne 1 : Activités -->
+                    <td style="width: 55%; vertical-align: top; padding-right: 15px;">
+                        <div
+                            style="font-weight: bold; font-size: 11px; margin-bottom: 5px; color: #555; border-bottom: 1px solid #eee; padding-bottom: 3px;">
+                            Activités prévues :</div>
+                        {% if theme.contenu_programme %}
+                        <div style="font-size: 10px; color: #444; line-height: 1.4; text-align: justify;">
+                            {% for item in theme.contenu_programme %}
+                            • {{ item }}{% if not loop.last %} &nbsp; {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </td>
+                    <!-- Colonne 2 : Compétences -->
+                    <td
+                        style="width: 45%; vertical-align: top; padding-left: 10px; border-left: 1px solid #eee; background-color: #f8fafc; padding: 10px;">
+                        <div
+                            style="font-weight: bold; font-size: 11px; margin-bottom: 8px; color: #1e3a5f; border-bottom: 1px solid #cbd5e1; padding-bottom: 3px;">
+                            Compétences visées :</div>
+                        {% if theme.comp_par_domaine %}
+                        {% for d_group in theme.comp_par_domaine %}
+                        <div style="margin-bottom: 8px;">
+                            <div style="font-weight: bold; font-size: 9px; color: #475569; margin-bottom: 2px;">{{
+                                d_group.nom_domaine }}</div>
+                            <div style="font-size: 9px; color: #4338ca;">
+                                {% for c_nom in d_group.competences %}
+                                - {{ c_nom }}{% if not loop.last %}<br />{% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="section" style="page-break-before: always;">
+        <h2>Déroulé Pédagogique ({{ programme.deroule_pedagogique.nb_seances }} séances)</h2>
+        {% for seance in programme.deroule_pedagogique.seances %}
+        <div class="seance">
+            <div class="seance-header">
+                <span class="seance-num">Séance {{ seance.seance_numero }}</span>
+                <span class="seance-duree">Durée : {{ seance.duree_heures|format_fr }}h</span>
+            </div>
+            {% if seance.blocs %}
+            <div class="seance-blocs">
+                {% for bloc in seance.blocs %}
+                <div class="seance-bloc"
+                    style="margin-bottom: 0; border-radius: 0; {% if not loop.last %}border-bottom: 1px dashed #e2e8f0;{% endif %}">
+                    <p class="bloc-title" style="margin-top: 0; margin-bottom: 8px; color: #1e3a5f; font-size: 13px;">
+                        <strong>Thème {{ bloc.theme_num }} : {{ bloc.nom }}</strong>
+                    </p>
+
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <!-- Colonne 1 : Activités -->
+                            <td style="width: 55%; vertical-align: top; padding-right: 15px;">
+                                <div style="font-weight: bold; font-size: 10px; margin-bottom: 5px; color: #64748b;">
+                                    Activités :</div>
+                                {% if bloc.activites %}
+                                <div style="font-size: 9px; color: #334155; line-height: 1.4;">
+                                    {% for activite in bloc.activites %}
+                                    • {{ activite.nom }}{% if not loop.last %} &nbsp; {% endif %}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                <div style="font-size: 8px; color: #94a3b8; margin-top: 8px;">
+                                    Phase : {{ bloc.phase }} | Prévu : {{ bloc.a_faire|format_fr }}h
+                                </div>
+                            </td>
+                            <!-- Colonne 2 : Compétences -->
+                            <td
+                                style="width: 45%; vertical-align: top; padding-left: 10px; border-left: 1px solid #f1f5f9; background-color: #fbfcfd; padding: 10px;">
+                                <div style="font-weight: bold; font-size: 10px; margin-bottom: 5px; color: #1e3a5f;">
+                                    Compétences visées :</div>
+                                {% if bloc.comp_par_domaine %}
+                                {% for d_group in bloc.comp_par_domaine %}
+                                <div style="margin-bottom: 6px;">
+                                    <div style="font-weight: bold; font-size: 8px; color: #64748b;">{{
+                                        d_group.nom_domaine }}</div>
+                                    <div style="font-size: 8px; color: #4338ca;">
+                                        {% for c_nom in d_group.competences %}
+                                        - {{ c_nom }}{% if not loop.last %}<br />{% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if programme.reponses_par_bloc %}
+    <div class="section" style="page-break-before: always;">
+        <h2>Résultats détaillés par Bloc d'Objectifs Métier</h2>
+        {% for bloc in programme.reponses_par_bloc %}
+        <div class="domain-section">
+            <h3 class="domain-header"
+                style="background: #eef2ff; color: #1e3a5f; padding: 8px 12px; border-left: 4px solid #1e3a5f; font-size: 13px; margin-bottom: 10px;">
+                Bloc {{ loop.index }} : {{ bloc.nom_bloc }}
+            </h3>
+            <table
+                style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 10px; border: 1px solid #e2e8f0;">
+                <thead>
+                    <tr style="background: #f1f5f9; border-bottom: 2px solid #1e3a5f;">
+                        <th style="padding: 10px; text-align: left; color: #1e3a5f;">Sujet / Question</th>
+                        <th style="padding: 10px; text-align: center; width: 100px; color: #1e3a5f;">Acquisition</th>
+                        <th style="padding: 10px; text-align: center; width: 60px; color: #1e3a5f;">Besoin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rep in bloc.reponses %}
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 8px; color: #334155;">{{ rep.texte or rep.id_question }}</td>
+                        <td style="padding: 8px; text-align: center;">
+                            <span
+                                class="badge badge-{{ 'fort' if rep.acquisition == 'Aucun' else ('moyen' if rep.acquisition == 'Moyen' else 'revoir') }}">
+                                {% if rep.acquisition == 'Aucun' %}Non acquis{% elif rep.acquisition == 'Moyen'
+                                %}Moyen{% else %}Acquis{% endif %}
+                            </span>
+                        </td>
+                        <td
+                            style="padding: 8px; text-align: center; font-weight: bold; color: {% if rep.besoin == 'Oui' %}#dc2626{% else %}#10b981{% endif %};">
+                            {{ rep.besoin or '—' }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif programme.reponses_par_domaine %}
+    <div class="section" style="page-break-before: always;">
+        <h2>Résultats détaillés par Domaine</h2>
+        {% for dom in programme.reponses_par_domaine %}
+        <div class="domain-section">
+            <h3 class="domain-header">Domaine : {{ dom.nom_domaine }}</h3>
+            <table
+                style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 10px; border: 1px solid #e2e8f0;">
+                <thead>
+                    <tr style="background: #f1f5f9; border-bottom: 2px solid #1e3a5f;">
+                        <th style="padding: 10px; text-align: left; color: #1e3a5f;">Sujet / Question</th>
+                        <th style="padding: 10px; text-align: center; width: 100px; color: #1e3a5f;">Acquisition</th>
+                        <th style="padding: 10px; text-align: center; width: 60px; color: #1e3a5f;">Besoin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rep in dom.reponses %}
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 8px; color: #334155;">{{ rep.texte or rep.id_question }}</td>
+                        <td style="padding: 8px; text-align: center;">
+                            <span
+                                class="badge badge-{{ 'fort' if rep.acquisition == 'Aucun' else ('moyen' if rep.acquisition == 'Moyen' else 'revoir') }}">
+                                {% if rep.acquisition == 'Aucun' %}Non acquis{% elif rep.acquisition == 'Moyen'
+                                %}Moyen{% else %}Acquis{% endif %}
+                            </span>
+                        </td>
+                        <td
+                            style="padding: 8px; text-align: center; font-weight: bold; color: {% if rep.besoin == 'Oui' %}#dc2626{% else %}#10b981{% endif %};">
+                            {{ rep.besoin or '—' }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if programme.deroule_pedagogique.certification %}
+    {% set cert = programme.deroule_pedagogique.certification %}
+    <div class="certification">
+        <h3 style="font-size: 16px;">Certification : {{ cert.type }}</h3>
+        <p style="font-size: 12px; margin-bottom: 5px;"><strong>Durée :</strong> {{ cert.duree }} &nbsp; | &nbsp;
+            <strong>Horaire :</strong> {{ cert.horaire }}
+        </p>
+        <p class="note">{{ cert.note }}</p>
+    </div>
+    {% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+Exploiter les fonctionnalités de Microsoft Excel pour la gestion et l'analyse des données (Tosa) - Perfectionnement / Avancé
+Durée
+2 jours (14h) + 1h de certification
+Objectifs
+* Personnaliser son environnement Excel et optimiser sa productivité
+* Concevoir et mettre en forme des tableaux professionnels
+* Utiliser des formules et fonctions complexes pour automatiser les calculs
+* Exploiter et analyser des bases de données structurées
+* Produire des analyses visuelles et dynamiques avec des graphiques et tableaux croisés
+* Automatiser leurs tâches courantes grâce à des macros enregistrées
+Compétences visées (par domaine)
+Environnement et méthodes
+* Connaitre et exploiter les outils d'édition
+* Connaitre l'environnement du logiciel et en utiliser les principales fonctionnalités
+* Organiser les classeurs, feuilles et tableaux
+* Connaître et personnaliser les différents modes d'affichage
+Calculs et formules
+* Utiliser les fonctions de calcul dans des formules
+* Utiliser les fonctions de calculs spécifiques à la gestion de bases de données
+* Gérer les formules
+Mise en forme
+* Créer, utiliser, modifier les formats numériques
+* Mettre en forme les données d'un classeur (formules, textes et graphiques)
+* Appliquer et gérer les mises en forme conditionnelles
+Gestion des données
+* Utiliser les outils de gestion de données
+* Créer et gérer les graphiques
+* Créer et gérer les tableaux croisés dynamiques
+Programme (par thème)
+Environnement
+* Gérer la compatibilité des fichiers entre différentes versions du logiciel (par exemple : Excel 2010, 2016, 2019, 365, etc.)
+* Personnaliser l'interface
+* Optimiser le flux de travail et la performance : personnalisation du ruban et de la barre d'accès rapide
+Utiliser et modification des fonctions avancées
+* Comprendre et utiliser les collages spéciaux
+* Appliquer les styles personnalisés
+* Créer et gérer des formats personnalisés
+* Exploiter les fonctions d'auto-complétion avancées pour générer des séries de données basées sur des critères complexes
+* Protéger une feuille de calcul ou un classeur
+Utiliser les fonctions de calcul
+* Gérer/Corriger les erreurs
+* Utiliser les références absolues
+* Utiliser les fonctions de recherche
+* Utiliser les fonctions dates
+* Utiliser les fonctions d'arrondi
+* Utiliser les fonctions texte
+* Utiliser les fonctions de remplacement
+* Utiliser les fonctions logiques
+* Générer les nombres aléatoires
+* Utiliser les fonctions de base de données
+* Utiliser la fonction SOUS.TOTAL
+* Utiliser la fonction SOMMEPROD
+* Documenter les formules avec des commentaires pour expliquer leur fonctionnement et leur objectif
+Mettre en page et Impression
+* Utiliser des fonctions avancées pour créer des mises en page professionnelles
+* Appliquer des styles prédéfinis pour uniformiser la mise en forme à travers les classeurs
+* Créer des mises en page personnalisées (marges, en-têtes ou notes de bas de page) pour produire des documents professionnels et améliorer leur lisibilité à l'impression
+* Modifier les options d'affichage avancées pour optimiser l'expérience utilisateur lors de l'analyse des données
+Mise en forme conditionnelle
+* Créer une régle de mise en forme avec des régles complexes
+* Copier une mise en forme vers d'autres cellules
+* Rechercher des cellules avec mise en forme conditionnelle
+* Supprimer une mise en forme conditionnelle
+Créer des graphiques et objets graphiques
+* Intégrer des objets graphiques
+* Créer et personnaliser des objets graphiques avancés
+* Concevoir un graphique à deux axes
+* Personnaliser les graphiques avec des options avancées
+* Utiliser des fonctionnalités avancées pour mettre à jour automatiquement les graphiques en fonction des modifications des données sous-jacentes
+Exploiter des bases de données
+* Organiser les données avec le tri et le filtrage
+* Utiliser les tableaux de données pour organiser les données
+* Créer et appliquer des styles personnalisés
+* Extraire des données avec une zone de critères d'une ou plusieurs conditions
+* Utiliser les fonctions de base de données
+* Garantir la qualité des données par la validation de données
+* Réaliser des sous-totaux simples et multiples
+* Utiliser l'assistant Convertir pour répartir le contenu d'une colonne sur plusieurs colonnes
+Générer et utiliser un tableau croisé dynamique
+* Modifier les paramètres des champs de valeurs (nom, format de nombre)
+* Filtrer un tableau croisé à l'aide des segments
+* Regrouper des valeurs (nombres ou dates)
+* Créer un graphique croisé dynamique
+* Afficher les valeurs en pourcentage, différence par rapport et valeur cumulée
+* Actualisation des données
+Créer une macro simple
+* Automatiser le nettoyage ou la transformation des données

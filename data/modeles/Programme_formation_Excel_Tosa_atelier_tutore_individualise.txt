@@ -1,0 +1,104 @@
+Exploiter les fonctionnalités de Microsoft Excel pour la gestion et l'analyse des données (Tosa) – tous niveaux – atelier tutoré individualisé
+Durée
+Le document ne mentionne pas de durée totale fixe. La formation est sur mesure, planifiée par ½ journée ou journée entière.
+Objectifs
+* Personnaliser et gérer l’environnement et les classeurs Excel.
+* Concevoir et structurer des tableaux professionnels.
+* Créer et structurer des formules de calcul simples et avancées.
+* Mettre en forme, organiser et imprimer des tableaux.
+* Exploiter et analyser des bases de données.
+* Créer et personnaliser des graphiques illustrant les analyses.
+* Exploiter et analyser des bases de données structurées.
+* Produire des analyses visuelles et dynamiques avec des graphiques et tableaux croisés.
+* Automatiser des tâches courantes grâce à des macros enregistrées.
+Compétences visées (par domaine)
+Environnement et méthodes
+* Connaître et exploiter les outils d’édition.
+* Connaître l’environnement du logiciel et utiliser ses principales fonctionnalités.
+* Organiser les classeurs, feuilles et tableaux.
+* Connaître et personnaliser les différents modes d’affichage.
+Calculs et formules
+* Utiliser les fonctions de calcul dans des formules.
+* Utiliser les fonctions spécifiques à la gestion de bases de données.
+* Gérer les formules.
+Mise en forme
+* Créer, utiliser et modifier les formats numériques.
+* Mettre en forme les données d’un classeur (formules, textes et graphiques).
+* Appliquer et gérer les mises en forme conditionnelles.
+Gestion des données
+* Utiliser les outils de gestion de données.
+* Créer et gérer les graphiques.
+* Créer et gérer les tableaux croisés dynamiques.
+Programme (par thème)
+Environnement Excel / Interface
+* Présentation de l’interface et de ses zones (barre d’outils d’accès rapide, onglets, ruban, groupes, etc.).
+* Personnaliser les onglets du ruban.
+* Créer et utiliser les commentaires.
+* Modifier les options d’affichage (grilles, lignes de grille).
+* Gérer la compatibilité des fichiers entre versions (2010, 2016, 2019, 365…).
+Gestion des fichiers
+* Ouvrir et fermer l’application et les classeurs.
+* Gérer les classeurs : renommer, déplacer, dupliquer.
+Mise en forme de tableaux
+* Couper, copier, coller.
+* Utiliser la poignée de recopie (séries incrémentées).
+* Insérer ou supprimer des lignes/colonnes ; ajuster largeurs/hauteurs ; masquer.
+* Formater les nombres (décimales, milliers, dates, monnaies, pourcentages).
+* Police, taille, couleurs de remplissage.
+* Alignements, orientation, fusion de cellules.
+* Styles prédéfinis, trames, bordures ; reproduire la mise en forme.
+* Retour à la ligne automatique ; formats personnalisés.
+Mise en page et impression
+* Centrer un tableau dans la page.
+* Ajuster pour l’impression ; zone d’impression.
+* En?têtes et pieds de page, marges.
+* Mise en page de données volumineuses (plusieurs pages).
+Gérer les feuilles de calcul
+* Insérer, supprimer, copier, déplacer, renommer une feuille.
+Mise en forme conditionnelle
+* Règles simples.
+* Règles basées sur des formules.
+* Copier/rechercher/supprimer les mises en forme conditionnelles.
+Affichage
+* Afficher/Masquer le quadrillage.
+* Utiliser les différents modes d’affichage.
+* Personnaliser le zoom.
+Créer des formules de calcul
+* Bonnes pratiques (références de cellules, opérateurs, parenthèses).
+* Identifier les erreurs (#NOM?, #DIV/0!, #####).
+* Références relatives et absolues.
+* Fonctions : statistiques, conditionnelles, logiques, temps, recherche, texte, base de données.
+* Arrondis, remplacement, nombres aléatoires.
+* Documenter les formules avec des commentaires.
+Fonctions avancées
+* Comprendre et utiliser les collages spéciaux.
+* Appliquer les styles personnalisés.
+* Créer et gérer des formats personnalisés.
+* Auto-complétion avancée (séries basées sur des critères).
+* Protéger une feuille ou un classeur.
+Graphiques et objets graphiques
+* Créer et modifier des objets graphiques (formes, images).
+* Créer des graphiques de base (histogramme, courbe, secteur).
+* Personnaliser les couleurs, étiquettes et axes.
+* Concevoir un graphique à deux axes.
+* Options avancées.
+Exploiter une plage, liste ou tableau de données
+* Comprendre les plages, listes et tableaux structurés.
+* Filtres (selon critères) ; tris simples et multi-niveaux.
+* Figer les volets.
+* Nettoyage (doublons, formats).
+* Opérations simples ; import/export.
+* Extraction avec zone de critères (une ou plusieurs conditions).
+* Validation des données.
+* Sous-totaux simples et multiples.
+* Assistant Convertir pour répartir le contenu d’une colonne.
+Tableau croisé dynamique
+* Créer des TCD à partir de données simples.
+* Ajouter/supprimer des champs ; filtres et tris.
+* Paramètres des champs de valeurs (nom, format).
+* Segments ; regroupements (nombres, dates).
+* Graphique croisé dynamique.
+* Afficher en pourcentage, différence, cumulé.
+* Actualiser les données.
+Créer une macro simple
+* Automatiser le nettoyage ou la transformation des données.

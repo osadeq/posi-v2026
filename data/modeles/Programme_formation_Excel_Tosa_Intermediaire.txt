@@ -1,0 +1,75 @@
+Exploiter les fonctionnalités de Microsoft Excel pour la gestion et l'analyse des données (Tosa) – Intermédiaire
+Durée
+2 jours (14h) + 1h de certification
+Objectifs
+* Personnaliser et gérer efficacement leurs classeurs et leur environnement Excel
+* Créer et structurer des formules de calcul avancées
+* Mettre en forme, organiser et imprimer des tableaux professionnels
+* Exploiter et analyser des bases de données de manière efficace
+* Créer et personnaliser des graphiques illustrant leurs analyses
+* Utiliser les tableaux croisés dynamiques pour réaliser des analyses approfondies
+Compétences visées (par domaine)
+Environnement et méthodes
+* Connaitre et exploiter les outils d’édition
+* Connaitre l’environnement du logiciel et en utiliser les principales fonctionnalités
+* Organiser les classeurs, feuilles et tableaux
+* Connaître et personnaliser les différents modes d'affichage
+Calculs et formules
+* Utiliser les fonctions de calcul dans des formules
+* Utiliser les fonctions de calculs spécifiques à la gestion de bases de données
+* Gérer les formules
+Mise en forme
+* Créer, utiliser, modifier les formats numériques
+* Mettre en forme les données d'un classeur (formules, textes et graphiques)
+* Appliquer et gérer les mises en forme conditionnelles
+Gestion des données
+* Utiliser les outils de gestion de données
+* Créer et gérer les graphiques
+* Créer et gérer les tableaux croisés dynamiques
+Programme (par thème)
+Environnement Excel / Interface
+* Personnaliser les onglets du ruban pour regrouper les outils utilisés
+* Utiliser efficacement les principaux raccourcis clavier : couper, copier, coller…
+* Créer et utiliser les commentaires
+* Synchroniser automatiquement les feuilles de calcul avec OneDrive
+* Modifier les options d'affichage des grilles et des lignes de grille pour une meilleure lisibilité des données
+* Utiliser les modes d'affichage spécifiques pour une organisation efficace des données
+Gestion des fichiers
+* Gérer les classeurs : les renommer, les déplacer, les dupliquer
+Mise en forme de tableaux
+* Appliquer une trame de fond, une bordure…
+* Reproduire la mise en forme d'une cellule vers une autre ou plusieurs cellule(s) et vers une ou plusieurs plages de cellules
+* Savoir appliquer le retour à la ligne automatique dans les cellules
+* Formater les dates, les quantités monétaires, les pourcentages
+* Appliquer différents styles prédéfinis
+* Créer et manipuler des formats personnalisés
+Gérer les feuilles de calcul
+* Insérer une nouvelle feuille, supprimer une feuille
+* Copier, déplacer, renommer une feuille dans le classeur
+Créer des formules de calcul
+* Utiliser les fonctions d'auto-complétion pour générer des séries de données complexes et des formules simples
+* Utiliser des références relatives et absolues
+* Organiser les formules pour les rendre lisibles (insérer un saut de ligne manuellement dans une cellule)
+* Utiliser les fonctions statistiques
+* Utiliser les fonctions conditionnelles et logiques
+* Utiliser les fonctions de temps
+* Utiliser les fonctions de recherche
+* Utiliser les fonctions permettant d’extraire et analyser les données
+Mettre en page et Impression
+* Utiliser les en-têtes et les pieds de page, les marges…
+* Numéroter les pages
+* Mise en page de données volumineuses (plusieurs pages)
+Utiliser des objets graphiques
+* Ajouter, redimensionner et mettre en forme des objets graphiques : zones de texte, formes…
+* Créer différents types de graphiques, y compris des graphiques en nuage de points
+* Personnaliser l'apparence des graphiques en modifiant les couleurs, les étiquettes et les axes
+* Mettre à jour manuellement les graphiques en cas de modification des données
+Utiliser les outils de gestion de données
+* Créer des mises en forme conditionnelles basées sur les formules, pour mettre en évidence des tendances ou des valeurs spécifiques
+* Créer et utiliser les options des tableaux de données
+* Effectuer des opérations simples sur les tableaux de données
+* Importer et exporter des données de diverses sources
+* Utiliser des filtres avancés et des tris à plusieurs niveaux
+Tableau croisé dynamique
+* Créer des tableaux croisés dynamiques pour analyser des données complexes en croisant, filtrant et segmentant les informations
+* Utiliser des filtres et des tris pour explorer et visualiser les données de manière plus approfondie

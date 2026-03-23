@@ -1,0 +1,77 @@
+Exploiter les fonctionnalités de Microsoft Excel pour la gestion et l'analyse des données (Tosa) - Initiation
+Durée
+2 jours (14h) + 1h de certification
+Objectifs
+* Utiliser l’interface d’Excel et gérer ses classeurs
+* Concevoir et structurer des tableaux professionnels
+* Mettre en forme et présenter ses données
+* Créer des formules de calcul simples et fiables
+* Illustrer leurs données avec des graphiques
+* Trier, filtrer et exploiter des listes de données
+* Réaliser une première analyse grâce aux tableaux croisés dynamiques
+Compétences visées (par domaine)
+Environnement et méthodes
+* Connaitre et exploiter les outils d’édition
+* Connaitre l’environnement du logiciel et en utiliser les principales fonctionnalités
+* Organiser les classeurs, feuilles et tableaux
+* Connaître et personnaliser les différents modes d'affichage
+Calculs et formules
+* Utiliser les fonctions de calcul dans des formules
+* Utiliser les fonctions de calculs spécifiques à la gestion de bases de données
+* Gérer les formules
+Mise en forme
+* Créer, utiliser, modifier les formats numériques
+* Mettre en forme les données d'un classeur (formules, textes et graphiques)
+* Appliquer et gérer les mises en forme conditionnelles
+Gestion des données
+* Utiliser les outils de gestion de données
+* Créer et gérer les graphiques
+* Créer et gérer les tableaux croisés dynamiques
+Programme (par thème)
+Environnement Excel / Interface
+* Présentation de l’interface du logiciel et de ses différentes zones : barre d’outils d’accès rapide, barre de titre et barre d’état, onglet, ruban, groupe, lanceur de boite de dialogue…
+Gestion des fichiers
+* Ouvrir et fermer l'application, un classeur, plusieurs classeurs, ouvrir un classeur récent
+Gérer et mettre en forme les cellules
+* Utiliser les outils couper, copier, coller
+* Utiliser la poignée de recopie afin d’utiliser les séries incrémentées standards
+* Insérer ou supprimer des lignes ou des colonnes
+* Ajuster ou modifier les largeurs de lignes ou colonnes, masquer une ligne ou une colonne
+* Formater les nombres dans les cellules : décimales, milliers, ajustement de la largeur de colonne pour l'affichage
+* Formater les dates, les quantités monétaires, les pourcentages
+* Changer la police, la taille des caractères, couleur de remplissage
+* Aligner les contenus de cellules (droite, gauche, centré, haut, bas), changer l'orientation
+* Fusionner des cellules pour centrer un texte
+* Appliquer des styles prédéfinis aux cellules
+Mettre en page et Impression
+* Centrer un tableau dans la page
+* Ajuster le tableau pour l’impression
+* Créer, modifier une zone d’impression
+Mise en forme conditionnelle
+* Appliquer des règles simples de mise en forme conditionnelle pour mettre en évidence certaines valeurs
+Affichage
+* Afficher/Masquer le quadrillage
+* Utiliser les différents modes d’affichage
+* Personnaliser le zoom
+Créer des formules de calcul
+* Bonnes pratiques pour la création de formules : utiliser les adresses (références) des cellules
+* Créer des formules simples en utilisant des références à des cellules, des opérateurs arithmétiques, et des parenthèses
+* Identifier les erreurs de calculs : #NOM?, #DIV/0! et #####
+* Identifier l’impact de la suppression d’une ligne ou d’une colonne sur une formule
+* Comprendre et utiliser les fonctions : SOMME, MOYENNE, MAX, NB
+* Utiliser la fonction conditionnelle : SI
+* Utiliser la fonction de recherche : RECHERCHEV
+Créer des graphiques
+* Créer et modifie des objets graphiques de base (formes, images)
+* Créer des graphiques de base (histogramme, courbe, secteur)
+Exploiter une plage, liste ou tableau de données
+* Comprendre ce qu'est une plage, liste ou tableau de données
+* Utiliser un tableau automatique de données (tableau structuré)
+* Utiliser les filtres pour sélectionner des enregistrements (=lignes) en fonction de critères
+* Appliquer un tri croissant, décroissant
+* Figer les volets
+* Utiliser des opérations de nettoyage : suppression de doublons, correction des formats
+Tableau croisé dynamique
+* Créer des tableaux croisés dynamiques de base à partir de données simples
+* Ajouter et supprime des champs
+* Utiliser des filtres et des tris de base

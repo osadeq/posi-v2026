@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block title %}Import Candidat - eS@deq{% endblock %}
+
+{% block extra_css %}
+<style>
+    .template-dl-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+    }
+
+    .template-dl-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1.5px solid #e4e7eb;
+        background: #f8fafc;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .template-dl-btn:hover {
+        border-color: #1a3361;
+        background: #eef2f9;
+        box-shadow: 0 3px 12px rgba(15,31,61,0.1);
+        transform: translateY(-2px);
+    }
+
+    .template-dl-btn .dl-icon {
+        font-size: 1.4rem;
+        margin-bottom: 2px;
+    }
+
+    .template-dl-btn .dl-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #0f1f3d;
+        line-height: 1.2;
+    }
+
+    .template-dl-btn .dl-meta {
+        font-size: 0.7rem;
+        color: #6c7789;
+    }
+
+    .template-dl-btn .dl-badge {
+        margin-top: 6px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        background: #e8edf6;
+        color: #1a3361;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .template-dl-btn.word .dl-badge {
+        background: #e8f0fe;
+        color: #1a56db;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+    <header class="page-header">
+        <h1>Importer un Candidat</h1>
+        <p class="page-subtitle">Importez un nouveau candidat depuis un fichier CSV Moodle</p>
+    </header>
+
+    <div class="import-container">
+
+        <!-- ══ TÉLÉCHARGER UN MODÈLE ══ -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fa-solid fa-file-arrow-down" style="color:#c9a84c;margin-right:8px"></i>Télécharger un questionnaire type</h2>
+            </div>
+            <div class="card-body">
+                <p style="margin-bottom:0;font-size:0.88rem;color:#6c7789;">
+                    Téléchargez un fichier CSV pré-rempli avec toutes les questions du thème choisi. Il vous suffit de modifier les colonnes <code>acquisition</code> et <code>besoin</code> pour chaque candidat avant de l'importer.
+                </p>
+                <div class="template-dl-grid">
+                    <a href="{{ url_for('telecharger_template_csv', id_questionnaire='QUEST_EXCEL_INIT') }}"
+                       class="template-dl-btn" title="Télécharger le modèle Excel Initiation">
+                        <span class="dl-icon">📗</span>
+                        <span class="dl-title">Excel — Initiation</span>
+                        <span class="dl-meta">Niveau N1 · 21 questions</span>
+                        <span class="dl-badge"><i class="fa-solid fa-download" style="font-size:0.6rem"></i> QUEST_EXCEL_INIT</span>
+                    </a>
+                    <a href="{{ url_for('telecharger_template_csv', id_questionnaire='QUEST_EXCEL_INTER') }}"
+                       class="template-dl-btn" title="Télécharger le modèle Excel Intermédiaire">
+                        <span class="dl-icon">📘</span>
+                        <span class="dl-title">Excel — Intermédiaire</span>
+                        <span class="dl-meta">Niveau N2 · 15 questions</span>
+                        <span class="dl-badge"><i class="fa-solid fa-download" style="font-size:0.6rem"></i> QUEST_EXCEL_INTER</span>
+                    </a>
+                    <a href="{{ url_for('telecharger_template_csv', id_questionnaire='QUEST_EXCEL_PERF') }}"
+                       class="template-dl-btn" title="Télécharger le modèle Excel Perfectionnement">
+                        <span class="dl-icon">📙</span>
+                        <span class="dl-title">Excel — Perfectionnement</span>
+                        <span class="dl-meta">Niveau N3 · 16 questions</span>
+                        <span class="dl-badge"><i class="fa-solid fa-download" style="font-size:0.6rem"></i> QUEST_EXCEL_PERF</span>
+                    </a>
+                    <a href="{{ url_for('telecharger_template_csv', id_questionnaire='QUEST_WORD') }}"
+                       class="template-dl-btn word" title="Télécharger le modèle Word">
+                        <span class="dl-icon">📝</span>
+                        <span class="dl-title">Word — Rédaction professionnelle</span>
+                        <span class="dl-meta">Tous niveaux · 51 questions</span>
+                        <span class="dl-badge" style="background:#e8f0fe;color:#1a56db;"><i class="fa-solid fa-download" style="font-size:0.6rem"></i> QUEST_WORD</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ FORMULAIRE D'IMPORT ══ -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fa-solid fa-file-import" style="color:#c9a84c;margin-right:8px"></i>Importer les réponses d'un candidat</h2>
+            </div>
+            <div class="card-body">
+                <div style="background:#f0f7ff;border-left:3px solid #1a3361;padding:10px 14px;border-radius:6px;margin-bottom:18px;font-size:0.88rem;color:#1a3361;">
+                    <strong>Workflow recommandé :</strong>
+                    <ol style="margin:6px 0 0 16px;padding:0;">
+                        <li>Télécharger le <strong>questionnaire type Excel</strong> (ci-dessus) et le remettre au candidat</li>
+                        <li>Le candidat remplit les colonnes <strong>Maîtrise</strong> et <strong>Souhait de formation</strong> via les listes déroulantes</li>
+                        <li>Importer le fichier <strong>.xlsx</strong> complété ici &mdash; le programme est généré automatiquement</li>
+                    </ol>
+                </div>
+
+                <form method="POST" enctype="multipart/form-data" class="import-form">
+                    <div class="form-group">
+                        <label for="nom">Nom du candidat <span class="required">*</span></label>
+                        <input type="text" id="nom" name="nom" required class="form-control" placeholder="Entrez le nom">
+                        <p class="help-text">Si rempli dans l'onglet Accueil du fichier Excel, ce champ sera complété automatiquement</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom du candidat</label>
+                        <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Entrez le prénom">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Fichier Excel (.xlsx) ou CSV <span class="required">*</span></label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="file" name="file" accept=".xlsx,.csv,.txt" required class="form-control-file">
+                            <p class="help-text">Format recommandé : <strong>.xlsx</strong> (questionnaire type téléchargé ci-dessus, rempli par le candidat)</p>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <a href="{{ url_for('liste_candidats') }}" class="btn btn-secondary">Annuler</a>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-upload" style="margin-right:6px"></i>Importer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ══ FORMAT DE FICHIER (secondaire) ══ -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Formats acceptés</h2>
+            </div>
+            <div class="card-body">
+
+                <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                    <thead>
+                        <tr style="background:#0f1f3d;color:#fff;">
+                            <th style="padding:8px 12px;text-align:left;">Format</th>
+                            <th style="padding:8px 12px;text-align:left;">Source</th>
+                            <th style="padding:8px 12px;text-align:left;">Colonnes lues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background:#f7f5f0;">
+                            <td style="padding:8px 12px;"><strong>📗 Excel (.xlsx)</strong> <span style="background:#e8f5e9;color:#2e7d32;font-size:0.7rem;padding:2px 6px;border-radius:10px;font-weight:700;">Recommandé</span></td>
+                            <td style="padding:8px 12px;">Questionnaire type téléchargé ci-dessus</td>
+                            <td style="padding:8px 12px;"><code>╔ Questionnaire</code> — col. C, D, E, F</td>
+                        </tr>
+                        <tr style="background:#fff;">
+                            <td style="padding:8px 12px;"><strong>📄 CSV (.csv / .txt)</strong></td>
+                            <td style="padding:8px 12px;">Export Moodle ou fichier manuel</td>
+                            <td style="padding:8px 12px;"><code>id_questionnaire ; id_question ; acquisition ; besoin</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="help-text" style="margin-top:12px;">
+                    🔑 Le programme de formation est <strong>automatiquement déduit</strong> du champ <code>id_questionnaire</code> présent dans le fichier.
+                    Pour Excel, le nom et le prénom du candidat sont lus automatiquement depuis l'onglet <em>Accueil</em> s'ils ont été saisis.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+

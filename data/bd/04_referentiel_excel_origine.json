@@ -1,0 +1,836 @@
+{
+    "referentiel": "Excel",
+    "competences_visees": [
+        {
+            "id_domaine": "D1",
+            "title": "Environnement / Méthodes",
+            "niveaux": [
+                {
+                    "id_niveau": "N1",
+                    "title": "Excel débutant",
+                    "competences": [
+                        {
+                            "id_comp": "[D1-N1-C1]",
+                            "title": "Ouvrir un document Excel",
+                            "id_theme": "T2"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C2]",
+                            "title": "Sauvegarder un document Excel",
+                            "id_theme": "T2"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C3]",
+                            "title": "Imprimer un document Excel",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C4]",
+                            "title": "Identifier les onglets au sein du ruban",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C5]",
+                            "title": "Figer les volets",
+                            "id_theme": "T7"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C6]",
+                            "title": "Modifier une zone d'impression",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C7]",
+                            "title": "Mettre en page un document",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C8]",
+                            "title": "Changer la largeur des colonnes",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C9]",
+                            "title": "Changer la hauteur des lignes",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C10]",
+                            "title": "Supprimer et insérer des cellules",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D1-N1-C11]",
+                            "title": "Enregistrer un document sous un autre nom",
+                            "id_theme": "T2"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N2",
+                    "title": "Excel intermédiaire",
+                    "competences": [
+                        {
+                            "id_comp": "[D1-N2-C1]",
+                            "title": "Personnaliser les onglets du ruban",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C2]",
+                            "title": "Se déplacer à l'aide de raccourcis clavier",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C3]",
+                            "title": "Utiliser la poignée de recopie",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C4]",
+                            "title": "Déplacer et dupliquer une feuille de Calcul",
+                            "id_theme": "T5"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C5]",
+                            "title": "Constituer un groupe de travail",
+                            "id_theme": "T5"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C6]",
+                            "title": "Coller et transposer les valeurs",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C7]",
+                            "title": "Coller en effectuant une opération",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C8]",
+                            "title": "Coller les formats",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C9]",
+                            "title": "Enregistrer un document au format PDF",
+                            "id_theme": "T2"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C10]",
+                            "title": "Connaître les règles de compatibilité entre les différentes versions de documents",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C11]",
+                            "title": "Maîtriser les options d'impression",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D1-N2-C12]",
+                            "title": "Insérer un en-tête ou un pied de page",
+                            "id_theme": "T4"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N3",
+                    "title": "Excel avancé",
+                    "competences": [
+                        {
+                            "id_comp": "[D1-N3-C1]",
+                            "title": "Mettre en page et imprimer en utilisant les options proposées par le logiciel",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C2]",
+                            "title": "Utiliser le mode Affichage approprié",
+                            "id_theme": "T7"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C3]",
+                            "title": "Maîtriser le volet Navigation",
+                            "id_theme": "T7"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C4]",
+                            "title": "Fractionner un classeur",
+                            "id_theme": "T7"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C5]",
+                            "title": "Personnaliser l'interface",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C6]",
+                            "title": "Afficher l'onglet Développeur",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C7]",
+                            "title": "Personnaliser la barre d'outils Accès rapide",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C8]",
+                            "title": "Personnaliser les raccourcis claviers",
+                            "id_theme": "T1"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C9]",
+                            "title": "Récupérer une version antérieure du document",
+                            "id_theme": "T2"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C10]",
+                            "title": "Reconnaître des formats de fichier",
+                            "id_theme": "T2"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C11]",
+                            "title": "Connaître la fonction de signature électronique",
+                            "id_theme": "T2"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C12]",
+                            "title": "Protéger une feuille de calcul",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C13]",
+                            "title": "Protéger un classeur",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D1-N3-C14]",
+                            "title": "Exécuter des macros enregistrées",
+                            "id_theme": "T13"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id_domaine": "D2",
+            "title": "Calculs & Formules",
+            "niveaux": [
+                {
+                    "id_niveau": "N1",
+                    "title": "Excel débutant",
+                    "competences": [
+                        {
+                            "id_comp": "[D2-N1-C1]",
+                            "title": "Entrer un texte ou une formule simple dans une cellule",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C2]",
+                            "title": "Saisir une heure",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C3]",
+                            "title": "Reconnaître le symbole ERREUR",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C4]",
+                            "title": "Saisir une addition, une soustraction, une multiplication et une division",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C5]",
+                            "title": "Identifier l'ordre correct des opérations",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C6]",
+                            "title": "Saisir une heure dans une cellule",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C7]",
+                            "title": "Comprendre les formules MAX, MIN, ET, OU et SI",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N1-C8]",
+                            "title": "Déterminer l'impact de la suppression d'une line ou d'une colonne sur une formule",
+                            "id_theme": "T8"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N2",
+                    "title": "Excel intermédiaire",
+                    "competences": [
+                        {
+                            "id_comp": "[D2-N2-C1]",
+                            "title": "Connaître et utiliser les références absolues et relatives dans une formule",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N2-C2]",
+                            "title": "Copier ou déplacer une formule",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N2-C3]",
+                            "title": "Utiliser du texte dans une formule",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N2-C4]",
+                            "title": "Comprendre les principales erreurs de Calcul : #NOM?, #DIV/0!, #####",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N2-C5]",
+                            "title": "Créer des formules de calculs longues avec plusieurs opérateurs arithmétiques",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N2-C6]",
+                            "title": "Utiliser les fonctions de calcul statistique simples : SOMME, MOYENNE, MAX, MIN",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N2-C7]",
+                            "title": "Utiliser les formules conditionnelles : SI, SI imbriqués, OU, ET",
+                            "id_theme": "T8"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N3",
+                    "title": "Excel avancé",
+                    "competences": [
+                        {
+                            "id_comp": "[D2-N3-C1]",
+                            "title": "Établir des calculs multi-feuilles et multi-classeurs",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C2]",
+                            "title": "Réviser une formule de calculs",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C3]",
+                            "title": "Effectuer des calculs sur les dates et les heures",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C4]",
+                            "title": "Utiliser les fonctions mathématiques : ARRONDI – ENT",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C5]",
+                            "title": "Utiliser les fonctions de recherche avancées : INDEX, EQUIV",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C6]",
+                            "title": "Utiliser les fonctions de texte : GAUCHE, DROITE, STXT, EXACT",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C7]",
+                            "title": "Utiliser les fonctions REMPLACER et REMPLACERB",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C8]",
+                            "title": "Utiliser les fonctions de date : AUJOURD'HUI, JOUR, MOIS, JOURSEM et la fonction d'heure",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C9]",
+                            "title": "Compter les occurrences d'un tableau (NB.SI)",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C10]",
+                            "title": "Générer des nombres aléatoires (ALEA)",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C11]",
+                            "title": "Classer des valeurs (RANG)",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C12]",
+                            "title": "Utiliser les fonctions de recherche simples : RECHERCHEV, RECHERCHEH",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C13]",
+                            "title": "Utiliser la fonction CONCATENER",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C14]",
+                            "title": "Utiliser les fonctions de base de données : BDNB, BDNBVAL, BDSOMME, BDMOYENNE, BDMAX, BDMIN, NB.SI.ENS, SOMME.SI.ENS, MOYENNE.SI.ENS",
+                            "id_theme": "T8"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C15]",
+                            "title": "Utiliser des sous-totaux dans un tableau de données",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C16]",
+                            "title": "Utiliser la fonction SOUS-TOTAL",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D2-N3-C17]",
+                            "title": "Utiliser la fonction SOMMEPROD",
+                            "id_theme": "T8"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id_domaine": "D3",
+            "title": "Mise en forme",
+            "niveaux": [
+                {
+                    "id_niveau": "N1",
+                    "title": "Excel débutant",
+                    "competences": [
+                        {
+                            "id_comp": "[D3-N1-C1]",
+                            "title": "Utiliser les fonctions les plus simples de mise en forme des cellules pour la police (couleur, style de police, alignement)",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C2]",
+                            "title": "Utiliser les fonctions les plus simples de mise en forme des cellules pour les nombres (pourcentage, séparateur de milliers, comptabilité)",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C3]",
+                            "title": "Modifier l'orientation de la page",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C4]",
+                            "title": "Modifier les marges",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C5]",
+                            "title": "Effectuer des formatages simples de nombres",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C6]",
+                            "title": "(pourcentages, séparateurs de milliers, etc.)",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C7]",
+                            "title": "Effectuer des encadrements de cellules",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C8]",
+                            "title": "Maîtriser la différence entre la couleur de fond et la couleur de police",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N1-C9]",
+                            "title": "Utiliser l'outil Pinceau",
+                            "id_theme": "T3"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N2",
+                    "title": "Excel intermédiaire",
+                    "competences": [
+                        {
+                            "id_comp": "[D3-N2-C1]",
+                            "title": "Reconnaître les différents formats de cellules",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C2]",
+                            "title": "Fusionner des cellules",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C3]",
+                            "title": "Modifier l'alignement du contenu d'une cellule",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C4]",
+                            "title": "Comprendre la mise en forme conditionnelle",
+                            "id_theme": "T6"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C5]",
+                            "title": "Utiliser le vérificateur d'orthographe",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C6]",
+                            "title": "Accepter ou refuser les corrections",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C7]",
+                            "title": "Créer un tableau",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C8]",
+                            "title": "Appliquer un style à un tableau",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C9]",
+                            "title": "Insérer un SmartArt, une forme ou une image",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C10]",
+                            "title": "Insérer un graphique",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C11]",
+                            "title": "Effectuer une mise en forme avec les styles de graphique",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C12]",
+                            "title": "Agrandir et réduire la taille d'un graphique",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N2-C13]",
+                            "title": "Gérer les titres et légendes",
+                            "id_theme": "T10"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N3",
+                    "title": "Excel avancé",
+                    "competences": [
+                        {
+                            "id_comp": "[D3-N3-C1]",
+                            "title": "Utiliser les mises en forme automatiques",
+                            "id_theme": "T9"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C2]",
+                            "title": "Définir l'arrière-plan des feuilles d'un classeur",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C3]",
+                            "title": "Appliquer des mises en forme conditionnelles avec formule",
+                            "id_theme": "T6"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C4]",
+                            "title": "Utiliser les thèmes de classeur",
+                            "id_theme": "T3"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C5]",
+                            "title": "Modifier les marges et l'orientation du classeur",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C6]",
+                            "title": "Gérer les sauts de page",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C7]",
+                            "title": "Insérer un arrière-plan",
+                            "id_theme": "T4"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C8]",
+                            "title": "Insérer une capture d'écran",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C9]",
+                            "title": "Insérer tout type de forme",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C10]",
+                            "title": "Maîtriser l'utilisation de SmartArt",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C11]",
+                            "title": "Enregistrer un modèle de graphique",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C12]",
+                            "title": "Insérer des symboles et des équations",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C13]",
+                            "title": "Mettre en forme des objets graphiques",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C14]",
+                            "title": "Modifier la forme",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C15]",
+                            "title": "Gérer les titres et légendes",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C16]",
+                            "title": "Utiliser le volet Sélection",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D3-N3-C17]",
+                            "title": "Gérer la propriété des objets",
+                            "id_theme": "T10"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id_domaine": "D4",
+            "title": "Gestion des données",
+            "niveaux": [
+                {
+                    "id_niveau": "N1",
+                    "title": "Excel débutant",
+                    "competences": [
+                        {
+                            "id_comp": "[D4-N1-C1]",
+                            "title": "Effectuer un tri simple",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C2]",
+                            "title": "Insérer un objet graphique simple",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C3]",
+                            "title": "Reconnaître un camembert ou un histogramme",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C4]",
+                            "title": "Créer et déplacer un graphique dans une feuille",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C5]",
+                            "title": "Distinguer les principaux graphiques",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C6]",
+                            "title": "Effectuer un tri automatique",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C7]",
+                            "title": "Classer par ordre croissant ou décroissant",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N1-C8]",
+                            "title": "Classer par ordre alphabétique ou anti-alphabétique",
+                            "id_theme": "T11"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N2",
+                    "title": "Excel intermédiaire",
+                    "competences": [
+                        {
+                            "id_comp": "[D4-N2-C1]",
+                            "title": "Modifier les séries de données d'un graphique",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C2]",
+                            "title": "Imprimer un graphique",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C3]",
+                            "title": "Reconnaître un tableau croisé dynamique",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C4]",
+                            "title": "Analyser les données dans un tableau croisé dynamique",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C5]",
+                            "title": "Filtrer les données d'un tableau",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C6]",
+                            "title": "Utiliser le remplissage instantané",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C7]",
+                            "title": "Utiliser les filtres complexes",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C8]",
+                            "title": "Rechercher, remplacer ou sélectionner des données (sur la donnée ou sur sa mise en forme)",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C9]",
+                            "title": "Utiliser des filtres automatiques",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C10]",
+                            "title": "Utiliser la fonction Analyse rapide",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N2-C11]",
+                            "title": "Utiliser la fonction Valeur cible",
+                            "id_theme": "T11"
+                        }
+                    ]
+                },
+                {
+                    "id_niveau": "N3",
+                    "title": "Excel avancé",
+                    "competences": [
+                        {
+                            "id_comp": "[D4-N3-C1]",
+                            "title": "Utiliser la fonction Tableau",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C2]",
+                            "title": "Effectuer des tris multicritères et des tris personnalisés",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C3]",
+                            "title": "Utiliser des filtres élaborés pour extraire des données",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C4]",
+                            "title": "Maîtriser le remplissage instantané",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C5]",
+                            "title": "Insérer et utiliser des segments",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C6]",
+                            "title": "Convertir un tableau en plage de données",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C7]",
+                            "title": "Créer et gérer des listes déroulantes",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C8]",
+                            "title": "Utiliser la fonction Consolider",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C9]",
+                            "title": "Superposer des séries",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C10]",
+                            "title": "Gérer la largeur d'intervalles",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C11]",
+                            "title": "Utiliser un axe secondaire",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C12]",
+                            "title": "Insérer des courbes de tendances",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C13]",
+                            "title": "Créer un graphique boursier ou un graphique radar",
+                            "id_theme": "T10"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C14]",
+                            "title": "Créer et modifier un tableau croisé dynamique",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C15]",
+                            "title": "Sélectionner, copier, déplacer, supprimer un tableau croisé dynamique",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C16]",
+                            "title": "Actualiser un tableau croisé dynamique",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C17]",
+                            "title": "Modifier la disposition et la mise en forme d'un tableau croisé dynamique",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C18]",
+                            "title": "Supprimer les doublons",
+                            "id_theme": "T11"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C19]",
+                            "title": "Utiliser tous les outils d'Analyse rapide",
+                            "id_theme": "T12"
+                        },
+                        {
+                            "id_comp": "[D4-N3-C20]",
+                            "title": "Utiliser le bouton Remplissage",
+                            "id_theme": "T11"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

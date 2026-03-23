@@ -1,0 +1,64 @@
+{
+  "candidats": [
+    {
+      "id_candidat": "CAND_O_s_20260319_234037",
+      "nom": "O",
+      "prenom": "s",
+      "self_level": "novice",
+      "id_questionnaire": "QUEST_EXCEL_INIT",
+      "id_programme": "PROG_EXCEL_INIT",
+      "date_reponse": "2026-03-19 23:40:37"
+    },
+    {
+      "id_candidat": "CAND_O_x_20260320_013532",
+      "nom": "O",
+      "prenom": "x",
+      "self_level": "debutant",
+      "id_questionnaire": "QUEST_EXCEL_INTER",
+      "id_programme": "PROG_EXCEL_INTER",
+      "date_reponse": "2026-03-20 01:35:32"
+    },
+    {
+      "id_candidat": "CAND_O_y_20260320_013614",
+      "nom": "O",
+      "prenom": "y",
+      "self_level": "intermediaire",
+      "id_questionnaire": "QUEST_EXCEL_PERF",
+      "id_programme": "PROG_EXCEL_PERF",
+      "date_reponse": "2026-03-20 01:36:14"
+    },
+    {
+      "id_candidat": "CAND_20260320015922",
+      "nom": "o",
+      "prenom": "bx",
+      "id_questionnaire": "QUEST_WORD",
+      "id_programme": "PROG_WORD",
+      "date_reponse": "2026-03-20 01:59:22"
+    },
+    {
+      "id_candidat": "CAND_O_bx_20260320_110929",
+      "nom": "O",
+      "prenom": "bx",
+      "self_level": "debutant",
+      "id_questionnaire": "QUEST_EXCEL_INTER",
+      "id_programme": "PROG_EXCEL_INTER",
+      "date_reponse": "2026-03-20 11:09:29"
+    },
+    {
+      "id_candidat": "CAND_20260320111126",
+      "nom": "o",
+      "prenom": "s2",
+      "id_questionnaire": "QUEST_EXCEL_INIT",
+      "id_programme": "PROG_EXCEL_INIT",
+      "date_reponse": "2026-03-20 11:11:26"
+    },
+    {
+      "id_candidat": "CAND_20260320111947",
+      "nom": "o",
+      "prenom": "inter",
+      "id_questionnaire": "QUEST_EXCEL_INTER",
+      "id_programme": "PROG_EXCEL_INTER",
+      "date_reponse": "2026-03-20 11:19:47"
+    }
+  ]
+}

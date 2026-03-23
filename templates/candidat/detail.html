@@ -1,0 +1,465 @@
+{% extends "base.html" %}
+
+{% block title %}Candidat {{ candidat.prenom }} {{ candidat.nom }} - eS@deq{% endblock %}
+
+{% block content %}
+<div class="page">
+    <header class="page-header">
+        <div class="header-content">
+            <div>
+                <h1>{{ candidat.prenom }} {{ candidat.nom }}</h1>
+                <p class="page-subtitle">
+                    ID: <code>{{ candidat.id_candidat }}</code> |
+                    Date: {{ candidat.date_reponse|format_date_fr }} |
+                    Formation: <strong>{{ candidat.id_programme or 'Non définie' }}</strong> |
+                    Questionnaire: <code>{{ candidat.id_questionnaire or '—' }}</code>
+                </p>
+            </div>
+            <div class="header-actions">
+                <a href="{{ url_for('liste_candidats') }}" class="btn btn-secondary">← Retour</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="candidat-detail">
+        <div class="detail-grid">
+            <!-- Statistiques du candidat -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Statistiques</h2>
+                </div>
+                <div class="card-body">
+                    <div class="stats-mini">
+                        <div class="stat-item stat-danger">
+                            <span class="stat-num">{{ stats.fort }}</span>
+                            <span class="stat-lbl">Besoins Forts</span>
+                        </div>
+                        <div class="stat-item stat-warning">
+                            <span class="stat-num">{{ stats.moyen }}</span>
+                            <span class="stat-lbl">Besoins Moyens</span>
+                        </div>
+                        <div class="stat-item stat-info">
+                            <span class="stat-num">{{ stats.a_revoir }}</span>
+                            <span class="stat-lbl">À Revoir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Actions</h2>
+                </div>
+                <div class="card-body">
+                    <div class="action-buttons">
+                        {% if not programme %}
+                        <a href="{{ url_for('analyser_candidat', id_candidat=candidat.id_candidat) }}"
+                            class="btn btn-primary btn-block">
+                            <span>🔍</span> Générer le Programme
+                        </a>
+                        {% else %}
+                        <a href="{{ url_for('analyser_candidat', id_candidat=candidat.id_candidat) }}"
+                            class="btn btn-secondary btn-block">
+                            <span>🔄</span> ReGénérer le Programme
+                        </a>
+                        <a href="{{ url_for('telecharger_pdf', id_candidat=candidat.id_candidat) }}"
+                            class="btn btn-success btn-block js-pdf-download"
+                            data-filename="programme_{{ candidat.id_candidat }}.pdf">
+                            <span>📄</span> Télécharger PDF
+                        </a>
+                        <a href="{{ url_for('telecharger_excel', id_candidat=candidat.id_candidat) }}"
+                            class="btn btn-success btn-block"
+                            style="background-color: #217346; border-color: #217346;"
+                            data-filename="programme_{{ candidat.id_candidat }}.xlsx">
+                            <span>📊</span> Télécharger Excel
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programme généré -->
+        {% if programme %}
+        {% if programme.orientation_expert %}
+        <div class="card">
+            <div class="card-body" style="text-align:center; padding: 48px 32px;">
+                <div style="font-size:3rem; margin-bottom:16px;">🏆</div>
+                <h2 style="color: var(--gold); margin-bottom:12px;">Niveau Expert détecté</h2>
+                <p style="color: var(--gray-600); font-size:1rem; max-width:560px; margin:0 auto 24px;">
+                    Votre niveau de maîtrise Excel est déjà <strong>avancé</strong>. Une formation standard ne correspond plus à votre profil.
+                </p>
+                <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+                    <div style="background:var(--cream); border:1px solid var(--gray-200); border-radius:var(--radius); padding:20px 28px; max-width:240px;">
+                        <div style="font-size:1.5rem; margin-bottom:8px;">🎯</div>
+                        <strong style="color:var(--navy);">Certification TOSA Expert</strong>
+                        <p style="font-size:0.82rem; color:var(--gray-500); margin-top:6px;">Valorisez votre expertise avec la certification officielle TOSA niveau Expert.</p>
+                    </div>
+                    <div style="background:var(--cream); border:1px solid var(--gray-200); border-radius:var(--radius); padding:20px 28px; max-width:240px;">
+                        <div style="font-size:1.5rem; margin-bottom:8px;">🚀</div>
+                        <strong style="color:var(--navy);">Autres horizons</strong>
+                        <p style="font-size:0.82rem; color:var(--gray-500); margin-top:6px;">Power BI, VBA avancé, Power Query, automatisation Office 365.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="card">
+            <div class="card-header">
+                <h2>Programme Personnalisé</h2>
+            </div>
+            <div class="card-body">
+                <div class="programme-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">Volume total</span>
+                        <span class="summary-value">{{ programme.estimation.total_heures|format_fr }}h</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Nombre de séances</span>
+                        <span class="summary-value">{{ programme.deroule_pedagogique.nb_seances|format_integer_fr
+                            }}</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Coût horaire</span>
+                        <span class="summary-value">{{ programme.estimation.cout_horaire|format_fr }}&nbsp;€</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Coût total</span>
+                        <span class="summary-value highlight">{{ programme.estimation.cout_total|format_fr
+                            }}&nbsp;€</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thèmes à Former -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Thèmes à Former ({{ programme.themes_a_former|length }})</h2>
+            </div>
+            <div class="card-body">
+                <div class="themes-list">
+                    {% for theme in programme.themes_a_former %}
+                    <div class="theme-item"
+                        style="margin-bottom: 30px; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px;">
+                        <div class="theme-header"
+                            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary-light); padding-bottom: 8px;">
+                            <h4 style="margin: 0;">{{ theme.nom }} <span
+                                    style="font-weight: normal; color: var(--gray-500); margin-left: 15px; font-size: 1rem;">Durée
+                                    estimée : <strong>{{ theme.duree_estimee|format_fr }}h</strong></span></h4>
+                            <span
+                                class="badge badge-{{ 'danger' if theme.niveau_besoin == 'fort' else ('warning' if theme.niveau_besoin == 'moyen' else 'info') }}"
+                                style="font-size: 0.8rem; padding: 5px 12px;">
+                                {% if theme.niveau_besoin == 'fort' %}BESOIN FORT{% elif theme.niveau_besoin ==
+                                'moyen' %}BESOIN MOYEN{% else %}À REVOIR{% endif %}
+                            </span>
+                        </div>
+                        <div class="theme-layout"
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                            <!-- Colonne 1 : Activités -->
+                            <div class="theme-col-activities">
+                                <h5
+                                    style="margin-bottom: 10px; color: var(--gray-600); border-bottom: 1px solid var(--gray-200); padding-bottom: 5px;">
+                                    Activités</h5>
+                                {% if theme.contenu_programme %}
+                                <div class="activites-inline"
+                                    style="font-size: 0.9rem; line-height: 1.6; color: var(--gray-700);">
+                                    {% for item in theme.contenu_programme %}
+                                    <span style="display: inline-block;">• {{ item.activite if item is mapping else item }}</span>{% if not loop.last %}
+                                    &nbsp; {% endif %}
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                <p style="font-style: italic; color: var(--gray-500);">Aucune activité définie.</p>
+                                {% endif %}
+                            </div>
+
+                            <!-- Colonne 2 : Compétences Visées -->
+                            <div class="theme-col-competences"
+                                style="background: var(--gray-50); padding: 15px; border-radius: 8px;">
+                                <h5
+                                    style="margin-bottom: 10px; color: var(--primary); border-bottom: 1px solid var(--primary-light); padding-bottom: 5px;">
+                                    Compétences visées</h5>
+                                {% if theme.comp_par_domaine %}
+                                {% for d_group in theme.comp_par_domaine %}
+                                <div class="comp-domain-group" style="margin-bottom: 12px;">
+                                    <div
+                                        style="font-weight: bold; font-size: 0.85rem; color: var(--secondary); margin-bottom: 5px;">
+                                        Domaine : {{ d_group.nom_domaine }}</div>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        {% for c_nom in d_group.competences %}
+                                        <span class="badge"
+                                            style="background: #ffffff; color: #4338ca; border: 1px solid #c7d2fe; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;">
+                                            {{ c_nom }}
+                                        </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <p style="font-style: italic; color: var(--gray-500);">Aucune compétence associée.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Déroulé pédagogique -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Déroulé Pédagogique</h2>
+            </div>
+            <div class="card-body">
+                <div class="seances-timeline">
+                    {% for seance in programme.deroule_pedagogique.seances %}
+                    <div class="seance-item">
+                        <div class="seance-marker">{{ seance.seance_numero }}</div>
+                        <div class="seance-content">
+                            <div class="seance-header">
+                                <h4>Séance {{ seance.seance_numero }} — {{ seance.duree_heures|default(3.5, true)|float|format_fr }}h</h4>
+                            </div>
+                            <div class="seance-activites">
+                                {% if seance.blocs %}
+                                <div class="seance-blocs">
+                                    {% for bloc in seance.blocs %}
+                                    <div class="seance-bloc">
+                                        {% set total_prevu = bloc.duree_theme|default(bloc.duree_planifiee, true)|float
+                                        %}
+                                        {% set fait_h = bloc.fait|default(0, true)|float %}
+                                        {% set reste_h = bloc.a_faire|default(total_prevu, true)|float %}
+                                        <div class="bloc-domaines">
+                                            {% for d_nom in bloc.domaines %}
+                                            <span class="badge-domaine">{{ d_nom }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        <p class="seance-bloc-title">
+                                            <strong>Thème {{ bloc.theme_num }} : {{ bloc.nom }}</strong>
+                                        </p>
+                                        <p class="seance-bloc-stats">
+                                            {% if bloc.phase == 'Debut' %}
+                                            État: Début | Total Prévu: {{ total_prevu|format_fr }}h | Fait: 0h |
+                                            Reste: {{ total_prevu|format_fr }}h
+                                            {% else %}
+                                            État: Suite | Total Prévu: {{ total_prevu|format_fr }}h | Fait: {{
+                                            fait_h|format_fr }}h | Reste: {{ reste_h|format_fr }}h
+                                            {% endif %}
+                                        </p>
+                                        <div class="bloc-layout"
+                                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
+                                            <!-- Colonne 1 : Activités -->
+                                            <div class="bloc-col-activities">
+                                                {% if bloc.activites %}
+                                                <p
+                                                    style="font-weight: bold; margin-bottom: 5px; font-size: 0.85rem; color: var(--gray-600);">
+                                                    Séquence d'activités :</p>
+                                                <div class="activites-inline"
+                                                    style="font-size: 0.85rem; line-height: 1.5; color: var(--gray-700);">
+                                                    {% for activite in bloc.activites %}
+                                                    <span>• {{ activite.nom if activite.nom else activite }}</span>{% if
+                                                    not loop.last %} &nbsp; {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                {% endif %}
+                                            </div>
+
+                                            <!-- Colonne 2 : Compétences -->
+                                            <div class="bloc-col-competences"
+                                                style="border-left: 2px solid var(--gray-100); padding-left: 15px;">
+                                                <p
+                                                    style="font-weight: bold; margin-bottom: 5px; font-size: 0.85rem; color: var(--primary);">
+                                                    Compétences visées :</p>
+                                                {% if bloc.comp_par_domaine %}
+                                                {% for d_group in bloc.comp_par_domaine %}
+                                                <div style="margin-bottom: 8px;">
+                                                    <div
+                                                        style="font-weight: 500; font-size: 0.75rem; color: var(--secondary);">
+                                                        {{ d_group.nom_domaine }}</div>
+                                                    <ul style="margin: 0; padding-left: 15px; font-size: 0.75rem;">
+                                                        {% for c_nom in d_group.competences %}
+                                                        <li>{{ c_nom }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% elif seance.activites %}
+                                <ul class="seance-activites-list">
+                                    {% for activite in seance.activites %}
+                                    <li>{{ activite.nom if activite.nom else activite }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                <p class="seance-empty">Les activités détaillées seront définies avec le formateur.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}{# fin orientation_expert #}
+        {% else %}{# pas de programme #}
+        <div class="card">
+            <div class="card-body">
+                <div class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <h3>Aucun programme généré</h3>
+                    <p>Cliquez sur "Générer le Programme" pour créer le programme personnalisé</p>
+                    <a href="{{ url_for('analyser_candidat', id_candidat=candidat.id_candidat) }}"
+                        class="btn btn-primary">Générer le Programme</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}{# fin programme #}
+
+        <!-- Réponses du candidat -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Réponses détaillées par Bloc d'Objectifs Métier ({{ reponses|length }})</h2>
+            </div>
+            <div class="card-body">
+                {% if reponses_par_bloc %}
+                <div class="responses-by-bloc">
+                    {% for bloc in reponses_par_bloc %}
+                    <div class="bloc-response-group"
+                        style="margin-bottom: 30px; border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden;">
+                        <div class="bloc-header"
+                            style="background-color: var(--primary-light); padding: 12px 20px; border-bottom: 1px solid var(--gray-200);">
+                            <h3 class="bloc-title" style="margin: 0; color: var(--primary); font-size: 1.1rem;">
+                                <span
+                                    style="background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; margin-right: 10px; font-size: 0.9rem;">{{
+                                    bloc.id_bloc }}</span>
+                                {{ bloc.nom_bloc }}
+                            </h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table" style="margin-bottom: 0; border: none;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15%;">ID</th>
+                                        <th>Question</th>
+                                        <th style="width: 20%;">Acquisition</th>
+                                        <th style="width: 15%;">Besoin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reponse in bloc.reponses %}
+                                    <tr>
+                                        <td><code>{{ reponse.id_question }}</code></td>
+                                        <td>{{ reponse.texte or '' }}</td>
+                                        <td>
+                                            <span
+                                                class="badge badge-{{ 'danger' if reponse.acquisition == 'Aucun' else ('warning' if reponse.acquisition == 'Moyen' else 'success') }}">
+                                                {% if reponse.acquisition == 'Aucun' %}Non acquis{% elif
+                                                reponse.acquisition == 'Moyen' %}Moyennement acquis{% elif
+                                                reponse.acquisition == 'Acquis' %}Acquis{% else %}{{ reponse.acquisition
+                                                or '—' }}{% endif %}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span
+                                                class="badge badge-{{ 'success' if reponse.besoin == 'Non' else 'info' }}">
+                                                {{ reponse.besoin or '—' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% elif reponses_par_domaine %}
+                <div class="responses-by-domain">
+                    {% for dom in reponses_par_domaine %}
+                    <div class="domain-response-group">
+                        <h3 class="domain-title">Domaine : {{ dom.nom_domaine }}</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Question</th>
+                                        <th>Acquisition</th>
+                                        <th>Besoin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reponse in dom.reponses %}
+                                    <tr>
+                                        <td><code>{{ reponse.id_question }}</code></td>
+                                        <td>{{ reponse.texte or '' }}</td>
+                                        <td>
+                                            <span
+                                                class="badge badge-{{ 'danger' if reponse.acquisition == 'Aucun' else ('warning' if reponse.acquisition == 'Moyen' else 'success') }}">
+                                                {% if reponse.acquisition == 'Aucun' %}Non acquis{% elif
+                                                reponse.acquisition == 'Moyen' %}Moyennement acquis{% elif
+                                                reponse.acquisition == 'Acquis' %}Acquis{% else %}{{ reponse.acquisition
+                                                or '—' }}{% endif %}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span
+                                                class="badge badge-{{ 'success' if reponse.besoin == 'Non' else 'info' }}">
+                                                {{ reponse.besoin or '—' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Question</th>
+                                <th>Acquisition</th>
+                                <th>Besoin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reponse in reponses %}
+                            <tr>
+                                <td><code>{{ reponse.id_question }}</code></td>
+                                <td>{{ reponse.texte or '' }}</td>
+                                <td>
+                                    <span
+                                        class="badge badge-{{ 'danger' if reponse.acquisition == 'Aucun' else ('warning' if reponse.acquisition == 'Moyen' else 'success') }}">
+                                        {% if reponse.acquisition == 'Aucun' %}Non acquis{% elif reponse.acquisition ==
+                                        'Moyen' %}Moyennement acquis{% elif reponse.acquisition == 'Acquis' %}Acquis{%
+                                        else %}{{ reponse.acquisition or '—' }}{% endif %}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-{{ 'success' if reponse.besoin == 'Non' else 'info' }}">
+                                        {{ reponse.besoin or '—' }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

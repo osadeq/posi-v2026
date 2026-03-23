@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# VS Code & IDEs
+.vscode/
+.idea/
+.claude/
+.qodo/
+.zencoder/
+.zenflow/
+
+# Archives & Candidat Data
+data/archives/
+data/candidats/
+data/export/
+export/
+data/upload/
+
+# Keep empty directories if needed
+!data/candidats/.gitkeep
+!data/archives/.gitkeep
+!data/export/.gitkeep
+!data/upload/.gitkeep

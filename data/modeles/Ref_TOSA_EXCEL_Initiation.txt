@@ -1,0 +1,61 @@
+EXCEL INITIATION
+
+Domaines/Compétences visées
+
+*Environnement / Méthodes :
+o Ouvrir un document Excel 
+o Sauvegarder un document Excel 
+o Imprimer un document Excel 
+o Identifier les onglets au sein du ruban 
+o Figer les volets
+o Modifier une zone d’impression 
+o Imprimer et mettre en page un document 
+o Changer la largeur des colonnes  
+o Changer la hauteur des lignes  
+o Supprimer et insérer des cellules 
+o Enregistrer un document sous un autre nom
+
+*Calculs (formules, fonctions) :
+o Entrer un texte ou une formule simple dans une cellule 
+o Saisir une heure 
+o Reconnaître le symbole ERREUR 
+o Saisir une addition, une soustraction, une multiplication et une division 
+o Identifier l’ordre correct des opérations
+o Saisir une heure dans une cellule 
+o Comprendre les formules MAX, MIN, ET, OU et SI 
+o Déterminer l’impact de la suppression d’une line ou d’une colonne sur une formule
+
+*Mise en forme :
+o Utiliser les fonctions les plus simples de mise en forme des cellules pour la police (couleur, style de police, alignement) 
+o Utiliser les fonctions les plus simples de mise en forme des cellules pour les nombres (pourcentage, séparateur de milliers, comptabilité) 
+o Modifier l’orientation de la page  
+o Modifier les marges
+o Effectuer des formatages simples de nombres (pourcentages, séparateurs de milliers, etc.) 
+o Effectuer des encadrements de cellules 
+o Maîtriser la différence entre la couleur de fond et la couleur de police 
+o Utiliser l’outil Pinceau
+
+*Gestion des données :
+o Effectuer un tri simple 
+o Insérer un objet graphique simple 
+o Reconnaître un camembert ou un histogramme
+o Créer et déplacer un graphique dans une feuille 
+o Distinguer les principaux graphiques
+o Effectuer un tri automatique 
+o Classer par ordre croissant ou décroissant 
+o Classer par ordre alphabétique ou anti-alphabétique
+
+Niveaux Tosa ®
+Scores Tosa ® 
+Niveaux visés par cette formation
+Initial 
+1 – 350
+Basique 
+351 – 550 
+
+
+
+
+
+
+

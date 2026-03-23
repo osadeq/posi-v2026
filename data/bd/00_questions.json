@@ -1,0 +1,80 @@
+{
+  "questionnaires": [
+    {
+      "id_questionnaire": "QUEST_EXCEL_INIT",
+      "id_programme": "PROG_EXCEL_INIT",
+      "titre": "Positionnement Excel - Initiation (Tosa)",
+      "description": "Auto-évaluation basée sur le référentiel Tosa Niveau Initial/Basique",
+      "questions": [
+        { "id_question": "[D1-N1-C4]", "id_theme": "INIT_T1", "texte": "Identifier les onglets au sein du ruban" },
+        { "id_question": "[D1-N1-C1]", "id_theme": "INIT_T2", "texte": "Ouvrir un document Excel" },
+        { "id_question": "[D1-N1-C2]", "id_theme": "INIT_T2", "texte": "Sauvegarder un document Excel" },
+        { "id_question": "[D1-N1-C11]", "id_theme": "INIT_T2", "texte": "Enregistrer un document sous un autre nom" },
+        { "id_question": "[D1-N1-C8]", "id_theme": "INIT_T3", "texte": "Changer la largeur des colonnes" },
+        { "id_question": "[D1-N1-C9]", "id_theme": "INIT_T3", "texte": "Changer la hauteur des lignes" },
+        { "id_question": "[D1-N1-C10]", "id_theme": "INIT_T3", "texte": "Supprimer et insérer des cellules" },
+        { "id_question": "[D3-N1-C1]", "id_theme": "INIT_T3", "texte": "Maîtriser la mise en forme simple (police, couleur, alignement)" },
+        { "id_question": "[D3-N1-C2]", "id_theme": "INIT_T3", "texte": "Appliquer des formats numériques simples (milliers, comptabilité)" },
+        { "id_question": "[D1-N1-C3]", "id_theme": "INIT_T4", "texte": "Imprimer un document Excel" },
+        { "id_question": "[D1-N1-C6]", "id_theme": "INIT_T4", "texte": "Modifier une zone d'impression" },
+        { "id_question": "[D1-N1-C7]", "id_theme": "INIT_T4", "texte": "Mettre en page un document pour l'impression" },
+        { "id_question": "[D3-N2-C4]", "id_theme": "INIT_T5", "texte": "Comprendre et appliquer la mise en forme conditionnelle" },
+        { "id_question": "[D1-N1-C5]", "id_theme": "INIT_T6", "texte": "Figer les volets pour faciliter la lecture" },
+        { "id_question": "[D2-N1-C1]", "id_theme": "INIT_T7", "texte": "Entrer une formule simple dans une cellule" },
+        { "id_question": "[D2-N1-C4]", "id_theme": "INIT_T7", "texte": "Saisir les quatre opérations arithmétiques de base" },
+        { "id_question": "[D2-N1-C7]", "id_theme": "INIT_T7", "texte": "Utiliser les fonctions statistiques de base (SOMME, MOYENNE, MAX, MIN)" },
+        { "id_question": "[D4-N1-C2]", "id_theme": "INIT_T8", "texte": "Insérer un objet graphique simple" },
+        { "id_question": "[D4-N1-C4]", "id_theme": "INIT_T8", "texte": "Créer et déplacer un graphique dans une feuille" },
+        { "id_question": "[D4-N1-C1]", "id_theme": "INIT_T9", "texte": "Effectuer un tri simple sur une plage de données" },
+        { "id_question": "[D4-N2-C3]", "id_theme": "INIT_T10", "texte": "Reconnaître et interpréter un Tableau Croisé Dynamique" }
+      ]
+    },
+    {
+      "id_questionnaire": "QUEST_EXCEL_INTER",
+      "id_programme": "PROG_EXCEL_INTER",
+      "titre": "Positionnement Excel - Intermédiaire (Tosa)",
+      "description": "Auto-évaluation basée sur le référentiel Tosa Niveau Opérationnel",
+      "questions": [
+        { "id_question": "[D1-N2-C1]", "id_theme": "INTER_T1", "texte": "Personnaliser les onglets du ruban" },
+        { "id_question": "[D1-N2-C2]", "id_theme": "INTER_T1", "texte": "Se déplacer efficacement avec les raccourcis clavier" },
+        { "id_question": "[D1-N2-C10]", "id_theme": "INTER_T1", "texte": "Gérer la compatibilité entre les versions de classeurs" },
+        { "id_question": "[D1-N2-C9]", "id_theme": "INTER_T2", "texte": "Exporter ou enregistrer un document au format PDF" },
+        { "id_question": "[D3-N2-C1]", "id_theme": "INTER_T3", "texte": "Maîtriser les différents formats de cellules (Date, Monétaire, etc.)" },
+        { "id_question": "[D3-N2-C2]", "id_theme": "INTER_T3", "texte": "Fusionner des cellules et gérer l'alignement complexe" },
+        { "id_question": "[D3-N2-C7]", "id_theme": "INTER_T3", "texte": "Créer et structurer un tableau de données" },
+        { "id_question": "[D1-N2-C4]", "id_theme": "INTER_T4", "texte": "Déplacer et dupliquer des feuilles de calcul" },
+        { "id_question": "[D2-N2-C1]", "id_theme": "INTER_T5", "texte": "Utiliser les références absolues et relatives dans les formules" },
+        { "id_question": "[D2-N2-C7]", "id_theme": "INTER_T5", "texte": "Utiliser les fonctions logiques (SI, OU, ET)" },
+        { "id_question": "[D1-N2-C12]", "id_theme": "INTER_T6", "texte": "Insérer et personnaliser les en-têtes et pieds de page" },
+        { "id_question": "[D3-N2-C10]", "id_theme": "INTER_T7", "texte": "Insérer et mettre en forme un graphique complexe" },
+        { "id_question": "[D4-N2-C5]", "id_theme": "INTER_T8", "texte": "Filtrer les données d'un tableau avec des critères" },
+        { "id_question": "[D4-N2-C6]", "id_theme": "INTER_T8", "texte": "Utiliser le remplissage instantané pour transformer des données" },
+        { "id_question": "[D4-N2-C4]", "id_theme": "INTER_T9", "texte": "Analyser des données via un Tableau Croisé Dynamique" }
+      ]
+    },
+    {
+      "id_questionnaire": "QUEST_EXCEL_PERF",
+      "id_programme": "PROG_EXCEL_PERF",
+      "titre": "Positionnement Excel - Perfectionnement (Tosa)",
+      "description": "Auto-évaluation basée sur le référentiel Tosa Niveau Avancé/Expert",
+      "questions": [
+        { "id_question": "[D1-N3-C5]", "id_theme": "PERF_T1", "texte": "Personnaliser intégralement l'interface utilisateur" },
+        { "id_question": "[D1-N3-C6]", "id_theme": "PERF_T1", "texte": "Activer et utiliser l'onglet Développeur" },
+        { "id_question": "[D1-N3-C12]", "id_theme": "PERF_T2", "texte": "Protéger une feuille de calcul avec des restrictions" },
+        { "id_question": "[D1-N3-C13]", "id_theme": "PERF_T2", "texte": "Verrouiller et protéger la structure d'un classeur" },
+        { "id_question": "[D2-N3-C5]", "id_theme": "PERF_T3", "texte": "Maîtriser les fonctions de recherche avancées (INDEX, EQUIV)" },
+        { "id_question": "[D2-N3-C14]", "id_theme": "PERF_T3", "texte": "Utiliser les fonctions de base de données (BDSOMME, BDNB...)" },
+        { "id_question": "[D2-N3-C17]", "id_theme": "PERF_T3", "texte": "Utiliser la fonction SOMMEPROD pour des calculs complexes" },
+        { "id_question": "[D1-N3-C1]", "id_theme": "PERF_T4", "texte": "Mettre en page des documents volumineux avec sauts de page" },
+        { "id_question": "[D3-N3-C3]", "id_theme": "PERF_T5", "texte": "Créer des règles de mise en forme conditionnelle avec formules" },
+        { "id_question": "[D4-N3-C12]", "id_theme": "PERF_T6", "texte": "Ajouter et personnaliser des courbes de tendances sur graphiques" },
+        { "id_question": "[D4-N3-C13]", "id_theme": "PERF_T6", "texte": "Concevoir des graphiques boursiers ou radars" },
+        { "id_question": "[D4-N3-C3]", "id_theme": "PERF_T7", "texte": "Extraire des données via des filtres élaborés (zone de critères)" },
+        { "id_question": "[D4-N3-C7]", "id_theme": "PERF_T7", "texte": "Créer et gérer des listes déroulantes de validation de données" },
+        { "id_question": "[D4-N3-C14]", "id_theme": "PERF_T8", "texte": "Créer et modifier la structure d'un Tableau Croisé Dynamique" },
+        { "id_question": "[D4-N3-C5]", "id_theme": "PERF_T8", "texte": "Insérer et utiliser des segments pour filtrer un TCD" },
+        { "id_question": "[D1-N3-C14]", "id_theme": "PERF_T9", "texte": "Exécuter des macros enregistrées pour automatiser des tâches" }
+      ]
+    }
+  ]
+}

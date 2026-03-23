@@ -1,0 +1,1215 @@
+{% extends "base.html" %}
+
+{% block title %}Questionnaire - eS@deq{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* ═══════════════════════════════════════════════
+       QUESTIONNAIRE — Design Premium
+       Palette : Navy · Crème · Or · Bleu Tosa
+    ═══════════════════════════════════════════════ */
+    :root {
+        --q-navy:       #0f1f3d;
+        --q-navy-mid:   #1a3361;
+        --q-navy-light: #253d70;
+        --q-gold:       #c9a84c;
+        --q-gold-light: #e8c97a;
+        --q-gold-pale:  #fdf8ee;
+        --q-blue:       #2563eb;
+        --q-blue-light: #eff6ff;
+        --q-cream:      #f7f5f0;
+        --q-white:      #ffffff;
+        --q-border:     #e4e7eb;
+        --q-text:       #1a2744;
+        --q-muted:      #6c7789;
+        --q-radius:     14px;
+        --q-shadow:     0 2px 12px rgba(15,31,61,0.08);
+        --q-shadow-lg:  0 8px 32px rgba(15,31,61,0.14);
+    }
+
+    /* ── Page Layout ─────────────────────────────── */
+    body {
+        background: var(--q-cream);
+        color: var(--q-text);
+        font-family: 'DM Sans', 'Inter', -apple-system, sans-serif;
+    }
+
+    .q-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        min-height: calc(100vh - 64px);
+    }
+
+    /* ── Left Sidebar ────────────────────────────── */
+    .q-sidebar {
+        background: linear-gradient(170deg, var(--q-navy) 0%, var(--q-navy-light) 100%);
+        position: sticky;
+        top: 64px;
+        height: calc(100vh - 64px);
+        overflow-y: auto;
+        padding: 40px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-right: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .q-sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .q-sidebar-icon {
+        width: 42px;
+        height: 42px;
+        background: rgba(201,168,76,0.18);
+        border: 1px solid rgba(201,168,76,0.3);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--q-gold-light);
+        font-size: 1.1rem;
+    }
+
+    .q-sidebar-title {
+        color: var(--q-white);
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+    }
+
+    .q-sidebar-subtitle {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-top: 2px;
+    }
+
+    /* Progress Steps in Sidebar */
+    .q-progress-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .q-progress-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 6px;
+    }
+
+    .q-step-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        transition: all 0.25s ease;
+        cursor: default;
+    }
+
+    .q-step-item.active {
+        background: rgba(201,168,76,0.15);
+        border: 1px solid rgba(201,168,76,0.25);
+    }
+
+    .q-step-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.4);
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .q-step-item.active .q-step-dot {
+        border-color: var(--q-gold);
+        color: var(--q-gold);
+        background: rgba(201,168,76,0.12);
+    }
+
+    .q-step-item.completed .q-step-dot {
+        background: var(--q-gold);
+        border-color: var(--q-gold);
+        color: var(--q-navy);
+    }
+
+    .q-step-name {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.45);
+        transition: color 0.25s;
+    }
+
+    .q-step-item.active .q-step-name { color: var(--q-gold-light); }
+    .q-step-item.completed .q-step-name { color: rgba(255,255,255,0.7); }
+
+    /* Sidebar info box */
+    .q-info-box {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: var(--q-radius);
+        padding: 16px;
+        margin-top: auto;
+    }
+
+    .q-info-box p {
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.45);
+        line-height: 1.55;
+    }
+
+    .q-info-box strong {
+        color: var(--q-gold-light);
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+    }
+
+    /* ── Main Content Panel ──────────────────────── */
+    .q-main {
+        padding: 40px 48px;
+        max-width: 800px;
+    }
+
+    /* ── Step visibility ─────────────────────────── */
+    .step-fade {
+        display: none;
+        animation: qFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .step-active { display: block; }
+
+    @keyframes qFadeUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Sticky Nav Bar ──────────────────────────── */
+    .q-nav-bar {
+        position: sticky;
+        top: 74px;
+        z-index: 200;
+        background: rgba(247,245,240,0.85);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid var(--q-border);
+        border-radius: 50px;
+        padding: 10px 16px 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 36px;
+        box-shadow: 0 4px 20px rgba(15,31,61,0.08);
+    }
+
+    .q-nav-progress {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .q-nav-dots {
+        display: flex;
+        gap: 5px;
+    }
+
+    .q-nav-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--q-border);
+        transition: all 0.3s ease;
+    }
+
+    .q-nav-dot.active {
+        background: var(--q-navy);
+        width: 18px;
+        border-radius: 3px;
+    }
+
+    .q-nav-dot.done { background: var(--q-gold); }
+
+    #progressText {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--q-muted);
+        letter-spacing: 0.02em;
+    }
+
+    .q-nav-actions { display: flex; gap: 10px; align-items: center; }
+
+    /* ── Section Title ───────────────────────────── */
+    .q-section-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--q-gold);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .q-section-eyebrow::before {
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: var(--q-gold);
+        border-radius: 1px;
+    }
+
+    .q-section-title {
+        font-size: 1.9rem;
+        font-weight: 800;
+        color: var(--q-navy);
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+        margin-bottom: 6px;
+    }
+
+    .q-section-sub {
+        font-size: 0.88rem;
+        color: var(--q-muted);
+        margin-bottom: 32px;
+    }
+
+    /* ── Info Card (Step 0) ──────────────────────── */
+    .q-info-card {
+        background: var(--q-white);
+        border: 1px solid var(--q-border);
+        border-radius: var(--q-radius);
+        padding: 28px;
+        margin-bottom: 32px;
+        box-shadow: var(--q-shadow);
+    }
+
+    .q-info-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--q-navy);
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--q-border);
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+
+    .q-info-card h3 i { color: var(--q-gold); }
+
+    .q-field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .q-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .q-field label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--q-muted);
+    }
+
+    .q-field input,
+    .q-field select {
+        border: 1.5px solid var(--q-border);
+        border-radius: 10px;
+        padding: 11px 14px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        color: var(--q-text);
+        background: var(--q-cream);
+        transition: all 0.2s ease;
+        outline: none;
+    }
+
+    .q-field input:focus,
+    .q-field select:focus {
+        border-color: var(--q-navy-mid);
+        background: var(--q-white);
+        box-shadow: 0 0 0 3px rgba(26,51,97,0.1);
+    }
+
+    .q-field select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236c7789'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        padding-right: 36px;
+    }
+
+    /* ── Level Cards ─────────────────────────────── */
+    .q-level-section-title {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--q-navy);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .q-level-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 0;
+    }
+
+    .level-card {
+        border: 2px solid var(--q-border);
+        border-radius: var(--q-radius);
+        padding: 20px 14px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        background: var(--q-white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .level-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--q-gold), var(--q-gold-light));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    .level-card:hover {
+        border-color: var(--q-navy-mid);
+        transform: translateY(-4px);
+        box-shadow: var(--q-shadow-lg);
+    }
+
+    .level-card:hover::before { transform: scaleX(1); }
+
+    .level-card.selected {
+        border-color: var(--q-navy);
+        background: linear-gradient(135deg, #e8edf6 0%, #f5f7fb 100%);
+        box-shadow: 0 0 0 3px rgba(15,31,61,0.08), var(--q-shadow-lg);
+        transform: translateY(-4px);
+    }
+
+    .level-card.selected::before { transform: scaleX(1); }
+
+    .level-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+
+    .level-title {
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: var(--q-navy);
+        margin-bottom: 6px;
+        letter-spacing: -0.01em;
+    }
+
+    .level-desc {
+        font-size: 0.72rem;
+        color: var(--q-muted);
+        line-height: 1.45;
+        margin-bottom: 10px;
+    }
+
+    .level-desc strong {
+        color: var(--q-navy-mid);
+        font-weight: 700;
+        display: block;
+        margin-top: 3px;
+    }
+
+    .level-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: var(--q-q-gold-pale, #fdf8ee);
+        background: #fdf8ee;
+        border: 1px solid rgba(201,168,76,0.3);
+        border-radius: 20px;
+        padding: 3px 10px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #8a6c1e;
+    }
+
+    /* ── Bloc Header (Step 1+) ───────────────────── */
+    .q-bloc-header {
+        margin-bottom: 28px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--q-border);
+    }
+
+    /* ── Domain Accordion ────────────────────────── */
+    .domain-accordion {
+        background: var(--q-white);
+        border: 1px solid var(--q-border);
+        border-radius: var(--q-radius);
+        margin-bottom: 16px;
+        overflow: hidden;
+        box-shadow: var(--q-shadow);
+        transition: all 0.25s ease;
+    }
+
+    .domain-accordion:hover {
+        border-color: #c8d0dc;
+        box-shadow: 0 4px 18px rgba(15,31,61,0.1);
+    }
+
+    .domain-accordion.accordion-active {
+        border-color: var(--q-navy-mid);
+        box-shadow: 0 4px 24px rgba(15,31,61,0.12);
+    }
+
+    .accordion-header {
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background: var(--q-white);
+        user-select: none;
+        transition: background 0.2s;
+    }
+
+    .accordion-active .accordion-header {
+        background: linear-gradient(to right, #e8edf6, #f5f7fb);
+        border-bottom: 1px solid var(--q-border);
+    }
+
+    .accordion-header-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .accordion-domain-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, var(--q-navy), var(--q-navy-light));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--q-gold-light);
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        flex-shrink: 0;
+    }
+
+    .accordion-header h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--q-navy);
+        letter-spacing: -0.01em;
+    }
+
+    .accordion-meta {
+        font-size: 0.72rem;
+        color: var(--q-muted);
+        margin-top: 2px;
+    }
+
+    .accordion-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--q-cream);
+        color: var(--q-muted);
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        flex-shrink: 0;
+        font-size: 0.75rem;
+    }
+
+    .accordion-active .accordion-icon {
+        transform: rotate(180deg);
+        background: var(--q-navy);
+        color: var(--q-gold-light);
+    }
+
+    .accordion-content {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: block !important; /* override the display:none */
+    }
+
+    .accordion-active .accordion-content {
+        max-height: 9000px;
+        padding: 0 24px 24px 24px;
+    }
+
+    /* ── Question Cards ───────────────────────────── */
+    .question-card {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--q-border);
+        transition: all 0.2s ease;
+    }
+
+    .question-card:last-child {
+        border-bottom: none;
+        padding-bottom: 4px;
+    }
+
+    .question-text {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--q-text);
+        line-height: 1.55;
+        margin-bottom: 16px;
+    }
+
+    .question-num {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        background: #e8edf6;
+        color: var(--q-navy-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 800;
+        margin-top: 1px;
+    }
+
+    /* ── Options (2 column: Maîtrise | Besoin) ────── */
+    .options-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        padding-left: 36px;
+    }
+
+    .eval-group { display: flex; flex-direction: column; gap: 8px; }
+
+    .eval-label {
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--q-muted);
+    }
+
+    /* Segmented control style radio pills */
+    .radio-pill-group {
+        display: flex;
+        background: var(--q-cream);
+        border: 1.5px solid var(--q-border);
+        border-radius: 9px;
+        padding: 3px;
+        gap: 2px;
+    }
+
+    .radio-pill {
+        flex: 1;
+        cursor: pointer;
+    }
+
+    .radio-pill input { display: none; }
+
+    .pill-content {
+        display: block;
+        text-align: center;
+        padding: 7px 6px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--q-muted);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        white-space: nowrap;
+    }
+
+    /* Maîtrise states */
+    .radio-pill input[name^="acq_"]:checked+.pill-content {
+        background: var(--q-navy);
+        color: var(--q-white);
+        box-shadow: 0 2px 8px rgba(15,31,61,0.2);
+    }
+
+    /* Besoin states */
+    .radio-pill input[name^="bes_"]:checked+.pill-content {
+        background: var(--q-gold);
+        color: var(--q-navy);
+        box-shadow: 0 2px 8px rgba(201,168,76,0.35);
+    }
+
+    .radio-pill:hover .pill-content { color: var(--q-navy); background: rgba(15,31,61,0.06); }
+
+    /* ── Buttons (questionnaire-specific overrides) ─ */
+    .q-btn-prev {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--q-muted);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+    }
+
+    .q-btn-prev:hover { color: var(--q-navy); background: rgba(15,31,61,0.06); }
+
+    .q-btn-next {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--q-white);
+        background: var(--q-navy);
+        border: none;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        font-family: inherit;
+        letter-spacing: 0.01em;
+    }
+
+    .q-btn-next:hover {
+        background: var(--q-navy-light);
+        box-shadow: 0 4px 18px rgba(15,31,61,0.3);
+        transform: translateY(-1px);
+    }
+
+    .q-btn-submit {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--q-navy);
+        background: linear-gradient(135deg, var(--q-gold), var(--q-gold-light));
+        border: none;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        font-family: inherit;
+        box-shadow: 0 4px 18px rgba(201,168,76,0.35);
+    }
+
+    .q-btn-submit:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 24px rgba(201,168,76,0.5);
+    }
+
+    /* ── Responsive ──────────────────────────────── */
+    @media (max-width: 1024px) {
+        .q-layout { grid-template-columns: 1fr; }
+        .q-sidebar { display: none; }
+        .q-main { padding: 24px 20px; max-width: 100%; }
+        .q-level-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+        .options-container { grid-template-columns: 1fr; gap: 12px; padding-left: 0; }
+        .q-field-row { grid-template-columns: 1fr; }
+        .q-level-grid { grid-template-columns: 1fr; }
+        .q-nav-dots { display: none; }
+    }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="q-layout">
+
+    <!-- ═══ LEFT SIDEBAR ═══ -->
+    <aside class="q-sidebar" id="qSidebar">
+        <div class="q-sidebar-brand">
+            <div class="q-sidebar-icon"><i class="fa-solid fa-table-cells"></i></div>
+            <div>
+                <div class="q-sidebar-title">{{ questionnaire.titre }}</div>
+                <div class="q-sidebar-subtitle">Positionnement Tosa</div>
+            </div>
+        </div>
+
+        <div class="q-progress-steps" id="sidebarSteps">
+            <div class="q-progress-label">Progression</div>
+            <div class="q-step-item active" data-step="0">
+                <div class="q-step-dot">1</div>
+                <div class="q-step-name">Profil & Niveau</div>
+            </div>
+            {% for bloc in questions_by_bloc %}
+            <div class="q-step-item" data-step="{{ loop.index }}">
+                <div class="q-step-dot">{{ loop.index + 1 }}</div>
+                <div class="q-step-name">{% if bloc.is_excel %}Évaluation{% else %}{{ bloc.nom_bloc }}{% endif %}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="q-info-box">
+            <strong><i class="fa-solid fa-lightbulb" style="margin-right:5px"></i> Conseils</strong>
+            <p>Répondez honnêtement à chaque compétence. Les résultats serviront à construire votre parcours de formation personnalisé.</p>
+        </div>
+    </aside>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="q-main">
+        <form id="positioningForm" action="{{ url_for('submit_questionnaire') }}" method="POST">
+            <input type="hidden" name="id_questionnaire" value="{{ questionnaire.id_questionnaire }}" data-base-id="{{ questionnaire.id_questionnaire }}">
+            <input type="hidden" name="id_programme" value="{{ questionnaire.id_programme }}">
+
+            <!-- Navigation Bar -->
+            <div class="q-nav-bar">
+                <div class="q-nav-progress">
+                    <div class="q-nav-dots" id="navDots"></div>
+                    <span id="progressText">Étape 1 sur {{ questions_by_bloc|length + 1 }}</span>
+                </div>
+                <div class="q-nav-actions">
+                    <button type="button" class="q-btn-prev" id="prevBtn" onclick="moveStep(-1)" style="visibility:hidden">
+                        <i class="fa-solid fa-arrow-left" style="font-size:0.75rem"></i> Précédent
+                    </button>
+                    <button type="button" class="q-btn-next" id="nextBtn" onclick="moveStep(1)">
+                        Continuer <i class="fa-solid fa-arrow-right" style="font-size:0.75rem"></i>
+                    </button>
+                    <button type="button" class="q-btn-submit" id="submitBtn" onclick="submitForm()">
+                        <i class="fa-solid fa-check"></i> Finaliser
+                    </button>
+                </div>
+            </div>
+
+            <!-- ══ ÉTAPE 0 : PROFIL & NIVEAU ══ -->
+            <div class="step-fade step-active" id="step_0">
+                <div class="q-section-eyebrow">Positionnement Tosa Excel</div>
+                <h1 class="q-section-title">Votre profil</h1>
+                <p class="q-section-sub">Commencez par renseigner vos informations et estimer votre niveau.</p>
+
+                <!-- Identité -->
+                <div class="q-info-card">
+                    <h3><i class="fa-solid fa-user"></i> Vos informations</h3>
+                    <div class="q-field-row">
+                        <div class="q-field">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" placeholder="EX: MARTIN" required>
+                        </div>
+                        <div class="q-field">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Ex: Jean" required>
+                        </div>
+                    </div>
+                    <div class="q-field">
+                        <label for="theme_formation">Thème de formation</label>
+                        <select name="theme_formation" id="theme_formation">
+                            <option value="Excel" {% if 'EXCEL' in questionnaire.id_questionnaire %}selected{% endif %}>Excel 365</option>
+                            <option value="Word" {% if 'WORD' in questionnaire.id_questionnaire %}selected{% endif %}>Word 365</option>
+                            <option value="PowerPoint" {% if 'POWERPOINT' in questionnaire.id_questionnaire %}selected{% endif %}>PowerPoint 365</option>
+                            <option value="Outlook" {% if 'OUTLOOK' in questionnaire.id_questionnaire %}selected{% endif %}>Outlook 365</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Niveau -->
+                <p class="q-level-section-title"><i class="fa-solid fa-signal" style="color:var(--q-gold)"></i> Quel est votre niveau actuel estimé ?</p>
+                <div class="q-level-grid">
+                    <div class="level-card" onclick="selectLevel('novice', 0)">
+                        <input type="radio" name="self_level" value="novice" id="lvl_novice" style="display:none" required>
+                        <span class="level-icon">🥚</span>
+                        <div class="level-title">Novice</div>
+                        <div class="level-desc">Je ne connais pas du tout les fonctionnalités d'Excel.<strong>Objectif : Une formation d'initiation pour maîtriser les bases du logiciel.</strong></div>
+                        <div class="level-count">0 question</div>
+                    </div>
+                    <div class="level-card" onclick="selectLevel('debutant', 1)">
+                        <input type="radio" name="self_level" value="debutant" id="lvl_debutant" style="display:none">
+                        <span class="level-icon">🌱</span>
+                        <div class="level-title">Débutant</div>
+                        <div class="level-desc">Je connais les bases.<strong>Objectif : Une formation intermédiaire pour consolider les bases et me perfectionner sur les calculs, la mise en forme et l'analyse de données.</strong></div>
+                        <div class="level-count" id="count_debutant">… questions</div>
+                    </div>
+                    <div class="level-card" onclick="selectLevel('intermediaire', 1)">
+                        <input type="radio" name="self_level" value="intermediaire" id="lvl_intermediaire" style="display:none">
+                        <span class="level-icon">🚀</span>
+                        <div class="level-title">Intermédiaire</div>
+                        <div class="level-desc">Je pratique déjà bien.<strong>Objectif : Une formation avancée pour maîtriser : Mise en forme, Calcul et Analyse de données.</strong></div>
+                        <div class="level-count" id="count_intermediaire">… questions</div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- ÉTAPES BLOCS -->
+            {% for bloc in questions_by_bloc %}
+            <div class="step-fade" id="step_{{ loop.index }}" data-bloc-id="{{ bloc.id_bloc }}">
+                <div class="q-bloc-header">
+                    <div class="q-section-eyebrow">{% if bloc.is_excel %}Évaluation des compétences{% else %}Bloc {{ loop.index }}{% endif %}</div>
+                    <h2 class="q-section-title" style="font-size:1.5rem">{{ bloc.nom_bloc }}</h2>
+                    <p class="q-section-sub">Évaluez votre maîtrise sur chaque compétence.</p>
+                </div>
+
+                {% if bloc.is_excel %}
+                    {% for domaine in bloc.domaines %}
+                    <div class="domain-accordion" data-domain-id="{{ domaine.id_domaine }}">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="accordion-header-left">
+                                <div class="accordion-domain-badge">{{ domaine.nom_domaine[:3] }}</div>
+                                <div>
+                                    <h3>{{ domaine.nom_domaine }}</h3>
+                                    <div class="accordion-meta">Compétences du domaine</div>
+                                </div>
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                        {% for question in domaine.questions %}
+                        <div class="question-card" data-q-id="{{ question.id_question }}" data-level="{{ question.id_niveau or 'N1' }}">
+                            <div class="question-text">
+                                <div class="question-num">{{ loop.index }}</div>
+                                {{ question.texte }}
+                            </div>
+
+                            <div class="options-container">
+                                <div class="eval-group">
+                                    <span class="eval-label">Maîtrise actuelle</span>
+                                    <div class="radio-pill-group">
+                                        <label class="radio-pill">
+                                            <input type="radio" name="acq_{{ question.id_question }}" value="Aucun" checked>
+                                            <div class="pill-content">Aucune</div>
+                                        </label>
+                                        <label class="radio-pill">
+                                            <input type="radio" name="acq_{{ question.id_question }}" value="Moyen">
+                                            <div class="pill-content">Moyenne</div>
+                                        </label>
+                                        <label class="radio-pill">
+                                            <input type="radio" name="acq_{{ question.id_question }}" value="Acquis">
+                                            <div class="pill-content">Acquise</div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="eval-group">
+                                    <span class="eval-label">Souhait de formation</span>
+                                    <div class="radio-pill-group">
+                                        <label class="radio-pill">
+                                            <input type="radio" name="bes_{{ question.id_question }}" value="Oui" checked>
+                                            <div class="pill-content">Oui</div>
+                                        </label>
+                                        <label class="radio-pill">
+                                            <input type="radio" name="bes_{{ question.id_question }}" value="Non">
+                                            <div class="pill-content">Non</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                {% for question in bloc.questions %}
+                <div class="question-card" data-q-id="{{ question.id_question }}">
+                    <div class="question-text">
+                        <div class="question-num">{{ loop.index }}</div>
+                        {{ question.texte }}
+                    </div>
+
+                    <div class="options-container">
+                        <div class="eval-group">
+                            <span class="eval-label">Maîtrise actuelle</span>
+                            <div class="radio-pill-group">
+                                <label class="radio-pill">
+                                    <input type="radio" name="acq_{{ question.id_question }}" value="Aucun" checked>
+                                    <div class="pill-content">Aucune</div>
+                                </label>
+                                <label class="radio-pill">
+                                    <input type="radio" name="acq_{{ question.id_question }}" value="Moyen">
+                                    <div class="pill-content">Moyenne</div>
+                                </label>
+                                <label class="radio-pill">
+                                    <input type="radio" name="acq_{{ question.id_question }}" value="Acquis">
+                                    <div class="pill-content">Acquise</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="eval-group">
+                            <span class="eval-label">Souhait de formation</span>
+                            <div class="radio-pill-group">
+                                <label class="radio-pill">
+                                    <input type="radio" name="bes_{{ question.id_question }}" value="Oui" checked>
+                                    <div class="pill-content">Oui</div>
+                                </label>
+                                <label class="radio-pill">
+                                    <input type="radio" name="bes_{{ question.id_question }}" value="Non">
+                                    <div class="pill-content">Non</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+            </div>
+            {% endfor %}
+
+        </form>
+    </main>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentStep = 0;
+    let maxVisibleStep = {{ questions_by_bloc|length }};
+    const totalPossibleSteps = {{ questions_by_bloc|length }};
+
+    function selectLevel(level, maxSteps) {
+        // Sélection visuelle
+        document.querySelectorAll('.level-card').forEach(c => c.classList.remove('selected'));
+        const selectedCard = document.querySelector(`.level-card input[value="${level}"]`).parentElement;
+        selectedCard.classList.add('selected');
+        document.getElementById(`lvl_${level}`).checked = true;
+
+        // Filtrer les questions par niveau
+        filterQuestionsByLevel(level);
+
+        let questBase = document.querySelector('input[name="id_questionnaire"]').dataset.baseId;
+        
+        // Mettre à jour le nombre max d'étapes selon le niveau choisi
+        if (questBase === 'QUEST_EXCEL' || questBase.startsWith('QUEST_EXCEL_')) {
+            if (questBase === 'QUEST_EXCEL') {
+                document.querySelector('input[name="id_questionnaire"]').dataset.baseId = 'QUEST_EXCEL';
+            }
+            if (level === 'novice') {
+                document.querySelector('input[name="id_questionnaire"]').value = 'QUEST_EXCEL_INIT';
+                let progInput = document.querySelector('input[name="id_programme"]');
+                if (progInput) progInput.value = 'PROG_EXCEL_INIT';
+            } else if (level === 'debutant') {
+                document.querySelector('input[name="id_questionnaire"]').value = 'QUEST_EXCEL_INTER';
+                let progInput = document.querySelector('input[name="id_programme"]');
+                if (progInput) progInput.value = 'PROG_EXCEL_INTER';
+            } else {
+                document.querySelector('input[name="id_questionnaire"]').value = 'QUEST_EXCEL_PERF';
+                let progInput = document.querySelector('input[name="id_programme"]');
+                if (progInput) progInput.value = 'PROG_EXCEL_PERF';
+            }
+            maxVisibleStep = (level === 'novice') ? 0 : 1;
+        } else {
+            maxVisibleStep = maxSteps;
+        }
+
+        // Mettre à jour le wizard
+        updateWizard();
+
+        // Aller automatiquement à la suite
+        setTimeout(() => moveStep(1), 300);
+    }
+
+    function toggleAccordion(header) {
+        const accordion = header.parentElement;
+        accordion.classList.toggle('accordion-active');
+    }
+
+    function filterQuestionsByLevel(selectedLevel) {
+        // Mapping: novice → N1 seulement (pas de questions), debutant → N1+N2, intermediaire → N1+N2+N3
+        const levelMap = {
+            'novice': 0,
+            'debutant': 2,
+            'intermediaire': 3,
+            'avance': 4
+        };
+        const targetLevel = levelMap[selectedLevel] || 2;
+        
+        document.querySelectorAll('.question-card[data-level]').forEach(card => {
+            const cardLevelStr = card.dataset.level; // "N1", "N2", "N3"
+            const cardLevel = parseInt(cardLevelStr ? cardLevelStr.replace('N', '') : '1') || 1;
+            
+            if (cardLevel <= targetLevel) {
+                card.style.display = 'block';
+                card.querySelectorAll('input').forEach(i => i.disabled = false);
+            } else {
+                card.style.display = 'none';
+                card.querySelectorAll('input').forEach(i => i.disabled = true);
+            }
+        });
+
+        // Masquer les accordéons de domaine vides
+        const accordions = document.querySelectorAll('.domain-accordion');
+        accordions.forEach((accordion, index) => {
+            const visibleQuestions = Array.from(accordion.querySelectorAll('.question-card')).filter(q => q.style.display !== 'none');
+            
+            if (visibleQuestions.length === 0) {
+                accordion.style.display = 'none';
+            } else {
+                accordion.style.display = 'block';
+                // Ouvrir le premier accordéon visible par défaut
+                if (index === 0 || !document.querySelector('.domain-accordion.accordion-active')) {
+                    accordion.classList.add('accordion-active');
+                }
+            }
+        });
+    }
+
+    function moveStep(delta) {
+        if (delta > 0 && currentStep >= maxVisibleStep && maxVisibleStep > 0) return;
+        if (delta < 0 && currentStep <= 0) return;
+
+        const nextStep = currentStep + delta;
+
+        if (delta > 0) {
+            if (!validateCurrentStep()) return;
+        }
+
+        document.getElementById(`step_${currentStep}`).classList.remove('step-active');
+        currentStep = nextStep;
+        document.getElementById(`step_${currentStep}`).classList.add('step-active');
+
+        document.getElementById('prevBtn').style.visibility = (currentStep === 0) ? 'hidden' : 'visible';
+
+        if (currentStep >= maxVisibleStep || maxVisibleStep === 0) {
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'block';
+
+            if (maxVisibleStep === 0) {
+                document.getElementById(`step_${currentStep}`).classList.remove('step-active');
+                currentStep = 0;
+                document.getElementById(`step_0`).classList.add('step-active');
+
+                const existingInfo = document.querySelector('.novice-info');
+                if (!existingInfo) {
+                    const step0 = document.getElementById('step_0');
+                    const msg = document.createElement('div');
+                    msg.className = 'alert alert-info mt-4 novice-info';
+                    msg.innerHTML = '✨ <strong>Profil Novice sélectionné :</strong> Aucune question technique ne vous sera posée. Cliquez sur le bouton vert ci-dessous pour valider votre inscription et générer votre parcours de base.';
+                    step0.appendChild(msg);
+                }
+            }
+        } else {
+            document.getElementById('nextBtn').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'none';
+        }
+
+        document.getElementById('progressText').textContent = `Étape ${currentStep + 1} sur ${maxVisibleStep + 1}`;
+        updateWizard();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateCurrentStep() {
+        const stepContainer = document.getElementById(`step_${currentStep}`);
+        
+        if (currentStep === 0) {
+            const nom = document.querySelector('input[name="nom"]').value;
+            const prenom = document.querySelector('input[name="prenom"]').value;
+            const level = document.querySelector('input[name="self_level"]:checked');
+            if (!nom || !prenom) { alert("Merci de renseigner votre nom et prénom."); return false; }
+            if (!level) { alert("Merci de choisir votre niveau actuel estimé."); return false; }
+            return true;
+        }
+
+        const visibleQuestions = Array.from(stepContainer.querySelectorAll('.question-card')).filter(q => q.style.display !== 'none');
+        const questionsInStep = visibleQuestions.map(q => q.dataset.qId);
+
+        for (let qId of questionsInStep) {
+            const acq = stepContainer.querySelector(`input[name="acq_${qId}"]:checked`);
+            const bes = stepContainer.querySelector(`input[name="bes_${qId}"]:checked`);
+            if (!acq || !bes) {
+                alert("Merci de répondre à toutes les questions visibles de cette étape.");
+                const firstMissing = stepContainer.querySelector(`.question-card[data-q-id="${qId}"]`);
+                firstMissing.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function updateWizard() {
+        document.querySelectorAll('.wizard-step').forEach(ws => {
+            const stepNum = parseInt(ws.dataset.step);
+            ws.className = 'wizard-step';
+
+            if (stepNum > maxVisibleStep) {
+                ws.style.display = 'none';
+            } else {
+                ws.style.display = 'flex';
+            }
+
+            if (stepNum === currentStep) ws.classList.add('active');
+            if (stepNum < currentStep) ws.classList.add('completed');
+        });
+    }
+
+    function submitForm() {
+        if (validateCurrentStep()) {
+            document.getElementById('positioningForm').submit();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Compter les questions par niveau pour affichage dynamique
+        const countDebutant = document.querySelectorAll('.question-card[data-level="N1"]').length;
+        const countInter = document.querySelectorAll('.question-card[data-level]').length;
+        const el_d = document.getElementById('count_debutant');
+        const el_i = document.getElementById('count_intermediaire');
+        if (el_d) el_d.textContent = countDebutant + ' question' + (countDebutant > 1 ? 's' : '');
+        if (el_i) el_i.textContent = countInter + ' question' + (countInter > 1 ? 's' : '');
+
+        updateWizard();
+
+        // Automatisation des réponses
+        document.addEventListener('change', (e) => {
+            if (e.target.name.startsWith('acq_')) {
+                const qId = e.target.name.replace('acq_', '');
+                const val = e.target.value;
+                const targetBesoin = document.getElementsByName(`bes_${qId}`);
+                
+                if (val === 'Aucun' || val === 'Moyen') {
+                    // Si Aucun ou Moyen -> Besoin = Oui
+                    targetBesoin.forEach(rb => {
+                        if (rb.value === 'Oui') rb.checked = true;
+                    });
+                } else if (val === 'Acquis') {
+                    // Si Acquis -> Besoin = Non
+                    targetBesoin.forEach(rb => {
+                        if (rb.value === 'Non') rb.checked = true;
+                    });
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

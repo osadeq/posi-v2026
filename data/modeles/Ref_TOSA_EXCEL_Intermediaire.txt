@@ -1,0 +1,71 @@
+EXCEL INTERMEDIAIRE
+
+Domaines/Compétences visées
+
+*Environnement / Méthodes :
+o Personnaliser les onglets du ruban 
+o Se déplacer à l’aide de raccourcis clavier 
+o Utiliser la poignée de recopie 
+o Déplacer et dupliquer une feuille de Calcul 
+o Constituer un groupe de travail 
+o Coller et transposer les valeurs
+o Coller en effectuant une opération
+o Coller les formats
+o Enregistrer un document au format PDF 
+o Connaître les règles de compatibilité entre les différentes versions de documents 
+o Maîtriser les options d’impression 
+o Insérer un en-tête ou un pied de page 
+
+*Calculs (formules, fonctions) :
+o Connaître et utiliser les références absolues et relatives dans une formule 
+o Copier ou déplacer une formule 
+o Utiliser du texte dans une formule 
+o Comprendre les principales erreurs de Calcul : #NOM?, #DIV/0!, ##### 
+o Créer des formules de calculs longues avec plusieurs opérateurs arithmétiques 
+o Utiliser les fonctions de calcul statistique simples : SOMME, MOYENNE, MAX, MIN 
+o Utiliser les formules conditionnelles : SI, SI imbriqués, OU, ET 
+
+*Mise en forme :
+o Reconnaître les différents formats de cellules 
+o Fusionner des cellules 
+o Modifier l’alignement du contenu d’une cellule 
+o Comprendre la mise en forme conditionnelle 
+o Utiliser le vérificateur d’orthographe 
+o Accepter ou refuser les corrections 
+o Créer un tableau 
+o Appliquer un style à un tableau 
+o Insérer un SmartArt, une forme ou une image 
+o Insérer un graphique 
+o Effectuer une mise en forme avec les styles de graphique
+o Agrandir et réduire la taille d’un graphique
+o Gérer les titres et légendes
+
+*Gestion des données :
+o Modifier les séries de données d’un graphique
+o Imprimer un graphique
+o Reconnaître un tableau croisé dynamique 
+o Analyser les données dans un tableau croisé dynamique 
+o Filtrer les données d’un tableau 
+o Utiliser le remplissage instantané 
+o Utiliser les filtres complexes 
+o Rechercher, remplacer ou sélectionner des données (sur la donnée ou sur sa mise en forme) 
+o Utiliser des filtres automatiques 
+o Utiliser la fonction Analyse rapide 
+o Utiliser la fonction Valeur cible 
+
+
+Niveaux Tosa ®
+Scores Tosa ® 
+Niveaux visés par cette formation
+
+Opérationnel 
+551 – 725 
+
+
+
+
+
+
+
+
+

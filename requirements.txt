@@ -1,0 +1,14 @@
+# Flask and dependencies
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# PDF Generation (versions verrouillées pour compatibilité)
+WeasyPrint==60.2
+pydyf==0.10.0
+
+# Data handling
+markdown==3.5.2
+openpyxl==3.1.5
+
+# Development
+python-dotenv==1.0.0

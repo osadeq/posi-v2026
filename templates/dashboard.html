@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - eS@deq{% endblock %}
+
+{% block extra_css %}
+<style>
+    .needs-bars {
+        display: grid;
+        gap: 14px;
+    }
+
+    .needs-row {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .needs-label {
+        font-weight: 600;
+        color: #374151;
+        white-space: nowrap;
+    }
+
+    .needs-track {
+        width: 100%;
+        height: 30px;
+        background: #e5e7eb;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .needs-fill {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 10px;
+        color: #ffffff;
+        font-weight: 700;
+        border-radius: 4px;
+        min-width: 70px;
+        transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .needs-fill.fort {
+        background: #dc2626;
+    }
+
+    .needs-fill.moyen {
+        background: #d97706;
+    }
+
+    .needs-fill.faible {
+        background: #2563eb;
+    }
+
+    @media (max-width: 768px) {
+        .needs-row {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .needs-fill {
+            transition: none;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <header class="page-header">
+        <h1>Dashboard</h1>
+        <p class="page-subtitle">Vue d'ensemble de la plateforme de positionnement</p>
+    </header>
+
+    <div class="stats-grid">
+        <a href="{{ url_for('liste_candidats') }}" class="stat-card" style="text-decoration:none; color:inherit;">
+            <div class="stat-icon stat-icon-primary"><i class="fa-solid fa-users" style="font-size:1.2rem"></i></div>
+            <div class="stat-content">
+                <div class="stat-value">{{ total_candidats }}</div>
+                <div class="stat-label">Total Candidats</div>
+            </div>
+        </a>
+
+        <a href="{{ url_for('liste_candidats', filter='programmes') }}" class="stat-card" style="text-decoration:none; color:inherit;">
+            <div class="stat-icon stat-icon-success"><i class="fa-solid fa-file-contract" style="font-size:1.2rem"></i></div>
+            <div class="stat-content">
+                <div class="stat-value">{{ total_programmes }}</div>
+                <div class="stat-label">Programmes Générés</div>
+            </div>
+        </a>
+
+        <a href="{{ url_for('liste_candidats', filter='forts') }}" class="stat-card" style="text-decoration:none; color:inherit;">
+            <div class="stat-icon stat-icon-warning"><i class="fa-solid fa-fire" style="font-size:1.2rem"></i></div>
+            <div class="stat-content">
+                <div class="stat-value">{{ stats_besoins.get('besoin_fort', 0) }}</div>
+                <div class="stat-label">Besoins Forts</div>
+            </div>
+        </a>
+
+        <a href="{{ url_for('liste_candidats', filter='moyens') }}" class="stat-card" style="text-decoration:none; color:inherit;">
+            <div class="stat-icon stat-icon-info"><i class="fa-solid fa-gauge-high" style="font-size:1.2rem"></i></div>
+            <div class="stat-content">
+                <div class="stat-value">{{ stats_besoins.get('besoin_moyen', 0) }}</div>
+                <div class="stat-label">Besoins Moyens</div>
+            </div>
+        </a>
+    </div>
+
+    {% set nb_fort = stats_besoins.get('besoin_fort', 0) %}
+    {% set nb_moyen = stats_besoins.get('besoin_moyen', 0) %}
+    {% set nb_faible = stats_besoins.get('a_revoir', 0) %}
+    {% set total = nb_fort + nb_moyen + nb_faible %}
+    {% set pct_fort = ((nb_fort * 100.0 / total) if total > 0 else 0) %}
+    {% set pct_moyen = ((nb_moyen * 100.0 / total) if total > 0 else 0) %}
+    {% set pct_faible = ((nb_faible * 100.0 / total) if total > 0 else 0) %}
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <div class="card-header">
+                <h2>Répartition des Besoins</h2>
+            </div>
+            <div class="card-body">
+                 <div class="needs-bars">
+                    <div class="needs-row">
+                        <div class="needs-label">Besoin Fort</div>
+                        <div class="needs-track">
+                            <div class="needs-fill fort" data-width="{{ pct_fort }}" style="width: 0%;">
+                                {{ pct_fort|format_fr }}%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="needs-row">
+                        <div class="needs-label">Besoin Moyen</div>
+                        <div class="needs-track">
+                            <div class="needs-fill moyen" data-width="{{ pct_moyen }}"
+                                style="width: 0%;">
+                                {{ pct_moyen|format_fr }}%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="needs-row">
+                        <div class="needs-label">Besoin Faible</div>
+                        <div class="needs-track">
+                            <div class="needs-fill faible" data-width="{{ pct_faible }}"
+                                style="width: 0%;">
+                                {{ pct_faible|format_fr }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Actions Rapides</h2>
+            </div>
+            <div class="card-body">
+                <div class="quick-actions">
+                    <a href="{{ url_for('liste_candidats') }}" class="quick-action-btn">
+                        <span class="action-icon"><i class="fa-solid fa-users"></i></span>
+                        <span class="action-text">Voir tous les candidats</span>
+                    </a>
+                    <a href="{{ url_for('import_candidat') }}" class="quick-action-btn">
+                        <span class="action-icon"><i class="fa-solid fa-file-import"></i></span>
+                        <span class="action-text">Importer des candidats</span>
+                    </a>
+                    <a href="{{ url_for('questionnaire_page', id_questionnaire='QUEST_EXCEL') }}"
+                        class="quick-action-btn" style="background: #f0faf5; color: #065f46; border-color: #a7d8bc;">
+                        <span class="action-icon" style="color:#059669;"><i class="fa-solid fa-file-excel"></i></span>
+                        <span class="action-text">Positionnement Excel</span>
+                    </a>
+                    <a href="{{ url_for('questionnaire_page', id_questionnaire='QUEST_WORD') }}"
+                        class="quick-action-btn" style="background: #eef2fa; color: var(--navy); border-color: #c8d6ee;">
+                        <span class="action-icon" style="color:#2563eb;"><i class="fa-solid fa-file-word"></i></span>
+                        <span class="action-text">Positionnement Word</span>
+                    </a>
+                    <a href="{{ url_for('questionnaire_page', id_questionnaire='QUEST_POWERPOINT') }}"
+                        class="quick-action-btn" style="background: #fff7ed; color: #9a3412; border-color: #fdba74;">
+                        <span class="action-icon" style="color:#ea580c;"><i class="fa-solid fa-file-powerpoint"></i></span>
+                        <span class="action-text">Positionnement PowerPoint</span>
+                    </a>
+                    <a href="{{ url_for('questionnaire_page', id_questionnaire='QUEST_OUTLOOK') }}"
+                        class="quick-action-btn" style="background: #f0fdfa; color: #115e59; border-color: #5eead4;">
+                        <span class="action-icon" style="color:#0d9488;"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="action-text">Positionnement Outlook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Candidats Récents</h2>
+            <a href="{{ url_for('liste_candidats') }}" class="card-link">Voir tout</a>
+        </div>
+        <div class="card-body">
+            {% if candidats %}
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for candidat in candidats %}
+                        <tr>
+                            <td><code>{{ candidat.id_candidat }}</code></td>
+                            <td>{{ candidat.nom }}</td>
+                            <td>{{ candidat.prenom }}</td>
+                            <td>{{ candidat.date_reponse }}</td>
+                            <td>
+                                <a href="{{ url_for('detail_candidat', id_candidat=candidat.id_candidat) }}"
+                                    class="btn btn-sm btn-primary">Voir</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <p>Aucun candidat enregistré</p>
+                <a href="{{ url_for('import_candidat') }}" class="btn btn-primary">Importer un candidat</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bars = document.querySelectorAll('.needs-fill[data-width]');
+        bars.forEach((bar, index) => {
+            const targetWidth = Number(bar.getAttribute('data-width') || 0);
+            setTimeout(() => {
+                bar.style.width = `${targetWidth}%`;
+            }, 120 + (index * 120));
+        });
+    });
+</script>
+{% endblock %}
