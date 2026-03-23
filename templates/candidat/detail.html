@@ -42,7 +42,7 @@
             <!-- Statistiques du candidat -->
             <div class="card">
                 <div class="card-header">
-                    <h2>Statistiques</h2>
+                    <h2>Analyse du test de positionnement</h2>
                 </div>
                 <div class="card-body">
                     <div class="stats-mini">
@@ -121,9 +121,21 @@
             </div>
         </div>
         {% else %}
+        {% set qid = candidat.id_questionnaire or '' %}
+        {% set prog_title = 'Programme Personnalisé' %}
+        {% if 'EXCEL' in qid %}
+            {% if '_INIT' in qid %}{% set prog_title = 'Programme Personnalisé - Formation Excel Initiation' %}
+            {% elif '_INTER' in qid %}{% set prog_title = 'Programme Personnalisé - Formation Excel Intermédiaire' %}
+            {% elif '_PERF' in qid %}{% set prog_title = 'Programme Personnalisé - Formation Excel Avancé' %}
+            {% else %}{% set prog_title = 'Programme Personnalisé - Formation Excel' %}
+            {% endif %}
+        {% elif 'WORD' in qid %}{% set prog_title = 'Programme Personnalisé - Formation Word' %}
+        {% elif 'POWERPOINT' in qid %}{% set prog_title = 'Programme Personnalisé - Formation PowerPoint' %}
+        {% elif 'OUTLOOK' in qid %}{% set prog_title = 'Programme Personnalisé - Formation Outlook' %}
+        {% endif %}
         <div class="card">
             <div class="card-header">
-                <h2>Programme Personnalisé</h2>
+                <h2>{{ prog_title }}</h2>
             </div>
             <div class="card-body">
                 <div class="programme-summary">
