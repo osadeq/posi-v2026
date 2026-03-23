@@ -599,9 +599,15 @@ def telecharger_pdf(id_candidat):
         candidats_data = load_json_file(config.CANDIDATS_FILE)
         candidat = next((c for c in candidats_data['candidats'] if c['id_candidat'] == id_candidat), None)
 
+        # Charger la motivation
+        motivation = ''
+        questionnaire = charger_reponses_candidat(id_candidat)
+        if questionnaire:
+            motivation = questionnaire.get('motivation', '')
+
         # Générer le PDF
         pdf_path = config.EXPORT_DIR / f"programme_{id_candidat}.pdf"
-        pdf_bytes = generer_pdf_programme(programme, candidat, pdf_path)
+        pdf_bytes = generer_pdf_programme(programme, candidat, pdf_path, motivation=motivation)
 
         return send_file(
             io.BytesIO(pdf_bytes),
@@ -804,8 +810,13 @@ def batch_action():
                             if prog_path.exists():
                                 with open(prog_path, 'r', encoding='utf-8') as f:
                                     programme = json.load(f)
+                                # Charger la motivation
+                                motivation = ''
+                                questionnaire = charger_reponses_candidat(id_candidat)
+                                if questionnaire:
+                                    motivation = questionnaire.get('motivation', '')
                                 pdf_path = config.EXPORT_DIR / f"tmp_{id_candidat}.pdf"
-                                generer_pdf_programme(programme, candidat, pdf_path)
+                                generer_pdf_programme(programme, candidat, pdf_path, motivation=motivation)
                                 zf.write(pdf_path, arcname=f"{nom_fichier_base}.pdf")
                         elif action == 'excel':
                             excel_path = generer_excel_programme(id_candidat, str(config.BASE_DIR))

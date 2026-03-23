@@ -23,7 +23,7 @@ def _check_weasyprint():
 from datetime import datetime
 from flask import render_template
 
-def generer_pdf_programme(programme, candidat, output_path=None):
+def generer_pdf_programme(programme, candidat, output_path=None, motivation=None):
     """Génère le PDF du programme de formation en utilisant un template Jinja2"""
 
     if not _check_weasyprint():
@@ -41,7 +41,8 @@ def generer_pdf_programme(programme, candidat, output_path=None):
         'pdf/programme.html',
         programme=programme,
         candidat=candidat,
-        now=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        now=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        motivation=motivation
     )
 
     # Conversion HTML vers PDF avec WeasyPrint

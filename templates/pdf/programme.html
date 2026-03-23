@@ -10,7 +10,7 @@
 <body>
     <!-- Pied de page dynamique (Running Elements) -->
     <div class="footer-left">Date d'impression : {{ now|format_date_fr }}</div>
-    <div class="footer-center">{{ candidat.prenom }} {{ candidat.nom }} -- ID Positionnement : {{ candidat.id_candidat
+    <div class="footer-center">{{ candidat.prenom|title }} {{ candidat.nom|title }} -- ID Positionnement : {{ candidat.id_candidat
         }}</div>
     <div class="footer-right">Page <span class="page-num"></span> / <span class="page-total"></span></div>
 
@@ -29,9 +29,9 @@
         <table class="info-table">
             <tr>
                 <td class="info-label">Nom :</td>
-                <td class="info-value">{{ candidat.nom }}</td>
+                <td class="info-value">{{ candidat.nom|title }}</td>
                 <td class="info-label">Prénom :</td>
-                <td class="info-value">{{ candidat.prenom }}</td>
+                <td class="info-value">{{ candidat.prenom|title }}</td>
             </tr>
             <tr>
                 <td class="info-label">Identifiant :</td>
@@ -45,6 +45,13 @@
             </tr>
         </table>
     </div>
+
+    {% if motivation %}
+    <div class="motivation-section" style="margin: 15px 0; padding: 12px 15px; background: #f8fafc; border-left: 4px solid #d97706;">
+        <div style="font-weight: bold; font-size: 11px; color: #92400e; margin-bottom: 5px;">Motivation & Objectifs</div>
+        <div style="font-size: 10px; color: #444; font-style: italic; line-height: 1.4;">{{ motivation }}</div>
+    </div>
+    {% endif %}
 
     <div class="estimation">
         <h3>Synthèse de l'Estimation</h3>
