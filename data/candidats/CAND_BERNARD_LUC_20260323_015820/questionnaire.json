@@ -1,0 +1,87 @@
+{
+    "id_candidat": "CAND_BERNARD_LUC_20260323_015820",
+    "id_questionnaire": "QUEST_EXCEL_PERF",
+    "date_reponse": "2026-03-23 01:58:20",
+    "reponses": [
+        {
+            "id_question": "[D1-N3-C5]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D1-N3-C6]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D1-N3-C12]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N3-C13]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D2-N3-C5]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D2-N3-C14]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D2-N3-C17]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D1-N3-C1]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D3-N3-C3]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D4-N3-C12]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D4-N3-C13]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D4-N3-C3]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D4-N3-C7]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D4-N3-C14]",
+            "niveau_maitrise": "Moyenne",
+            "souhait_formation": "Oui"
+        },
+        {
+            "id_question": "[D4-N3-C5]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        },
+        {
+            "id_question": "[D1-N3-C14]",
+            "niveau_maitrise": "Acquise",
+            "souhait_formation": "Non"
+        }
+    ]
+}
