@@ -727,7 +727,7 @@
         },
         {
             "id_programme": "PROG_EXCEL_INIT",
-            "intitule": "Exploiter les fonctionnalités de Microsoft Excel - INIT",
+            "intitule": "Exploiter les fonctionnalités de Microsoft Excel - INITIATION",
             "duree": "14h",
             "duree_par_defaut": "14",
             "duree_min": "14",
@@ -942,7 +942,7 @@
         },
         {
             "id_programme": "PROG_EXCEL_INTER",
-            "intitule": "Exploiter les fonctionnalités de Microsoft Excel - INTER",
+            "intitule": "Exploiter les fonctionnalités de Microsoft Excel - INTERMÉDIAIRE",
             "duree": "14h",
             "duree_par_defaut": "14",
             "duree_min": "14",
@@ -1138,7 +1138,7 @@
         },
         {
             "id_programme": "PROG_EXCEL_PERF",
-            "intitule": "Exploiter les fonctionnalités de Microsoft Excel - PERF",
+            "intitule": "Exploiter les fonctionnalités de Microsoft Excel - PERFECTIONNEMENT",
             "duree": "14h",
             "duree_par_defaut": "14",
             "duree_min": "14",
