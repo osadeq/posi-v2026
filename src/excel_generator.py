@@ -504,7 +504,8 @@ def generer_excel_programme(id_candidat, base_dir, output_path=None):
     
     # Détermination du chemin de sortie
     if not output_path:
-        output_dir = Path(base_dir) / "data" / "export"
+        import os
+        output_dir = Path("/tmp/posidata/export") if os.environ.get('VERCEL') == '1' else Path(base_dir) / "data" / "export"
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / f"programme_{id_candidat}.xlsx"
     
@@ -801,7 +802,8 @@ def generer_excel_questionnaire(id_questionnaire, base_dir, output_path=None):
     wb.active = ws_quest
 
     if not output_path:
-        output_dir = Path(base_dir) / 'data' / 'export'
+        import os
+        output_dir = Path("/tmp/posidata/export") if os.environ.get('VERCEL') == '1' else Path(base_dir) / 'data' / 'export'
         output_dir.mkdir(parents=True, exist_ok=True)
         safe_id = id_questionnaire.lower().replace('quest_', '')
         output_path = output_dir / f'questionnaire_type_{safe_id}.xlsx'
