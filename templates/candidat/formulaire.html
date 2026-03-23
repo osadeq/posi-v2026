@@ -832,6 +832,7 @@
                             <input type="text" id="prenom" name="prenom" placeholder="Ex: Jean" required>
                         </div>
                     </div>
+                    {% if 'QUEST_EXCEL' not in questionnaire.id_questionnaire %}
                     <div class="q-field">
                         <label for="theme_formation">Thème de formation</label>
                         <select name="theme_formation" id="theme_formation">
@@ -841,6 +842,7 @@
                             <option value="Outlook" {% if 'OUTLOOK' in questionnaire.id_questionnaire %}selected{% endif %}>Outlook 365</option>
                         </select>
                     </div>
+                    {% endif %}
                 </div>
 
                 <!-- Niveau -->
