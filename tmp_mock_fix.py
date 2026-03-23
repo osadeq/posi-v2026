@@ -8,7 +8,7 @@ base_dir = Path(r"c:\Users\sadeq\Desktop\posi-v2026.3.1")
 sys.path.insert(0, str(base_dir))
 
 from config import CANDIDATS_DIR, CANDIDATS_FILE, QUESTIONS_FILE
-from data.analyse_besoins import generer_programme_candidat
+from data.analyse_besoins import charger_reponses, analyser_reponses, sauvegarder_programme
 
 with open(QUESTIONS_FILE, 'r', encoding='utf-8') as f:
     bd = json.load(f)
@@ -16,7 +16,7 @@ with open(QUESTIONS_FILE, 'r', encoding='utf-8') as f:
 def get_questions_for(qid):
     q_def = next((x for x in bd.get('questionnaires', []) if x['id_questionnaire'] == qid), None)
     if q_def: return q_def['questions']
-    return bd.get('questions', [])[:15] # fallback
+    return bd.get('questions', [])[:15]
 
 def create_cand(nom, prenom, level, qid, maitrise_gen):
     id_candidat = f"CAND_{nom}_{prenom.split(' ')[0]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}".replace('é', 'e').upper()
@@ -33,7 +33,6 @@ def create_cand(nom, prenom, level, qid, maitrise_gen):
         "programme_genere": True
     }
     
-    # generate answers
     q_list = get_questions_for(qid)
     answers = []
     for q in q_list:
@@ -57,7 +56,9 @@ def create_cand(nom, prenom, level, qid, maitrise_gen):
     with open(CANDIDATS_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
         
-    generer_programme_candidat(id_candidat, str(base_dir))
+    reponses = charger_reponses(id_candidat, str(base_dir))
+    resultats = analyser_reponses(reponses, qid, str(base_dir))
+    sauvegarder_programme(id_candidat, resultats, str(base_dir))
     print(f"Created {id_candidat}")
 
 create_cand("Dupont", "Jean (Novice)", "novice", "QUEST_EXCEL_INIT", lambda: "Aucune")

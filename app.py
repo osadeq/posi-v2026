@@ -758,13 +758,23 @@ def batch_action():
             flash(f"{count} candidat(s) archivé(s)/supprimé(s) avec succès.", "success")
             
         elif action == 'analyse':
+            from data.analyse_besoins import charger_reponses, analyser_reponses, sauvegarder_programme
+            candidats_data = load_json_file(config.CANDIDATS_FILE)
             count = 0
             for id_candidat in ids_list:
                 try:
-                    generer_programme_candidat(id_candidat, str(config.BASE_DIR))
+                    candidat = next((c for c in candidats_data.get('candidats', []) if c.get('id_candidat') == id_candidat), None)
+                    if not candidat: continue
+                    reponses = charger_reponses(id_candidat, str(config.BASE_DIR))
+                    resultats = analyser_reponses(reponses, candidat.get('id_questionnaire'), str(config.BASE_DIR))
+                    sauvegarder_programme(id_candidat, resultats, str(config.BASE_DIR))
+                    
+                    candidat['programme_genere'] = True
                     count += 1
                 except Exception as e:
                     app.logger.error(f"Erreur génération programme {id_candidat}: {e}")
+                    
+            save_json_file(config.CANDIDATS_FILE, candidats_data)
             flash(f"{count} programme(s) généré(s) avec succès.", "success")
             
         elif action in ['pdf', 'excel']:
